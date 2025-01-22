@@ -1,0 +1,22 @@
+@use '@angular/material' as mat;
+@use 'variables' as *;
+@use 'common' as *;
+
+html, body { 
+  height: 100%;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+:root {
+  --header-height: 64px;
+  --filter-height: 54px; // Reduced to match React implementation
+}
+
+body {
+  background-color: $ps-green;
+
+  .mat-mdc-form-field{
+    display: inline;
+  }
+} 

@@ -1,0 +1,36 @@
+<div class="filter-container">
+  <div class="filter-wrap">
+    <div class="filter-row-wrap">
+      <div class="search-col">
+        <div class="search-field">
+          <div class="field-label">Search By</div>
+          <mat-form-field appearance="outline">
+            <input matInput 
+                   placeholder="Search by Name"
+                   (input)="onSearchChange($event)"
+                   class="pokemon-search-filter">
+            <mat-icon matSuffix>search</mat-icon>
+          </mat-form-field>
+        </div>
+      </div>
+      
+      <div class="type-col">
+        <div class="field-label">Type</div>
+        <app-multi-select-dropdown
+          [placeholder]="'Select Types'"
+          [data]="(pokemonTypes$ | async) || []"
+          (selectionChange)="onTypeChange($event)">
+        </app-multi-select-dropdown>
+      </div>
+      
+      <div class="gender-col">
+        <div class="field-label">Gender</div>
+        <app-multi-select-dropdown
+          [placeholder]="'Select Gender'"
+          [data]="(pokemonGenders$ | async) || []"
+          (selectionChange)="onGenderChange($event)">
+        </app-multi-select-dropdown>
+      </div>
+    </div>
+  </div>
+</div> 

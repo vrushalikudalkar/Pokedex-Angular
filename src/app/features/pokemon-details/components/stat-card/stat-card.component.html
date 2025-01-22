@@ -1,0 +1,14 @@
+<div class="stat-container">
+  <div class="stat-card">
+    <div class="stat-header">Base Stats</div>
+    <div class="grid-container">
+      <div class="stat-item" *ngFor="let stat of stats">
+        <div class="stat-label">{{getStatHeading(stat.stat.name)}}</div>
+        <div class="progress-container">
+          <progress [value]="stat.base_stat" max="100"></progress>
+          <span class="stat-value">{{stat.base_stat}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 

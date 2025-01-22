@@ -1,0 +1,23 @@
+<div class="multiselect-dropdown-wrapper">
+  <div class="dropdown-label">
+    <span>{{label}}</span>
+  </div>
+  <mat-form-field appearance="outline" class="dropdown-field">
+    <mat-select [formControl]="selectControl"
+                [placeholder]="placeholder"
+                multiple
+                (openedChange)="onOpenChange($event)">
+      <mat-select-trigger>
+        {{(selectControl.value?.length || 0) ? ((selectControl.value?.length || 0) + ' Selected') : placeholder}}
+      </mat-select-trigger>
+      <mat-option *ngFor="let item of data" [value]="item.value">
+        {{item.label}}
+      </mat-option>
+    </mat-select>
+    <button matSuffix mat-icon-button 
+            *ngIf="selectControl.value?.length"
+            (click)="onClear(); $event.stopPropagation()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+</div> 

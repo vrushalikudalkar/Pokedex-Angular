@@ -1,0 +1,60 @@
+@use 'variables' as *;
+@use 'common' as *;
+
+.details-container {
+  background-color: $bg-color !important;
+  padding: 41px;
+  max-width: 710px;
+  margin: 0 auto;
+  
+  @include sm {
+    padding: 12px;
+  }
+}
+
+.details-content {
+  padding-top: 38px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  .left-section, .right-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    > * {
+      background-color: $white;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      padding: 24px;
+    }
+  }
+}
+
+.details-modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: $bg-color !important;
+  overflow-y: auto;
+  z-index: 1000;
+
+  .modal-content {
+    background-color: $bg-color !important;
+    padding: 41px;
+    max-width: 710px;
+    margin: 0 auto;
+    
+    @include sm {
+      padding: 12px;
+    }
+  }
+}
+
+.padding-components {
+  padding-top: 38px;
+} 

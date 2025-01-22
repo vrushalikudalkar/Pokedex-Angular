@@ -1,0 +1,76 @@
+@use "variables" as *;
+@use "src/styles/common" as *;
+
+.property-container {
+  padding: 18px 0px 18px 0px;
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+
+    @include sm {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .property-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    &.full-width {
+      grid-column: 1 / -1;
+    }
+  }
+
+  .prop-header {
+    font-size: 16px;
+    font-weight: bold;
+    color: $bg-popover;
+    padding: 5px;
+  }
+
+  .prop-header-data {
+    font-size: 16px;
+    padding: 5px 0px 5px 5px;
+  }
+
+  .type-wrap {
+    @include flex-row(flex-start, flex-start);
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+}
+
+.property-card {
+  background: white;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  .properties-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+
+    @include sm {
+      grid-template-columns: 1fr;
+    }
+
+    .property-item {
+      @include flex-col(flex-start, flex-start);
+      gap: 0.5rem;
+
+      .label {
+        color: #666;
+        font-size: 0.9rem;
+      }
+
+      .value {
+        font-size: 1.1rem;
+        font-weight: 500;
+      }
+    }
+  }
+} 

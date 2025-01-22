@@ -1,0 +1,48 @@
+<div class="property-container">
+  <div class="grid-container">
+    <div class="property-item">
+      <div class="prop-header">Height</div>
+      <div class="prop-header-data">{{pokemon.height}}</div>
+    </div>
+
+    <div class="property-item">
+      <div class="prop-header">Weight</div>
+      <div class="prop-header-data">{{pokemon.weight / 10}} Kg</div>
+    </div>
+
+    <div class="property-item">
+      <div class="prop-header">Gender(s)</div>
+      <div class="prop-header-data">Male, Female</div>
+    </div>
+
+    <div class="property-item">
+      <div class="prop-header">Egg Groups</div>
+      <div class="prop-header-data">{{getEggGroups()}}</div>
+    </div>
+
+    <div class="property-item">
+      <div class="prop-header">Abilities</div>
+      <div class="prop-header-data">{{getAbilities()}}</div>
+    </div>
+
+    <div class="property-item full-width">
+      <div class="prop-header">Types</div>
+      <div class="type-wrap">
+        <app-colorful-tag *ngFor="let item of pokemon.types"
+          [type]="item.type.name">
+        </app-colorful-tag>
+      </div>
+    </div>
+
+    <div class="property-item full-width">
+      <div class="prop-header">Weak Against</div>
+      <div class="prop-header-data type-wrap">
+        <app-colorful-tag *ngFor="let item of pokemonTypeData?.damage_relations?.double_damage_from"
+                         [className]="'pr-1'"
+                         [type]="item.name"
+                         [text]="getCamleCaseString(item.name)">
+        </app-colorful-tag>
+      </div>
+    </div>
+  </div>
+</div> 

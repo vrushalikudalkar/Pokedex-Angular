@@ -1,0 +1,12 @@
+<div class="pokemon-card" [style.background]="getCardBackground()" (click)="cardClick.emit()">
+  <div class="pokemon-number">#{{getPokemonNumber(data.id)}}</div>
+  <div class="pokemon-image">
+    <img [src]="getImageUrl()" [alt]="data.name">
+  </div>
+  <div class="pokemon-name">{{data.name | titlecase}}</div>
+  <div class="pokemon-types">
+    <span class="type" *ngFor="let type of data.types">
+      {{type.type.name | titlecase}}
+    </span>
+  </div>
+</div> 

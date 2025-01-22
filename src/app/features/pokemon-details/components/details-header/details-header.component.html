@@ -1,0 +1,37 @@
+<div class="details-header">
+  <div class="header-content">
+    <div class="pokemon-card-wrap">
+      <app-pokemon-card [data]="pokemon" className="disabled-click"></app-pokemon-card>
+    </div>
+    <div class="pokemon-info">
+      <div class="pokemon-name">
+        <div class="name-wrap">
+          <h3 class="text-caps">{{pokemon.name}}</h3>
+        </div>
+        <div class="id-wrap">
+          <h3>{{pokemon.id | number:'3.0-0'}}</h3>
+        </div>
+        <div class="navigation-icons">
+          <button mat-icon-button (click)="backClick.emit()" matTooltip="Previous Pokemon">
+            <mat-icon>chevron_left</mat-icon>
+          </button>
+          <button mat-icon-button (click)="closeClick.emit()" matTooltip="Close">
+            <mat-icon>close</mat-icon>
+          </button>
+          <button mat-icon-button (click)="forwardClick.emit()" matTooltip="Next Pokemon">
+            <mat-icon>chevron_right</mat-icon>
+          </button>
+        </div>
+      </div>
+      <div class="pokemon-description">
+        <p>{{getDescription().text}}</p>
+        <span *ngIf="getDescription().hasMore" 
+              class="read-more" 
+              [matTooltip]="getPokemonDescription()"
+              matTooltipPosition="below">
+          read more
+        </span>
+      </div>
+    </div>
+  </div>
+</div> 

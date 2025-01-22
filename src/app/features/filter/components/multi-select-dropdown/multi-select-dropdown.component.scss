@@ -1,0 +1,72 @@
+@use "variables" as *;
+
+.multiselect-dropdown-wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+  .dropdown-label {
+    padding-bottom: 6px;
+    font-size: 14px;
+    color: $primary-text-color;
+  }
+
+  &.is-dropdown-open {
+    ::ng-deep {
+      .mat-form-field {
+        width: 100%;
+
+        .mat-form-field-flex {
+          background-color: $white !important;
+        }
+      }
+    }
+  }
+
+  ::ng-deep {
+    .mat-form-field-flex {
+      background-color: $input-background !important;
+    }
+
+    .mat-select-value {
+      color: $primary-text-color;
+    }
+
+    .mat-select-value-text {
+      color: $primary-text-color;
+    }
+
+    .mat-select-arrow {
+      color: $primary-text-color;
+    }
+  }
+}
+
+// Dropdown panel styles
+::ng-deep {
+  .mat-select-panel {
+    border-radius: 6px !important;
+    margin-top: 4px;
+    background: $white;
+
+    .mat-option {
+      height: 42px;
+      line-height: 42px;
+      font-size: 14px;
+      color: $primary-text-color;
+      padding: 0 12px;
+
+      .mat-option-text {
+        padding: 0;
+      }
+
+      &.mat-selected:not(.mat-option-multiple) {
+        background-color: rgba($primary-text-color, 0.1);
+      }
+
+      &:hover:not(.mat-option-disabled) {
+        background-color: rgba($primary-text-color, 0.1);
+      }
+    }
+  }
+} 

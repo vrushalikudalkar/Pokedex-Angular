@@ -1,0 +1,151 @@
+@use "variables" as *;
+@use "common" as *;
+
+.details-header {
+  padding: 2rem;
+  background-color: $bg-color;
+
+  .header-content {
+    @include flex-row(flex-start, flex-start);
+    gap: 3rem;
+
+    @include sm {
+      @include flex-col;
+      gap: 2rem;
+    }
+
+    .pokemon-card-wrap {
+      width: 300px;
+      flex-shrink: 0;
+
+      @include sm {
+        width: 100%;
+      }
+    }
+
+    .pokemon-info {
+      flex: 1;
+
+      .pokemon-name {
+        @include flex-row(center, space-between);
+        margin-bottom: 2rem;
+
+        .name-wrap {
+          h3 {
+            font-size: 2rem;
+            font-weight: 600;
+            text-transform: capitalize;
+          }
+        }
+
+        .id-wrap {
+          h3 {
+            font-size: 1.5rem;
+            color: $bg-popover;
+          }
+        }
+
+        .navigation-icons {
+          @include flex-row(center, center);
+          gap: 0.5rem;
+
+          button {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: rgba($bg-popover, 0.1);
+            transition: all 0.2s ease;
+            color: $bg-popover;
+
+            .mat-icon {
+              font-size: 20px;
+              width: 20px;
+              height: 20px;
+              line-height: 20px;
+            }
+
+            &:hover {
+              background-color: rgba($bg-popover, 0.2);
+              transform: translateY(-1px);
+            }
+
+            &:active {
+              transform: translateY(0);
+            }
+          }
+        }
+      }
+
+      .pokemon-description {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: rgba(0, 0, 0, 0.7);
+
+        .read-more {
+          display: inline;
+          color: $bg-popover;
+          cursor: pointer;
+          margin-left: 0.5rem;
+          font-size: 18px;
+          font-weight: bold;
+          text-decoration: none;
+          transition: all 0.2s ease;
+
+          &:hover {
+            text-decoration: underline;
+            opacity: 0.8;
+          }
+        }
+      }
+    }
+  }
+}
+
+.details-header-container {
+  .header-wrap {
+    @include flex-row(flex-start, flex-start);
+    display: flex;
+    align-items: flex-start;
+    
+    @include sm {
+      @include flex-col(center, center);
+    }
+  }
+
+  .header-sub-wrap {
+    @include flex-col(flex-start, space-between);
+    width: 100%;
+  }
+
+  .text-description {
+    padding-top: 30px;
+    font-size: 18px;
+  }
+
+  .title-wrap {
+    @include flex-row(center, space-between);
+    width: 100%;
+  }
+
+  .text-dot {
+    display: inline;
+  }
+
+  .load-more {
+    display: inline;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .icon-wrap {
+    @include flex-row(center, space-between);
+
+    img {
+      width: 38px;
+      height: 38px;
+      padding: 6px;
+      cursor: pointer;
+    }
+  }
+} 

@@ -1,0 +1,11 @@
+@use "src/styles/variables" as *;
+
+.search-filter-wrapper {
+  .filter-label {
+    padding-bottom: 6px;
+  }
+
+  mat-form-field {
+    width: 100%;
+  }
+} 

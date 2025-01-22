@@ -1,0 +1,40 @@
+<ng-container *ngIf="data$ | async as data">
+  <div class="details-container">
+    <div class="details-content">
+      <div class="details-header">
+        <app-details-header
+          [data]="data.pokemon"
+          [speciesData]="data.species"
+          (backClick)="handleBackwardClick()"
+          (closeClick)="handleClose()"
+          (forwardClick)="handleForwardClick()">
+        </app-details-header>
+      </div>
+
+      <div class="padding-components">
+        <app-property-card
+          [data]="data.pokemon"
+          [speciesData]="data.species"
+          [pokemonTypeData]="data.typeData">
+        </app-property-card>
+      </div>
+
+      <div class="padding-components">
+        <app-stat-card
+          [stats]="data.pokemon.stats">
+        </app-stat-card>
+      </div>
+
+      <div class="padding-components">
+        <app-evolution-chain-card
+          [data]="data.pokemon"
+          [speciesData]="data.species">
+        </app-evolution-chain-card>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<div *ngIf="isDetailLoading" class="loading-container">
+  <app-loader></app-loader>
+</div> 

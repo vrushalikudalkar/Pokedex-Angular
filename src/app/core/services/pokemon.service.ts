@@ -152,7 +152,7 @@ export class PokemonService {
             .flat()
             .map(item => item.pokemon);
           pokemonList = this.removeDuplicateBy(pokemonList, 'name');
-          return pokemonList.slice(0, API_URLS.SEARCH_SLICED);
+          return pokemonList;
         }),
         switchMap(pokemonList => this.getPokemonDetailsListByUrl(pokemonList))
       )
@@ -177,7 +177,7 @@ export class PokemonService {
               url: `${API_URLS.baseURL}/pokemon/${item.pokemon_species.url.split('pokemon-species/')[1]}`
             }));
           pokemonList = this.removeDuplicateBy(pokemonList, 'url');
-          return pokemonList.slice(0, API_URLS.SEARCH_SLICED);
+          return pokemonList;
         }),
         switchMap(pokemonList => this.getPokemonDetailsListByUrl(pokemonList))
       )

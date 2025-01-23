@@ -10,7 +10,7 @@
 
     .filter-row-wrap {
       display: grid;
-      grid-template-columns: 3.5fr 0.5fr 0.5fr;
+      grid-template-columns: 3.5fr 0.5fr;
       gap: 16px;
       width: 100%;
       margin: 0;
@@ -94,7 +94,7 @@
         }
       }
 
-      .type-col, .gender-col {
+      .type-col {
         width: 100%;
         min-width: 240px;
         max-width: 320px;

@@ -48,8 +48,6 @@ export class PokemonService {
       }),
       tap(pokemonsList => {
         const currentList = isReset ? [] : this.pokemonListSubject.value;
-        // const shuffledList = this.shuffleArray([...currentList, ...pokemonsList]); 
-        // this.pokemonListSubject.next(shuffledList);
         this.pokemonListSubject.next([...currentList, ...pokemonsList]);
         this.loadMoreInProgressSubject.next(false);
       })
@@ -89,10 +87,6 @@ export class PokemonService {
 
   getPokemonTypes(): Observable<any> {
     return this.http.get(`${API_URLS.baseURL}/type`);
-  }
-
-  getPokemonGenders(): Observable<any> {
-    return this.http.get(`${API_URLS.baseURL}/gender`);
   }
 
   getPokemonDataById(id: number): Observable<any> {
@@ -168,48 +162,8 @@ export class PokemonService {
     );
   }
 
-  filterByGenders(genderUrls: string[]): Observable<any[]> {
-    if (!genderUrls.length) {
-      this.filteredPokemonList.next([]);
-      return of([]);
-    }
-
-    this.setLoading(true);
-
-    return this.getAllParallelCall(genderUrls).pipe(
-      map(responses => {
-        let pokemonList = responses
-          .map(res => res.pokemon_species_details)
-          .flat()
-          .map(item => ({
-            url: `${API_URLS.baseURL}/pokemon/${item.pokemon_species.url.split('pokemon-species/')[1]}`
-          }));
-        pokemonList = this.removeDuplicateBy(pokemonList, 'url');
-        return pokemonList;
-      }),
-      switchMap(pokemonList => this.getPokemonDetailsListByUrl(pokemonList)),
-      tap(pokemonList => {
-        this.setFilteredPokemonList(pokemonList);
-        this.setLoading(false);
-      }),
-      catchError(error => {
-        console.error('Error filtering by genders:', error);
-        this.setLoading(false);
-        return of([]);
-      })
-    );
-  }
-
   transformTypeData(types: any[]): any[] {
     return types.map(item => ({
-      label: getCamleCaseString(item.name),
-      value: item.url,
-      url: item.url
-    }));
-  }
-
-  transformGenderData(genders: any[]): any[] {
-    return genders.map(item => ({
       label: getCamleCaseString(item.name),
       value: item.url,
       url: item.url
@@ -261,13 +215,5 @@ export class PokemonService {
 
   setFilteredPokemonList(data: any[]): void {
     this.filteredPokemonList.next(data);
-  }
-
-  shuffleArray(array: any[]): any[] {
-    for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]]; // Swap elements
-    }
-    return array;
   }
 } 

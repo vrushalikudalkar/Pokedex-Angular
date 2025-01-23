@@ -20,15 +20,7 @@
           (selectionChange)="onTypeChange($event)">
         </app-multi-select-dropdown>
       </div>
-      
-      <div class="gender-col">
-        <div class="field-label">Gender</div>
-        <app-multi-select-dropdown
-          [placeholder]="'Select Gender'"
-          [data]="(pokemonGenders$ | async) || []"
-          (selectionChange)="onGenderChange($event)">
-        </app-multi-select-dropdown>
-      </div>
+
     </div>
   </div>
 </div> 

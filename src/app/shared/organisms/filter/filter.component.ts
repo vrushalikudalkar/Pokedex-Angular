@@ -15,14 +15,9 @@ export class FilterComponent implements OnInit, OnDestroy {
   private searchSubscription: Subscription;
 
   isTypeFilterOpen = false;
-  isGenderFilterOpen = false;
   
   pokemonTypes$: any = this.pokemonService.getPokemonTypes().pipe(
     map(response => this.pokemonService.transformTypeData(response.results))
-  );
-  
-  pokemonGenders$: any = this.pokemonService.getPokemonGenders().pipe(
-    map(response => this.pokemonService.transformGenderData(response.results))
   );
 
   isFilterEnabled = false;
@@ -103,34 +98,11 @@ export class FilterComponent implements OnInit, OnDestroy {
     }
   }
 
-  onGenderChange(values: any): any {
-    this.pokemonService.setLoading(true); // Set loading to true when filter starts
-    if (values.length) {
-      this.filterEnabled.emit(true);
-      this.pokemonService.filterByGenders(values).subscribe(() => {
-        this.pokemonService.setLoading(false); // Set loading to false after data is fetched
-      });
-    } else {
-      this.filterEnabled.emit(false);
-      this.pokemonService.getPokemonData(true).subscribe(() => {
-        this.pokemonService.setLoading(false); // Set loading to false after data is fetched
-      });
-    }
-  }
-
   onTypeFilterOpen(): any {
     this.isTypeFilterOpen = true;
   }
 
   onTypeFilterClose(): any {
     this.isTypeFilterOpen = false;
-  }
-
-  onGenderFilterOpen(): any {
-    this.isGenderFilterOpen = true;
-  }
-
-  onGenderFilterClose(): any {
-    this.isGenderFilterOpen = false;
   }
 } 

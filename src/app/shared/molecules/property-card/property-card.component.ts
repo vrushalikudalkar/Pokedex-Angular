@@ -14,12 +14,6 @@ export class PropertyCardComponent {
 
   getCamleCaseString = getCamleCaseString;
 
-  getEggGroups(): any {
-    return this.speciesData?.egg_groups
-      .map((item: any) => this.getCamleCaseString(item.name))
-      .join(', ');
-  }
-
   getBaseStats(): any {
     return this.pokemon?.stats
       .map((stat: any) => `${this.getCamleCaseString(stat.stat.name)}: ${stat.base_stat}`)
@@ -37,5 +31,25 @@ export class PropertyCardComponent {
     return this.pokemon?.abilities
       .map((item: any) => this.getCamleCaseString(item.ability.name))
       .join(', ');
+  }
+
+  getBaseHappiness(): number {
+    return this.speciesData?.base_happiness || 0;
+  }
+
+  getCaptureRate(): number {
+    return this.speciesData?.capture_rate || 0;
+  }
+
+  getEggGroups(): string {
+    return this.speciesData?.egg_groups
+      .map((group: any) => this.getCamleCaseString(group.name))
+      .join(', ') || 'Unknown';
+  }
+
+  getGrowthRate(): string {
+    return this.speciesData?.growth_rate?.name
+      ? this.getCamleCaseString(this.speciesData.growth_rate.name)
+      : 'Unknown';
   }
 } 

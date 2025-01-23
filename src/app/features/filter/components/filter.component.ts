@@ -1,7 +1,7 @@
 import { Component, Output, EventEmitter, OnInit, OnDestroy } from '@angular/core';
-import { PokemonService } from '../../../../core/services/pokemon.service';
 import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
 import { Observable,  Subject, Subscription } from 'rxjs';
+import { PokemonService } from '../../../core/services/pokemon.service';
 
 @Component({
   selector: 'app-filter',
@@ -53,9 +53,9 @@ export class FilterComponent implements OnInit, OnDestroy {
     }
   }
 
-  onSearchChange(event: Event): void {
-    const value = (event.target as HTMLInputElement).value.trim().toLowerCase();
-    this.searchSubject.next(value); // Emit the search term to the subject
+  onSearchChange(value:string): void {
+    const trimmedValuevalue = value.trim().toLowerCase();
+    this.searchSubject.next(trimmedValuevalue); // Emit the search term to the subject
   }
 
   private performSearch(value: string): void {

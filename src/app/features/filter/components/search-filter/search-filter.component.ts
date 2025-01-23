@@ -17,7 +17,7 @@ export class SearchFilterComponent {
 
   constructor() {
     this.searchControl.valueChanges.pipe(
-      debounceTime(300),
+      debounceTime(200),
       distinctUntilChanged()
     ).subscribe(value => {
       this.searchChange.emit(value || '');

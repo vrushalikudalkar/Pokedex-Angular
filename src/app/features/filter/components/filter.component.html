@@ -4,13 +4,11 @@
       <div class="search-col">
         <div class="search-field">
           <div class="field-label">Search By</div>
-          <mat-form-field appearance="outline">
-            <input matInput 
-                   placeholder="Search by Name"
-                   (input)="onSearchChange($event)"
-                   class="pokemon-search-filter">
-            <mat-icon matSuffix>search</mat-icon>
-          </mat-form-field>
+          <app-search-filter
+            placeholder="Search by Name"
+            inputClass="pokemon-search-filter"
+            (searchChange)="onSearchChange($event)">
+          </app-search-filter>
         </div>
       </div>
       

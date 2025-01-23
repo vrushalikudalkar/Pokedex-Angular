@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { SharedModule } from '../../shared/shared.module';
 import { FilterModule } from '../filter/filter.module';
-import { HomeComponent } from './pages/home/home.component';
+import { HomeComponent } from './pages/home.component';
 
 const routes: Routes = [
   {

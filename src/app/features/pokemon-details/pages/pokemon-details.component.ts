@@ -2,8 +2,9 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, of, Subject } from 'rxjs';
 import { switchMap, tap, takeUntil, finalize } from 'rxjs/operators';
-import { PokemonService } from '../../../../core/services/pokemon.service';
-import { Pokemon, PokemonSpecies } from '../../../../core/models/pokemon.types';
+import { PokemonService } from '../../../core/services/pokemon.service';
+import { Pokemon, PokemonSpecies } from '../../../core/models/pokemon.types';
+
 
 @Component({
   selector: 'app-pokemon-details',

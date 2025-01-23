@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { PokemonService } from '../../../core/services/pokemon.service';
+import { Pokemon } from '../../../core/models/pokemon.types';
 
-import { PokemonService } from '../../../../core/services/pokemon.service';
-import { Pokemon } from '../../../../core/models/pokemon.types';
 
 @Component({
   selector: 'app-home',

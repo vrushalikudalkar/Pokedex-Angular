@@ -11,11 +11,11 @@ export class PokemonCardComponent {
   @Input() data!: Pokemon;
   @Output() cardClick = new EventEmitter<void>();
 
-  getCardBackground(): string {
+  getCardBackground(): any {
     return getBackground(this.data.types);
   }
 
-  getPokemonNumber(id: number): string {
+  getPokemonNumber(id: any): any {
     let result = id.toString();
     if (id < 10) result = `00${id}`;
     else if (id < 100) result = `0${id}`;

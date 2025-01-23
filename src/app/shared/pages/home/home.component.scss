@@ -6,6 +6,8 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  max-width: 1440px; // Set maximum width
+  margin: 0 auto; 
 
   @include sm {
     padding: 26px 22px;

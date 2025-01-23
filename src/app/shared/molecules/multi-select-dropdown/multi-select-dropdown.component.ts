@@ -11,12 +11,12 @@ export class MultiSelectDropdownComponent {
   @Input() label = '';
   @Input() data: any[] = [];
   @Input() isOpen = false;
-  @Output() selectionChange = new EventEmitter<string[]>();
+  @Output() selectionChange = new EventEmitter<any>();
   @Output() openChange = new EventEmitter<void>();
   @Output() closeChange = new EventEmitter<void>();
   @Output() cleanChange = new EventEmitter<void>();
 
-  selectControl = new FormControl<string[]>([]);
+  selectControl = new FormControl<any>([]);
 
   constructor() {
     this.selectControl.valueChanges.subscribe(value => {
@@ -26,7 +26,7 @@ export class MultiSelectDropdownComponent {
     });
   }
 
-  onOpenChange(isOpen: boolean): void {
+  onOpenChange(isOpen: any): void {
     if (isOpen) {
       this.openChange.emit();
     } else {

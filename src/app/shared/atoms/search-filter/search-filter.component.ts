@@ -11,7 +11,7 @@ export class SearchFilterComponent {
   @Input() placeholder = '';
   @Input() inputClass = '';
   @Input() label = '';
-  @Output() searchChange = new EventEmitter<string>();
+  @Output() searchChange = new EventEmitter<any>();
 
   searchControl = new FormControl('');
 

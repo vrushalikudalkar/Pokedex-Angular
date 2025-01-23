@@ -118,7 +118,7 @@ export class PokemonService {
     this.loadingSubject.next(loading);
   }
 
-  filterBySearch(searchTerm: string): void {
+  filterBySearch(searchTerm: string): any {
     if (!searchTerm.trim()) {
       this.filteredPokemonList.next([]);
       return;
@@ -138,52 +138,66 @@ export class PokemonService {
       });
   }
 
-  filterByTypes(typeUrls: string[]): void {
+  filterByTypes(typeUrls: string[]): Observable<any[]> {
     if (!typeUrls.length) {
       this.filteredPokemonList.next([]);
-      return;
+      return of([]);
     }
 
-    this.getAllParallelCall(typeUrls)
-      .pipe(
-        map(responses => {
-          let pokemonList = responses
-            .map(res => res.pokemon)
-            .flat()
-            .map(item => item.pokemon);
-          pokemonList = this.removeDuplicateBy(pokemonList, 'name');
-          return pokemonList;
-        }),
-        switchMap(pokemonList => this.getPokemonDetailsListByUrl(pokemonList))
-      )
-      .subscribe(pokemonList => {
-        this.filteredPokemonList.next(pokemonList);
-      });
+    this.setLoading(true);
+
+    return this.getAllParallelCall(typeUrls).pipe(
+      map(responses => {
+        let pokemonList = responses
+          .map(res => res.pokemon)
+          .flat()
+          .map(item => item.pokemon);
+        pokemonList = this.removeDuplicateBy(pokemonList, 'name');
+        return pokemonList;
+      }),
+      switchMap(pokemonList => this.getPokemonDetailsListByUrl(pokemonList)),
+      tap(pokemonList => {
+        this.setFilteredPokemonList(pokemonList);
+        this.setLoading(false);
+      }),
+      catchError(error => {
+        console.error('Error filtering by types:', error);
+        this.setLoading(false);
+        return of([]);
+      })
+    );
   }
 
-  filterByGenders(genderUrls: string[]): void {
+  filterByGenders(genderUrls: string[]): Observable<any[]> {
     if (!genderUrls.length) {
       this.filteredPokemonList.next([]);
-      return;
+      return of([]);
     }
 
-    this.getAllParallelCall(genderUrls)
-      .pipe(
-        map(responses => {
-          let pokemonList = responses
-            .map(res => res.pokemon_species_details)
-            .flat()
-            .map(item => ({
-              url: `${API_URLS.baseURL}/pokemon/${item.pokemon_species.url.split('pokemon-species/')[1]}`
-            }));
-          pokemonList = this.removeDuplicateBy(pokemonList, 'url');
-          return pokemonList;
-        }),
-        switchMap(pokemonList => this.getPokemonDetailsListByUrl(pokemonList))
-      )
-      .subscribe(pokemonList => {
-        this.filteredPokemonList.next(pokemonList);
-      });
+    this.setLoading(true);
+
+    return this.getAllParallelCall(genderUrls).pipe(
+      map(responses => {
+        let pokemonList = responses
+          .map(res => res.pokemon_species_details)
+          .flat()
+          .map(item => ({
+            url: `${API_URLS.baseURL}/pokemon/${item.pokemon_species.url.split('pokemon-species/')[1]}`
+          }));
+        pokemonList = this.removeDuplicateBy(pokemonList, 'url');
+        return pokemonList;
+      }),
+      switchMap(pokemonList => this.getPokemonDetailsListByUrl(pokemonList)),
+      tap(pokemonList => {
+        this.setFilteredPokemonList(pokemonList);
+        this.setLoading(false);
+      }),
+      catchError(error => {
+        console.error('Error filtering by genders:', error);
+        this.setLoading(false);
+        return of([]);
+      })
+    );
   }
 
   transformTypeData(types: any[]): any[] {

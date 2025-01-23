@@ -2,7 +2,7 @@
 @use "src/styles/common" as *;
 
 .property-container {
-  padding: 18px 0px 18px 0px;
+  padding: 18px 0;
 
   .grid-container {
     display: grid;
@@ -18,6 +18,9 @@
     display: flex;
     flex-direction: column;
     gap: 5px;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
     &.full-width {
       grid-column: 1 / -1;
@@ -27,13 +30,15 @@
   .prop-header {
     font-size: 16px;
     font-weight: bold;
-    color: $bg-popover;
+    color: $primary-text-color;
     padding: 5px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   }
 
   .prop-header-data {
     font-size: 16px;
-    padding: 5px 0px 5px 5px;
+    padding: 5px 0 5px 5px;
+    // color: $secondary-text-color;
   }
 
   .type-wrap {
@@ -70,6 +75,7 @@
       .value {
         font-size: 1.1rem;
         font-weight: 500;
+        color: $primary-text-color;
       }
     }
   }

@@ -9,19 +9,19 @@ import { PokemonService } from '../../../core/services/pokemon.service';
   styleUrls: ['./filter.component.scss']
 })
 export class FilterComponent implements OnInit, OnDestroy {
-  @Output() filterEnabled = new EventEmitter<boolean>();
+  @Output() filterEnabled = new EventEmitter<any>();
 
-  private searchSubject = new Subject<string>();
+  private searchSubject = new Subject<any>();
   private searchSubscription: Subscription;
 
   isTypeFilterOpen = false;
   isGenderFilterOpen = false;
   
-  pokemonTypes$: Observable<any[]> = this.pokemonService.getPokemonTypes().pipe(
+  pokemonTypes$: any = this.pokemonService.getPokemonTypes().pipe(
     map(response => this.pokemonService.transformTypeData(response.results))
   );
   
-  pokemonGenders$: Observable<any[]> = this.pokemonService.getPokemonGenders().pipe(
+  pokemonGenders$: any = this.pokemonService.getPokemonGenders().pipe(
     map(response => this.pokemonService.transformGenderData(response.results))
   );
 
@@ -53,12 +53,13 @@ export class FilterComponent implements OnInit, OnDestroy {
     }
   }
 
-  onSearchChange(value:string): void {
-    const trimmedValuevalue = value.trim().toLowerCase();
-    this.searchSubject.next(trimmedValuevalue); // Emit the search term to the subject
+  onSearchChange(value: any): void {
+    const trimmedValue = value.trim().toLowerCase();
+    this.searchSubject.next(trimmedValue); // Emit the search term to the subject
   }
 
-  private performSearch(value: string): void {
+  private performSearch(value: any): void {
+    this.pokemonService.setLoading(true); // Set loading to true when search starts
     if (value.length) {
       this.isFilterEnabled = true;
       this.filterEnabled.emit(true);
@@ -76,47 +77,60 @@ export class FilterComponent implements OnInit, OnDestroy {
       this.pokemonService.getPokemonDetailsListByUrl(filteredList)
         .subscribe(detailedList => {
           this.pokemonService.setFilteredPokemonList(detailedList);
+          this.pokemonService.setLoading(false); // Set loading to false after data is fetched
         });
     } else {
       this.filterEnabled.emit(false);
       this.pokemonService.setFilteredPokemonList([]);
-      this.pokemonService.getPokemonData(true).subscribe();
+      this.pokemonService.getPokemonData(true).subscribe(() => {
+        this.pokemonService.setLoading(false); // Set loading to false after data is fetched
+      });
     }
   }
 
-  onTypeChange(values: string[]): void {
+  onTypeChange(values: any): any {
+    this.pokemonService.setLoading(true); // Set loading to true when filter starts
     if (values.length) {
       this.filterEnabled.emit(true);
-      this.pokemonService.filterByTypes(values);
+      this.pokemonService.filterByTypes(values).subscribe(() => {
+        this.pokemonService.setLoading(false); // Set loading to false after data is fetched
+      });
     } else {
       this.filterEnabled.emit(false);
-      this.pokemonService.getPokemonData(true).subscribe();
+      this.pokemonService.getPokemonData(true).subscribe(() => {
+        this.pokemonService.setLoading(false); // Set loading to false after data is fetched
+      });
     }
   }
 
-  onGenderChange(values: string[]): void {
+  onGenderChange(values: any): any {
+    this.pokemonService.setLoading(true); // Set loading to true when filter starts
     if (values.length) {
       this.filterEnabled.emit(true);
-      this.pokemonService.filterByGenders(values);
+      this.pokemonService.filterByGenders(values).subscribe(() => {
+        this.pokemonService.setLoading(false); // Set loading to false after data is fetched
+      });
     } else {
       this.filterEnabled.emit(false);
-      this.pokemonService.getPokemonData(true).subscribe();
+      this.pokemonService.getPokemonData(true).subscribe(() => {
+        this.pokemonService.setLoading(false); // Set loading to false after data is fetched
+      });
     }
   }
 
-  onTypeFilterOpen(): void {
+  onTypeFilterOpen(): any {
     this.isTypeFilterOpen = true;
   }
 
-  onTypeFilterClose(): void {
+  onTypeFilterClose(): any {
     this.isTypeFilterOpen = false;
   }
 
-  onGenderFilterOpen(): void {
+  onGenderFilterOpen(): any {
     this.isGenderFilterOpen = true;
   }
 
-  onGenderFilterClose(): void {
+  onGenderFilterClose(): any {
     this.isGenderFilterOpen = false;
   }
 } 

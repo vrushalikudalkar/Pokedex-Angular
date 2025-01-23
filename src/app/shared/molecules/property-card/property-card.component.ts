@@ -8,19 +8,32 @@ import { Pokemon } from '../../../core/models/pokemon.types';
   styleUrls: ['./property-card.component.scss']
 })
 export class PropertyCardComponent {
-  @Input() pokemon!: Pokemon;
+  @Input() pokemon!: any;
   @Input() speciesData: any;
   @Input() pokemonTypeData: any;
 
   getCamleCaseString = getCamleCaseString;
 
-  getEggGroups(): string {
+  getEggGroups(): any {
     return this.speciesData?.egg_groups
       .map((item: any) => this.getCamleCaseString(item.name))
       .join(', ');
   }
 
-  getAbilities(): string {
+  getBaseStats(): any {
+    return this.pokemon?.stats
+      .map((stat: any) => `${this.getCamleCaseString(stat.stat.name)}: ${stat.base_stat}`)
+      .join(', ');
+  }
+
+  getMoves(): any {
+    return this.pokemon?.moves
+      .slice(0, 5) // Limit to first 5 moves for brevity
+      .map((move: any) => this.getCamleCaseString(move.move.name))
+      .join(', ');
+  }
+
+  getAbilities(): any {
     return this.pokemon?.abilities
       .map((item: any) => this.getCamleCaseString(item.ability.name))
       .join(', ');

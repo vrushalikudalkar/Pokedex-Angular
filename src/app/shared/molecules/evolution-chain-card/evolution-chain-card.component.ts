@@ -7,5 +7,5 @@ import { Pokemon } from '../../../core/models/pokemon.types';
   styleUrls: ['./evolution-chain-card.component.scss']
 })
 export class EvolutionChainCardComponent {
-  @Input() evolutionChain!: Pokemon[];
+  @Input() evolutionChain!:any;
 } 

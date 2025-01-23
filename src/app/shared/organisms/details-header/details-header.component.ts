@@ -9,7 +9,7 @@ import { Pokemon } from '../../../core/models/pokemon.types';
   styleUrls: ['./details-header.component.scss']
 })
 export class DetailsHeaderComponent {
-  @Input() pokemon!: Pokemon;
+  @Input() pokemon!: any;
   @Input() speciesData: any;
   @Output() backClick = new EventEmitter<void>();
   @Output() closeClick = new EventEmitter<void>();
@@ -17,14 +17,14 @@ export class DetailsHeaderComponent {
 
   readonly MAX_DESCRIPTION_LENGTH = 363;
 
-  getPokemonDescription(): string {
+  getPokemonDescription(): any {
     if (this.speciesData?.flavor_text_entries) {
       return getPokemonDescription(this.speciesData.flavor_text_entries);
     }
     return '';
   }
 
-  getDescription(): { text: string, hasMore: boolean } {
+  getDescription(): { text: any, hasMore: any } {
     const fullDescription = this.getPokemonDescription();
     return {
       text: fullDescription.substring(0, this.MAX_DESCRIPTION_LENGTH),

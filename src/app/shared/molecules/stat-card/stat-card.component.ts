@@ -9,9 +9,9 @@ import { PokemonStat } from '../../../core/models/pokemon.types';
   styleUrls: ['./stat-card.component.scss']
 })
 export class StatCardComponent {
-  @Input() stats!: PokemonStat[];
+  @Input() stats!: any;
 
-  getStatHeading(name: string): string {
+  getStatHeading(name: any): any {
     if (name === 'hp') {
       return 'HP';
     }

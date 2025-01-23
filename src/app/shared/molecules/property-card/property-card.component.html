@@ -35,7 +35,7 @@
     </div>
 
     <div class="property-item full-width">
-      <div class="prop-header">Weak Against</div>
+      <div class="prop-header" *ngIf="pokemonTypeData?.damage_relations?.double_damage_from.length>0">Weak Against</div>
       <div class="prop-header-data type-wrap">
         <app-colorful-tag *ngFor="let item of pokemonTypeData?.damage_relations?.double_damage_from"
                          [className]="'pr-1'"

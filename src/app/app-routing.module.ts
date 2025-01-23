@@ -4,12 +4,12 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./features/home/home.module').then(m => m.HomeModule),
+    loadChildren: () => import('./shared/pages/home/home.module').then(m => m.HomeModule),
     pathMatch: 'full'
   },
   {
     path: 'details',
-    loadChildren: () => import('./features/pokemon-details/pokemon-details.module').then(m => m.PokemonDetailsModule)
+    loadChildren: () => import('./shared/pages/pokemon-details/pokemon-details.module').then(m => m.PokemonDetailsModule)
   }
 ];
 

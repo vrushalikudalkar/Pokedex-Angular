@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { HeaderComponent } from './components/header/header.component';
-import { LoaderComponent } from './components/loader/loader.component';
-import { PokemonCardComponent } from './components/pokemon-card/pokemon-card.component';
+import { PokemonCardComponent } from './molecules/pokemon-card/pokemon-card.component';
+import { HeaderComponent } from './organisms/header/header.component';
+import { LoaderComponent } from './atoms/loader/loader.component';
 
 @NgModule({
   declarations: [

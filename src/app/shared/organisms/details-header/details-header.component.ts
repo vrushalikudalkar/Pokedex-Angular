@@ -1,6 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Pokemon } from '../../../../core/models/pokemon.types';
-import { getPokemonDescription } from '../../../../core/constants/pokemon-types';
+import { getPokemonDescription } from '../../../core/constants/pokemon-types';
+import { Pokemon } from '../../../core/models/pokemon.types';
+
 
 @Component({
   selector: 'app-details-header',

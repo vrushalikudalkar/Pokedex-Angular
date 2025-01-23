@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { getCamleCaseString } from '../../../../core/constants/pokemon-types';
-import { PokemonStat } from '../../../../core/models/pokemon.types';
+import { getCamleCaseString } from '../../../core/constants/pokemon-types';
+import { PokemonStat } from '../../../core/models/pokemon.types';
+
 
 @Component({
   selector: 'app-stat-card',

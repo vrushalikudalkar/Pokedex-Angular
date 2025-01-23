@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { getPokcolor } from '../../../../core/constants/pokemon-types';
+import { getPokcolor } from '../../../core/constants/pokemon-types';
 
 @Component({
   selector: 'app-colorful-tag',

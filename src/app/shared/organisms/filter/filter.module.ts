@@ -6,10 +6,11 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { FilterComponent } from './filter.component';
+import { SearchFilterComponent } from '../../atoms/search-filter/search-filter.component';
+import { MultiSelectDropdownComponent } from '../../molecules/multi-select-dropdown/multi-select-dropdown.component';
 
-import { MultiSelectDropdownComponent } from './components/multi-select-dropdown/multi-select-dropdown.component';
-import { FilterComponent } from './components/filter.component';
-import { SearchFilterComponent } from './components/search-filter/search-filter.component';
+
 
 
 @NgModule({

@@ -4,14 +4,16 @@ import { RouterModule, Routes } from '@angular/router';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatIconModule } from '@angular/material/icon';
-import { SharedModule } from '../../shared/shared.module';
+import { SharedModule } from '../../shared.module';
 
-import { DetailsHeaderComponent } from './components/details-header/details-header.component';
-import { PropertyCardComponent } from './components/property-card/property-card.component';
-import { StatCardComponent } from './components/stat-card/stat-card.component';
-import { EvolutionChainCardComponent } from './components/evolution-chain-card/evolution-chain-card.component';
-import { ColorfulTagComponent } from './components/colorful-tag/colorful-tag.component';
-import { PokemonDetailsComponent } from './pages/pokemon-details.component';
+
+import { PokemonDetailsComponent } from './pokemon-details.component';
+import { ColorfulTagComponent } from '../../atoms/colorful-tag/colorful-tag.component';
+import { EvolutionChainCardComponent } from '../../molecules/evolution-chain-card/evolution-chain-card.component';
+import { PropertyCardComponent } from '../../molecules/property-card/property-card.component';
+import { StatCardComponent } from '../../molecules/stat-card/stat-card.component';
+import { DetailsHeaderComponent } from '../../organisms/details-header/details-header.component';
+
 
 const routes: Routes = [
   {

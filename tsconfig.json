@@ -13,15 +13,18 @@
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
-    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
     "importHelpers": true,
-    "target": "ES2022",
-    "module": "ES2022",
     "useDefineForClassFields": false,
     "lib": [
       "ES2022",
       "dom"
-    ]
+    ],
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "module": "ESNext", // Ensure ES modules are enabled
+    "target": "ES2020", // Match Angular's output target
+    "moduleResolution": "Node" 
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

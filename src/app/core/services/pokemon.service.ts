@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, forkJoin, of } from 'rxjs';
 import { map, catchError, switchMap, tap } from 'rxjs/operators';
 import { API_URLS } from '../constants/api-urls';
-import { getCamleCaseString } from '../constants/pokemon-types';
 import { EvolutionChain, PokemonSpecies, Pokemon } from '../models/pokemon.types';
 
 @Injectable({
@@ -81,14 +80,6 @@ export class PokemonService {
     return this.http.get(`${API_URLS.baseURL}/pokemon-species/${id}/`);
   }
 
-  getPokemonTypesById(id: number): Observable<any> {
-    return this.http.get(`${API_URLS.baseURL}/type/${id}/`);
-  }
-
-  getPokemonTypes(): Observable<any> {
-    return this.http.get(`${API_URLS.baseURL}/type`);
-  }
-
   getPokemonDataById(id: number): Observable<any> {
     return this.http.get(`${API_URLS.baseURL}/pokemon/${id}/`);
   }
@@ -130,44 +121,6 @@ export class PokemonService {
       .subscribe(pokemonList => {
         this.filteredPokemonList.next(pokemonList);
       });
-  }
-
-  filterByTypes(typeUrls: string[]): Observable<any[]> {
-    if (!typeUrls.length) {
-      this.filteredPokemonList.next([]);
-      return of([]);
-    }
-
-    this.setLoading(true);
-
-    return this.getAllParallelCall(typeUrls).pipe(
-      map(responses => {
-        let pokemonList = responses
-          .map(res => res.pokemon)
-          .flat()
-          .map(item => item.pokemon);
-        pokemonList = this.removeDuplicateBy(pokemonList, 'name');
-        return pokemonList;
-      }),
-      switchMap(pokemonList => this.getPokemonDetailsListByUrl(pokemonList)),
-      tap(pokemonList => {
-        this.setFilteredPokemonList(pokemonList);
-        this.setLoading(false);
-      }),
-      catchError(error => {
-        console.error('Error filtering by types:', error);
-        this.setLoading(false);
-        return of([]);
-      })
-    );
-  }
-
-  transformTypeData(types: any[]): any[] {
-    return types.map(item => ({
-      label: getCamleCaseString(item.name),
-      value: item.url,
-      url: item.url
-    }));
   }
 
   getEvolutionChain(url: string): Observable<EvolutionChain> {

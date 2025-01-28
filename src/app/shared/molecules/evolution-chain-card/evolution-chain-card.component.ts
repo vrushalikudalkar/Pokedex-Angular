@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { Pokemon } from '../../../core/models/pokemon.types';
 
 @Component({
   selector: 'app-evolution-chain-card',

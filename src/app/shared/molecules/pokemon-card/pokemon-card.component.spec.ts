@@ -36,6 +36,7 @@ describe('PokemonCardComponent', () => {
       weight: 69,
       abilities: [],
       stats: [],
+      moves:[{move:{name:'move1',url:'move.com'}}]
     };
     fixture.detectChanges();
   });
@@ -103,6 +104,7 @@ describe('PokemonCardComponent', () => {
         weight: 69,
         abilities: [],
         stats: [],
+        moves:[{move:{name:'move1',url:'move.com'}}]
       };
     fixture.detectChanges();
 

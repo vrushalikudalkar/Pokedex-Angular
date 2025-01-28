@@ -1,7 +1,8 @@
 import { Component, Output, EventEmitter, OnInit, OnDestroy } from '@angular/core';
-import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
-import { Observable,  Subject, Subscription } from 'rxjs';
+import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
+import { Subject, Subscription } from 'rxjs';
 import { PokemonService } from '../../../core/services/pokemon.service';
+import { Pokemon } from 'src/app/core/models/pokemon.types';
 
 @Component({
   selector: 'app-filter',
@@ -9,9 +10,9 @@ import { PokemonService } from '../../../core/services/pokemon.service';
   styleUrls: ['./filter.component.scss']
 })
 export class FilterComponent implements OnInit, OnDestroy {
-  @Output() filterEnabled = new EventEmitter<any>();
+  @Output() filterEnabled = new EventEmitter<boolean>();
 
-  private searchSubject = new Subject<any>();
+  private searchSubject = new Subject<string>();
   private searchSubscription: Subscription;
 
   isFilterEnabled = false;
@@ -30,7 +31,7 @@ export class FilterComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     // Get all pokemon list at initialization
     this.pokemonService.getAllPokemonDataList().subscribe(
-      (data: any) => {
+      (data: { results: Pokemon[] }) => {
         this.pokemonService.allPokemonsList = data.results;
       }
     );
@@ -42,12 +43,12 @@ export class FilterComponent implements OnInit, OnDestroy {
     }
   }
 
-  onSearchChange(value: any): void {
+  onSearchChange(value: string): void {
     const trimmedValue = value.trim().toLowerCase();
     this.searchSubject.next(trimmedValue); // Emit the search term to the subject
   }
 
-  private performSearch(value: any): void {
+  private performSearch(value: string): void {
     this.pokemonService.setLoading(true); // Set loading to true when search starts
     if (value.length) {
       this.isFilterEnabled = true;

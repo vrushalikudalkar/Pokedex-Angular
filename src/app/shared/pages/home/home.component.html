@@ -1,48 +1,54 @@
 <div class="home-container">
-  <div>
+  <header>
     <app-header>
       <div class="app-header-wrap">
         <div class="header-title">
           <h3>Pokédex</h3>
         </div>
-        <div class="header-horizontal-line"></div>
+        <div class="header-horizontal-line" aria-hidden="true"></div>
         <div class="subheading">
           <span>Search for any Pokémon that exists on the planet</span>
         </div>
       </div>
     </app-header>
+  </header>
 
-    <div>
+  <main>
+    <section aria-labelledby="filter-section">
+      <h2 id="filter-section" class="visually-hidden">Filter Section</h2>
       <app-filter (filterEnabled)="onFilterEnabled($event)"></app-filter>
+    </section>
+
+    <!-- Show loader if loading -->
+    <div *ngIf="isLoading$ | async" role="status" aria-live="polite">
+      <app-loader className="app-loader-wrapper"></app-loader>
     </div>
-  </div>
 
-  <!-- Show loader if loading -->
-  <div *ngIf="isLoading$ | async">
-    <app-loader className="app-loader-wrapper"></app-loader>
-  </div>
+    <!-- Show content only if not loading -->
+    <ng-container *ngIf="!(isLoading$ | async)">
+      <section aria-labelledby="pokemon-list-section">
+        <h2 id="pokemon-list-section" class="visually-hidden">Pokemon List</h2>
+        <div *ngIf="getDisplayList() | async as pokemonList">
+          <div *ngIf="pokemonList.length > 0" class="card-list">
+            <div *ngFor="let pokemon of pokemonList" class="responsive">
+              <app-pokemon-card
+                [data]="pokemon"
+                (cardClick)="handlePokemonClick(pokemon.id)">
+              </app-pokemon-card>
+            </div>
+          </div>
 
-  <!-- Show content only if not loading -->
-  <ng-container *ngIf="!(isLoading$ | async)">
-    <div *ngIf="getDisplayList() | async as pokemonList">
-      <div *ngIf="pokemonList.length > 0" class="card-list">
-        <div *ngFor="let pokemon of pokemonList" class="responsive">
-          <app-pokemon-card
-            [data]="pokemon"
-            (cardClick)="handlePokemonClick(pokemon.id)">
-          </app-pokemon-card>
+          <div *ngIf="!isFilterEnabled && pokemonList.length > 0" class="load-more-wrap">
+            <button mat-button color="primary" (click)="handleLoadMore()" aria-label="Load more Pokémon">
+              Load more
+            </button>
+          </div>
+
+          <div *ngIf="pokemonList.length === 0" class="no-data-found">
+            <span>No data found</span>
+          </div>
         </div>
-      </div>
-
-      <div *ngIf="!isFilterEnabled && pokemonList.length > 0" class="load-more-wrap">
-        <button mat-button color="primary" (click)="handleLoadMore()">
-          Load more
-        </button>
-      </div>
-
-      <div *ngIf="pokemonList.length === 0" class="no-data-found">
-        <span>No data found</span>
-      </div>
-    </div>
-  </ng-container>
+      </section>
+    </ng-container>
+  </main>
 </div> 

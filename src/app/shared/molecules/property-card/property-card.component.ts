@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { getCamleCaseString } from '../../../core/constants/pokemon-types';
+import { Pokemon, PokemonSpecies } from 'src/app/core/models/pokemon.types';
 
 @Component({
   selector: 'app-property-card',
@@ -7,8 +8,8 @@ import { getCamleCaseString } from '../../../core/constants/pokemon-types';
   styleUrls: ['./property-card.component.scss']
 })
 export class PropertyCardComponent {
-  @Input() pokemon!: any;
-  @Input() speciesData: any;
+  @Input() pokemon!: Pokemon;
+  @Input() speciesData!: any;
   @Input() pokemonTypeData: any;
 
   getCamleCaseString = getCamleCaseString;

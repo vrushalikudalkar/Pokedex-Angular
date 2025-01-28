@@ -1,12 +1,12 @@
 <div class="evolution-chain-card">
   <h3>Evolution Chain</h3>
-  <div class="evolution-chain">
+  <div class="evolution-chain" role="list">
     <ng-container *ngFor="let pokemon of evolutionChain; let last = last">
-      <div class="pokemon-evolution">
-        <img [src]="pokemon.sprites.other['official-artwork'].front_default" [alt]="pokemon.name">
+      <div class="pokemon-evolution" role="listitem">
+        <img [src]="pokemon.sprites.other['official-artwork'].front_default" [alt]="pokemon.name + ' official artwork'">
         <span class="name">{{pokemon.name | titlecase}}</span>
       </div>
-      <span class="evolution-arrow" *ngIf="!last">→</span>
+      <span class="evolution-arrow" *ngIf="!last" aria-hidden="true">→</span>
     </ng-container>
   </div>
 </div> 

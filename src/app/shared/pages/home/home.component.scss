@@ -110,3 +110,7 @@
   height: calc(100vh - var(--header-height));
   padding: 3rem;
 } 
+
+.visually-hidden{
+  display: none;
+}

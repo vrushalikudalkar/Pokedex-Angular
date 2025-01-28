@@ -1,13 +1,15 @@
-<div class="filter-container">
+<div class="filter-container" role="search">
   <div class="filter-wrap">
     <div class="filter-row-wrap">
       <div class="search-col">
         <div class="search-field">
-          <div class="field-label">Search By</div>
+          <label for="pokemon-search" class="field-label">Search By</label>
           <app-search-filter
+            id="pokemon-search"
             placeholder="Search by Name"
             inputClass="pokemon-search-filter"
-            (searchChange)="onSearchChange($event)">
+            (searchChange)="onSearchChange($event)"
+            aria-label="Search for Pokemon by name">
           </app-search-filter>
         </div>
       </div>

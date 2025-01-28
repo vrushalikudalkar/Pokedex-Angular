@@ -1,6 +1,6 @@
 <div>
   <div [class]="className">
-    <span class="colorful-tag" [style.background]="getPokemonColor(type)">
+    <span class="colorful-tag" [style.background]="getPokemonColor(type)" [attr.aria-label]="'Type: ' + text" role="text">
       {{text}}
     </span>
   </div>

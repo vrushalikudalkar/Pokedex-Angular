@@ -1,4 +1,6 @@
-<div [class]="className">
-  <mat-spinner diameter="40"></mat-spinner>
-  <span>Loading...</span>
+<!-- Start of Selection -->
+<div [class]="className" role="status" aria-live="polite" aria-busy="true">
+  <mat-progress-spinner diameter="40" mode="indeterminate" aria-label="Loading"></mat-progress-spinner>
+  <span class="visually-hidden">Loading...</span>
 </div> 
+<!-- End of Selection -->

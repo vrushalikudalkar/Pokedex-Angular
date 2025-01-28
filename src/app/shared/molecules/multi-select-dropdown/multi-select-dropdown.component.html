@@ -4,19 +4,21 @@
   </div>
   <mat-form-field appearance="outline" class="dropdown-field">
     <mat-select [formControl]="selectControl"
-                [placeholder]="placeholder"
+                [placeholder]="placeholder"        
+                [attr.aria-label]="label"
                 multiple
                 (openedChange)="onOpenChange($event)">
       <mat-select-trigger>
         {{(selectControl.value?.length || 0) ? ((selectControl.value?.length || 0) + ' Selected') : placeholder}}
       </mat-select-trigger>
-      <mat-option *ngFor="let item of data" [value]="item.value">
+      <mat-option *ngFor="let item of data" [value]="item.value" [attr.aria-label]="item.label">
         {{item.label}}
       </mat-option>
     </mat-select>
     <button matSuffix mat-icon-button 
             *ngIf="selectControl.value?.length"
-            (click)="onClear(); $event.stopPropagation()">
+            (click)="onClear(); $event.stopPropagation()"
+            aria-label="Clear selection">
       <mat-icon>close</mat-icon>
     </button>
   </mat-form-field>

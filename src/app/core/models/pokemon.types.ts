@@ -46,6 +46,9 @@ export interface Pokemon {
       };
     };
   };
+  moves:[{
+    move:{name:string,url:string}
+  }]
 }
 
 export interface PokemonSpecies {

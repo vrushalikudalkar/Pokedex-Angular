@@ -385,7 +385,7 @@
     "injectables": [
         {
             "name": "PokemonService",
-            "id": "injectable-PokemonService-8e8cb81f39c8a229c2fb3ecef32ef9a59d9045531f0ff8fabadb2c5e1311879a70f62f400ac5e5663017868747c60c0fb8edd5779b5b21dc3ad33529cb69bfb3",
+            "id": "injectable-PokemonService-8a54f642ddeda9127364e06ac0320849c799cab1b071c886fdc083d1fc28e1af3f1a670eb22b0ff6e57421fa3116390b0824f032666b6858972a8a2b2c1631fb",
             "file": "src/app/core/services/pokemon.service.ts",
             "properties": [
                 {
@@ -397,7 +397,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 28
+                    "line": 27
                 },
                 {
                     "name": "allPokemonURL",
@@ -408,7 +408,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 14,
+                    "line": 13,
                     "modifierKind": [
                         123
                     ]
@@ -422,7 +422,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 19,
+                    "line": 18,
                     "modifierKind": [
                         123
                     ]
@@ -436,7 +436,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 24
+                    "line": 23
                 },
                 {
                     "name": "initialURL",
@@ -447,7 +447,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 13,
+                    "line": 12,
                     "modifierKind": [
                         123
                     ]
@@ -461,7 +461,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 22
+                    "line": 21
                 },
                 {
                     "name": "loadingSubject",
@@ -472,7 +472,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 17,
+                    "line": 16,
                     "modifierKind": [
                         123
                     ]
@@ -486,7 +486,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 23
+                    "line": 22
                 },
                 {
                     "name": "loadMoreInProgressSubject",
@@ -497,7 +497,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 18,
+                    "line": 17,
                     "modifierKind": [
                         123
                     ]
@@ -511,7 +511,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 26,
+                    "line": 25,
                     "modifierKind": [
                         123
                     ]
@@ -525,7 +525,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 21
+                    "line": 20
                 },
                 {
                     "name": "pokemonListSubject",
@@ -536,7 +536,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 16,
+                    "line": 15,
                     "modifierKind": [
                         123
                     ]
@@ -556,7 +556,7 @@
                     "optional": false,
                     "returnType": "string[]",
                     "typeParameters": [],
-                    "line": 198,
+                    "line": 151,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "modifierKind": [
@@ -587,41 +587,13 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 115,
+                    "line": 106,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
                         {
                             "name": "searchTerm",
                             "type": "string",
-                            "deprecated": false,
-                            "deprecationMessage": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "filterByTypes",
-                    "args": [
-                        {
-                            "name": "typeUrls",
-                            "type": "string[]",
-                            "deprecated": false,
-                            "deprecationMessage": ""
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "Observable<any[]>",
-                    "typeParameters": [],
-                    "line": 135,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "jsdoctags": [
-                        {
-                            "name": "typeUrls",
-                            "type": "string[]",
                             "deprecated": false,
                             "deprecationMessage": "",
                             "tagName": {
@@ -643,7 +615,7 @@
                     "optional": false,
                     "returnType": "Observable<any[]>",
                     "typeParameters": [],
-                    "line": 103,
+                    "line": 94,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -664,7 +636,7 @@
                     "optional": false,
                     "returnType": "Observable<any>",
                     "typeParameters": [],
-                    "line": 76,
+                    "line": 75,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -681,7 +653,7 @@
                     "optional": false,
                     "returnType": "Observable<EvolutionChain>",
                     "typeParameters": [],
-                    "line": 173,
+                    "line": 126,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -710,7 +682,7 @@
                     "optional": false,
                     "returnType": "Observable<any>",
                     "typeParameters": [],
-                    "line": 32,
+                    "line": 31,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -739,7 +711,7 @@
                     "optional": false,
                     "returnType": "Observable<any>",
                     "typeParameters": [],
-                    "line": 92,
+                    "line": 83,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -767,7 +739,7 @@
                     "optional": false,
                     "returnType": "Observable<any[]>",
                     "typeParameters": [],
-                    "line": 57,
+                    "line": 56,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -795,51 +767,13 @@
                     "optional": false,
                     "returnType": "Observable<Pokemon[]>",
                     "typeParameters": [],
-                    "line": 182,
+                    "line": 135,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
                         {
                             "name": "speciesData",
                             "type": "PokemonSpecies",
-                            "deprecated": false,
-                            "deprecationMessage": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "getPokemonTypes",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "Observable<any>",
-                    "typeParameters": [],
-                    "line": 88,
-                    "deprecated": false,
-                    "deprecationMessage": ""
-                },
-                {
-                    "name": "getPokemonTypesById",
-                    "args": [
-                        {
-                            "name": "id",
-                            "type": "number",
-                            "deprecated": false,
-                            "deprecationMessage": ""
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "Observable<any>",
-                    "typeParameters": [],
-                    "line": 84,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "jsdoctags": [
-                        {
-                            "name": "id",
-                            "type": "number",
                             "deprecated": false,
                             "deprecationMessage": "",
                             "tagName": {
@@ -861,7 +795,7 @@
                     "optional": false,
                     "returnType": "Observable<any>",
                     "typeParameters": [],
-                    "line": 80,
+                    "line": 79,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -889,7 +823,7 @@
                     "optional": false,
                     "returnType": "string",
                     "typeParameters": [],
-                    "line": 96,
+                    "line": 87,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -923,7 +857,7 @@
                     "optional": false,
                     "returnType": "any[]",
                     "typeParameters": [],
-                    "line": 107,
+                    "line": 98,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -960,7 +894,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 216,
+                    "line": 169,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -988,7 +922,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 111,
+                    "line": 102,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -1002,41 +936,13 @@
                             }
                         }
                     ]
-                },
-                {
-                    "name": "transformTypeData",
-                    "args": [
-                        {
-                            "name": "types",
-                            "type": "any[]",
-                            "deprecated": false,
-                            "deprecationMessage": ""
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "any[]",
-                    "typeParameters": [],
-                    "line": 165,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "jsdoctags": [
-                        {
-                            "name": "types",
-                            "type": "any[]",
-                            "deprecated": false,
-                            "deprecationMessage": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
                 }
             ],
             "deprecated": false,
             "deprecationMessage": "",
             "description": "",
             "rawdescription": "\n",
-            "sourceCode": "import { Injectable } from '@angular/core';\nimport { HttpClient } from '@angular/common/http';\nimport { BehaviorSubject, Observable, forkJoin, of } from 'rxjs';\nimport { map, catchError, switchMap, tap } from 'rxjs/operators';\nimport { API_URLS } from '../constants/api-urls';\nimport { getCamleCaseString } from '../constants/pokemon-types';\nimport { EvolutionChain, PokemonSpecies, Pokemon } from '../models/pokemon.types';\n\n@Injectable({\n  providedIn: 'root'\n})\nexport class PokemonService {\n  private initialURL = `${API_URLS.baseURL}/pokemon?limit=${API_URLS.LIMIT}`;\n  private allPokemonURL = `${API_URLS.baseURL}/pokemon?limit=1100`;\n  \n  private pokemonListSubject = new BehaviorSubject<any[]>([]);\n  private loadingSubject = new BehaviorSubject<boolean>(true);\n  private loadMoreInProgressSubject = new BehaviorSubject<boolean>(false);\n  private filteredPokemonList = new BehaviorSubject<any[]>([]);\n\n  pokemonList$ = this.pokemonListSubject.asObservable();\n  loading$ = this.loadingSubject.asObservable();\n  loadMoreInProgress$ = this.loadMoreInProgressSubject.asObservable();\n  filteredPokemonList$ = this.filteredPokemonList.asObservable();\n\n  private nextUrl: string = this.initialURL;\n\n  allPokemonsList: any[] = [];\n\n  constructor(private http: HttpClient) {}\n\n  getPokemonData(isReset: boolean = false): Observable<any> {\n    if (isReset) {\n      this.nextUrl = this.initialURL;\n      this.pokemonListSubject.next([]);\n    }\n    \n    if (!this.nextUrl) {\n      return of([]);\n    }\n\n    this.loadMoreInProgressSubject.next(true);\n    \n    return this.http.get(this.nextUrl).pipe(\n      switchMap((response: any) => {\n        this.nextUrl = response.next;\n        return this.getPokemonDetailsListByUrl(response.results);\n      }),\n      tap(pokemonsList => {\n        const currentList = isReset ? [] : this.pokemonListSubject.value;\n        this.pokemonListSubject.next([...currentList, ...pokemonsList]);\n        this.loadMoreInProgressSubject.next(false);\n      })\n    );\n  }\n\n  getPokemonDetailsListByUrl(results: any[]): Observable<any[]> {\n    if (!results?.length) {\n      return of([]);\n    }\n    \n    const observables = results.map(pokemon => \n      this.http.get<any>(pokemon.url).pipe(\n        catchError(error => {\n          console.error(`Error fetching pokemon ${pokemon.name}:`, error);\n          return of(null);\n        })\n      )\n    );\n    \n    return forkJoin(observables).pipe(\n      map(pokemons => pokemons.filter(pokemon => pokemon !== null))\n    );\n  }\n\n  getAllPokemonDataList(): Observable<any> {\n    return this.http.get(this.allPokemonURL);\n  }\n\n  getSpeciesDataById(id: number): Observable<any> {\n    return this.http.get(`${API_URLS.baseURL}/pokemon-species/${id}/`);\n  }\n\n  getPokemonTypesById(id: number): Observable<any> {\n    return this.http.get(`${API_URLS.baseURL}/type/${id}/`);\n  }\n\n  getPokemonTypes(): Observable<any> {\n    return this.http.get(`${API_URLS.baseURL}/type`);\n  }\n\n  getPokemonDataById(id: number): Observable<any> {\n    return this.http.get(`${API_URLS.baseURL}/pokemon/${id}/`);\n  }\n\n  numberFormation(number: number): string {\n    let result = number.toString();\n    if (number < 10) result = `00${number}`;\n    if (number > 10 && number < 100) result = `0${number}`;\n    return result;\n  }\n\n  getAllParallelCall(ApiUrls: string[]): Observable<any[]> {\n    const observables = ApiUrls.map(url => this.http.get(url));\n    return forkJoin(observables);\n  }\n  removeDuplicateBy(arr: any[], prop: string): any[] {\n    return Array.from(new Map(arr.map((m) => [m[prop], m])).values());\n  }\n\n  setLoading(loading: boolean): void {\n    this.loadingSubject.next(loading);\n  }\n\n  filterBySearch(searchTerm: string): any {\n    if (!searchTerm.trim()) {\n      this.filteredPokemonList.next([]);\n      return;\n    }\n\n    const filtered = this.allPokemonsList\n      .filter(pokemon => \n        pokemon.name.toLowerCase().includes(searchTerm.toLowerCase()));\n\n    if (filtered.length > API_URLS.SEARCH_SLICED) {\n      filtered.length = API_URLS.SEARCH_SLICED;\n    }\n\n    this.getPokemonDetailsListByUrl(filtered)\n      .subscribe(pokemonList => {\n        this.filteredPokemonList.next(pokemonList);\n      });\n  }\n\n  filterByTypes(typeUrls: string[]): Observable<any[]> {\n    if (!typeUrls.length) {\n      this.filteredPokemonList.next([]);\n      return of([]);\n    }\n\n    this.setLoading(true);\n\n    return this.getAllParallelCall(typeUrls).pipe(\n      map(responses => {\n        let pokemonList = responses\n          .map(res => res.pokemon)\n          .flat()\n          .map(item => item.pokemon);\n        pokemonList = this.removeDuplicateBy(pokemonList, 'name');\n        return pokemonList;\n      }),\n      switchMap(pokemonList => this.getPokemonDetailsListByUrl(pokemonList)),\n      tap(pokemonList => {\n        this.setFilteredPokemonList(pokemonList);\n        this.setLoading(false);\n      }),\n      catchError(error => {\n        console.error('Error filtering by types:', error);\n        this.setLoading(false);\n        return of([]);\n      })\n    );\n  }\n\n  transformTypeData(types: any[]): any[] {\n    return types.map(item => ({\n      label: getCamleCaseString(item.name),\n      value: item.url,\n      url: item.url\n    }));\n  }\n\n  getEvolutionChain(url: string): Observable<EvolutionChain> {\n    return this.http.get<EvolutionChain>(url).pipe(\n      catchError(error => {\n        console.error('Error fetching evolution chain:', error);\n        return of({ chain: { species: { name: '', url: '' }, evolves_to: [] } });\n      })\n    );\n  }\n\n  getPokemonEvolutionChain(speciesData: PokemonSpecies): Observable<Pokemon[]> {\n    return this.getEvolutionChain(speciesData.evolution_chain.url).pipe(\n      map(chain => this.extractEvolutionChain(chain)),\n      switchMap(pokemonNames => {\n        const pokemonRequests = pokemonNames.map(name => \n          this.http.get<Pokemon>(`${API_URLS.baseURL}/pokemon/${name}`)\n        );\n        return forkJoin(pokemonRequests);\n      }),\n      catchError(error => {\n        console.error('Error fetching pokemon evolution chain:', error);\n        return of([]);\n      })\n    );\n  }\n\n  private extractEvolutionChain(chain: EvolutionChain): string[] {\n    const pokemonNames: string[] = [];\n    \n    const extractNames = (node: any) => {\n      if (node.species) {\n        pokemonNames.push(node.species.name);\n      }\n      if (node.evolves_to && node.evolves_to.length > 0) {\n        node.evolves_to.forEach((evolution: any) => {\n          extractNames(evolution);\n        });\n      }\n    };\n\n    extractNames(chain.chain);\n    return pokemonNames;\n  }\n\n  setFilteredPokemonList(data: any[]): void {\n    this.filteredPokemonList.next(data);\n  }\n} ",
+            "sourceCode": "import { Injectable } from '@angular/core';\nimport { HttpClient } from '@angular/common/http';\nimport { BehaviorSubject, Observable, forkJoin, of } from 'rxjs';\nimport { map, catchError, switchMap, tap } from 'rxjs/operators';\nimport { API_URLS } from '../constants/api-urls';\nimport { EvolutionChain, PokemonSpecies, Pokemon } from '../models/pokemon.types';\n\n@Injectable({\n  providedIn: 'root'\n})\nexport class PokemonService {\n  private initialURL = `${API_URLS.baseURL}/pokemon?limit=${API_URLS.LIMIT}`;\n  private allPokemonURL = `${API_URLS.baseURL}/pokemon?limit=1100`;\n  \n  private pokemonListSubject = new BehaviorSubject<any[]>([]);\n  private loadingSubject = new BehaviorSubject<boolean>(true);\n  private loadMoreInProgressSubject = new BehaviorSubject<boolean>(false);\n  private filteredPokemonList = new BehaviorSubject<any[]>([]);\n\n  pokemonList$ = this.pokemonListSubject.asObservable();\n  loading$ = this.loadingSubject.asObservable();\n  loadMoreInProgress$ = this.loadMoreInProgressSubject.asObservable();\n  filteredPokemonList$ = this.filteredPokemonList.asObservable();\n\n  private nextUrl: string = this.initialURL;\n\n  allPokemonsList: any[] = [];\n\n  constructor(private http: HttpClient) {}\n\n  getPokemonData(isReset: boolean = false): Observable<any> {\n    if (isReset) {\n      this.nextUrl = this.initialURL;\n      this.pokemonListSubject.next([]);\n    }\n    \n    if (!this.nextUrl) {\n      return of([]);\n    }\n\n    this.loadMoreInProgressSubject.next(true);\n    \n    return this.http.get(this.nextUrl).pipe(\n      switchMap((response: any) => {\n        this.nextUrl = response.next;\n        return this.getPokemonDetailsListByUrl(response.results);\n      }),\n      tap(pokemonsList => {\n        const currentList = isReset ? [] : this.pokemonListSubject.value;\n        this.pokemonListSubject.next([...currentList, ...pokemonsList]);\n        this.loadMoreInProgressSubject.next(false);\n      })\n    );\n  }\n\n  getPokemonDetailsListByUrl(results: any[]): Observable<any[]> {\n    if (!results?.length) {\n      return of([]);\n    }\n    \n    const observables = results.map(pokemon => \n      this.http.get<any>(pokemon.url).pipe(\n        catchError(error => {\n          console.error(`Error fetching pokemon ${pokemon.name}:`, error);\n          return of(null);\n        })\n      )\n    );\n    \n    return forkJoin(observables).pipe(\n      map(pokemons => pokemons.filter(pokemon => pokemon !== null))\n    );\n  }\n\n  getAllPokemonDataList(): Observable<any> {\n    return this.http.get(this.allPokemonURL);\n  }\n\n  getSpeciesDataById(id: number): Observable<any> {\n    return this.http.get(`${API_URLS.baseURL}/pokemon-species/${id}/`);\n  }\n\n  getPokemonDataById(id: number): Observable<any> {\n    return this.http.get(`${API_URLS.baseURL}/pokemon/${id}/`);\n  }\n\n  numberFormation(number: number): string {\n    let result = number.toString();\n    if (number < 10) result = `00${number}`;\n    if (number > 10 && number < 100) result = `0${number}`;\n    return result;\n  }\n\n  getAllParallelCall(ApiUrls: string[]): Observable<any[]> {\n    const observables = ApiUrls.map(url => this.http.get(url));\n    return forkJoin(observables);\n  }\n  removeDuplicateBy(arr: any[], prop: string): any[] {\n    return Array.from(new Map(arr.map((m) => [m[prop], m])).values());\n  }\n\n  setLoading(loading: boolean): void {\n    this.loadingSubject.next(loading);\n  }\n\n  filterBySearch(searchTerm: string): any {\n    if (!searchTerm.trim()) {\n      this.filteredPokemonList.next([]);\n      return;\n    }\n\n    const filtered = this.allPokemonsList\n      .filter(pokemon => \n        pokemon.name.toLowerCase().includes(searchTerm.toLowerCase()));\n\n    if (filtered.length > API_URLS.SEARCH_SLICED) {\n      filtered.length = API_URLS.SEARCH_SLICED;\n    }\n\n    this.getPokemonDetailsListByUrl(filtered)\n      .subscribe(pokemonList => {\n        this.filteredPokemonList.next(pokemonList);\n      });\n  }\n\n  getEvolutionChain(url: string): Observable<EvolutionChain> {\n    return this.http.get<EvolutionChain>(url).pipe(\n      catchError(error => {\n        console.error('Error fetching evolution chain:', error);\n        return of({ chain: { species: { name: '', url: '' }, evolves_to: [] } });\n      })\n    );\n  }\n\n  getPokemonEvolutionChain(speciesData: PokemonSpecies): Observable<Pokemon[]> {\n    return this.getEvolutionChain(speciesData.evolution_chain.url).pipe(\n      map(chain => this.extractEvolutionChain(chain)),\n      switchMap(pokemonNames => {\n        const pokemonRequests = pokemonNames.map(name => \n          this.http.get<Pokemon>(`${API_URLS.baseURL}/pokemon/${name}`)\n        );\n        return forkJoin(pokemonRequests);\n      }),\n      catchError(error => {\n        console.error('Error fetching pokemon evolution chain:', error);\n        return of([]);\n      })\n    );\n  }\n\n  private extractEvolutionChain(chain: EvolutionChain): string[] {\n    const pokemonNames: string[] = [];\n    \n    const extractNames = (node: any) => {\n      if (node.species) {\n        pokemonNames.push(node.species.name);\n      }\n      if (node.evolves_to && node.evolves_to.length > 0) {\n        node.evolves_to.forEach((evolution: any) => {\n          extractNames(evolution);\n        });\n      }\n    };\n\n    extractNames(chain.chain);\n    return pokemonNames;\n  }\n\n  setFilteredPokemonList(data: any[]): void {\n    this.filteredPokemonList.next(data);\n  }\n} ",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
@@ -1050,7 +956,7 @@
                         "deprecationMessage": ""
                     }
                 ],
-                "line": 28,
+                "line": 27,
                 "jsdoctags": [
                     {
                         "name": "http",
@@ -1389,7 +1295,7 @@
         },
         {
             "name": "FilterComponent",
-            "id": "component-FilterComponent-a86ef157baaeec763fb3b410a2d0c3ab00ba65c15d3fbc34dc0d4375a6c25e3e75a72c43182aa5c3cb3af9108fdf83479dc38422330c5f089928c57c58dc5ab3",
+            "id": "component-FilterComponent-853bb72cfddfcc7d92ec36ddb1d2e4bfee6ec7f5169d76eae06a930e94207c034f47bb3546902c768a3acedc1eb9796d4da29c6a382a4235c546d6d28f35ab2b",
             "file": "src/app/shared/organisms/filter/filter.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1427,29 +1333,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 23
-                },
-                {
-                    "name": "isTypeFilterOpen",
-                    "defaultValue": "false",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
                     "line": 17
-                },
-                {
-                    "name": "pokemonTypes$",
-                    "defaultValue": "this.pokemonService.getPokemonTypes().pipe(\n    map(response => this.pokemonService.transformTypeData(response.results))\n  )",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "any",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 19
                 },
                 {
                     "name": "SEARCH_SLICED",
@@ -1460,7 +1344,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 24
+                    "line": 18
                 },
                 {
                     "name": "searchSubject",
@@ -1497,7 +1381,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 45,
+                    "line": 39,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -1507,7 +1391,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 36,
+                    "line": 30,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -1524,7 +1408,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 51,
+                    "line": 45,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -1538,54 +1422,6 @@
                             }
                         }
                     ]
-                },
-                {
-                    "name": "onTypeChange",
-                    "args": [
-                        {
-                            "name": "values",
-                            "type": "any",
-                            "deprecated": false,
-                            "deprecationMessage": ""
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "any",
-                    "typeParameters": [],
-                    "line": 86,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "jsdoctags": [
-                        {
-                            "name": "values",
-                            "type": "any",
-                            "deprecated": false,
-                            "deprecationMessage": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "onTypeFilterClose",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "any",
-                    "typeParameters": [],
-                    "line": 105,
-                    "deprecated": false,
-                    "deprecationMessage": ""
-                },
-                {
-                    "name": "onTypeFilterOpen",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "any",
-                    "typeParameters": [],
-                    "line": 101,
-                    "deprecated": false,
-                    "deprecationMessage": ""
                 },
                 {
                     "name": "performSearch",
@@ -1600,7 +1436,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 56,
+                    "line": 50,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "modifierKind": [
@@ -1628,11 +1464,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Output, EventEmitter, OnInit, OnDestroy } from '@angular/core';\nimport { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';\nimport { Observable,  Subject, Subscription } from 'rxjs';\nimport { PokemonService } from '../../../core/services/pokemon.service';\n\n@Component({\n  selector: 'app-filter',\n  templateUrl: './filter.component.html',\n  styleUrls: ['./filter.component.scss']\n})\nexport class FilterComponent implements OnInit, OnDestroy {\n  @Output() filterEnabled = new EventEmitter<any>();\n\n  private searchSubject = new Subject<any>();\n  private searchSubscription: Subscription;\n\n  isTypeFilterOpen = false;\n  \n  pokemonTypes$: any = this.pokemonService.getPokemonTypes().pipe(\n    map(response => this.pokemonService.transformTypeData(response.results))\n  );\n\n  isFilterEnabled = false;\n  SEARCH_SLICED = 20;\n\n  constructor(private pokemonService: PokemonService) {\n    // Setup the debounced search\n    this.searchSubscription = this.searchSubject.pipe(\n      debounceTime(500),\n      distinctUntilChanged()\n    ).subscribe(searchTerm => {\n      this.performSearch(searchTerm);\n    });\n  }\n\n  ngOnInit(): void {\n    // Get all pokemon list at initialization\n    this.pokemonService.getAllPokemonDataList().subscribe(\n      (data: any) => {\n        this.pokemonService.allPokemonsList = data.results;\n      }\n    );\n  }\n\n  ngOnDestroy(): void {\n    if (this.searchSubscription) {\n      this.searchSubscription.unsubscribe();\n    }\n  }\n\n  onSearchChange(value: any): void {\n    const trimmedValue = value.trim().toLowerCase();\n    this.searchSubject.next(trimmedValue); // Emit the search term to the subject\n  }\n\n  private performSearch(value: any): void {\n    this.pokemonService.setLoading(true); // Set loading to true when search starts\n    if (value.length) {\n      this.isFilterEnabled = true;\n      this.filterEnabled.emit(true);\n      \n      // Filter the allPokemonsList\n      const filteredList = this.pokemonService.allPokemonsList.filter(pokemon => \n        pokemon.name.toLowerCase().includes(value)\n      );\n\n      if (filteredList.length > this.SEARCH_SLICED) {\n        filteredList.length = this.SEARCH_SLICED;\n      }\n\n      // Get detailed data for filtered pokemon\n      this.pokemonService.getPokemonDetailsListByUrl(filteredList)\n        .subscribe(detailedList => {\n          this.pokemonService.setFilteredPokemonList(detailedList);\n          this.pokemonService.setLoading(false); // Set loading to false after data is fetched\n        });\n    } else {\n      this.filterEnabled.emit(false);\n      this.pokemonService.setFilteredPokemonList([]);\n      this.pokemonService.getPokemonData(true).subscribe(() => {\n        this.pokemonService.setLoading(false); // Set loading to false after data is fetched\n      });\n    }\n  }\n\n  onTypeChange(values: any): any {\n    this.pokemonService.setLoading(true); // Set loading to true when filter starts\n    if (values.length) {\n      this.filterEnabled.emit(true);\n      this.pokemonService.filterByTypes(values).subscribe(() => {\n        this.pokemonService.setLoading(false); // Set loading to false after data is fetched\n      });\n    } else {\n      this.filterEnabled.emit(false);\n      this.pokemonService.getPokemonData(true).subscribe(() => {\n        this.pokemonService.setLoading(false); // Set loading to false after data is fetched\n      });\n    }\n  }\n\n  onTypeFilterOpen(): any {\n    this.isTypeFilterOpen = true;\n  }\n\n  onTypeFilterClose(): any {\n    this.isTypeFilterOpen = false;\n  }\n} ",
+            "sourceCode": "import { Component, Output, EventEmitter, OnInit, OnDestroy } from '@angular/core';\nimport { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';\nimport { Observable,  Subject, Subscription } from 'rxjs';\nimport { PokemonService } from '../../../core/services/pokemon.service';\n\n@Component({\n  selector: 'app-filter',\n  templateUrl: './filter.component.html',\n  styleUrls: ['./filter.component.scss']\n})\nexport class FilterComponent implements OnInit, OnDestroy {\n  @Output() filterEnabled = new EventEmitter<any>();\n\n  private searchSubject = new Subject<any>();\n  private searchSubscription: Subscription;\n\n  isFilterEnabled = false;\n  SEARCH_SLICED = 20;\n\n  constructor(private pokemonService: PokemonService) {\n    // Setup the debounced search\n    this.searchSubscription = this.searchSubject.pipe(\n      debounceTime(500),\n      distinctUntilChanged()\n    ).subscribe(searchTerm => {\n      this.performSearch(searchTerm);\n    });\n  }\n\n  ngOnInit(): void {\n    // Get all pokemon list at initialization\n    this.pokemonService.getAllPokemonDataList().subscribe(\n      (data: any) => {\n        this.pokemonService.allPokemonsList = data.results;\n      }\n    );\n  }\n\n  ngOnDestroy(): void {\n    if (this.searchSubscription) {\n      this.searchSubscription.unsubscribe();\n    }\n  }\n\n  onSearchChange(value: any): void {\n    const trimmedValue = value.trim().toLowerCase();\n    this.searchSubject.next(trimmedValue); // Emit the search term to the subject\n  }\n\n  private performSearch(value: any): void {\n    this.pokemonService.setLoading(true); // Set loading to true when search starts\n    if (value.length) {\n      this.isFilterEnabled = true;\n      this.filterEnabled.emit(true);\n      \n      // Filter the allPokemonsList\n      const filteredList = this.pokemonService.allPokemonsList.filter(pokemon => \n        pokemon.name.toLowerCase().includes(value)\n      );\n\n      if (filteredList.length > this.SEARCH_SLICED) {\n        filteredList.length = this.SEARCH_SLICED;\n      }\n\n      // Get detailed data for filtered pokemon\n      this.pokemonService.getPokemonDetailsListByUrl(filteredList)\n        .subscribe(detailedList => {\n          this.pokemonService.setFilteredPokemonList(detailedList);\n          this.pokemonService.setLoading(false); // Set loading to false after data is fetched\n        });\n    } else {\n      this.filterEnabled.emit(false);\n      this.pokemonService.setFilteredPokemonList([]);\n      this.pokemonService.getPokemonData(true).subscribe(() => {\n        this.pokemonService.setLoading(false); // Set loading to false after data is fetched\n      });\n    }\n  }\n} ",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@use 'variables' as *;\n@use 'common' as *;\n\n.filter-container {\n  padding: 0;\n\n  .filter-wrap {\n    @include flex-row(flex-start, space-between);\n    padding-top: 22px;\n\n    .filter-row-wrap {\n      display: grid;\n      grid-template-columns: 3.5fr 0.5fr;\n      gap: 16px;\n      width: 100%;\n      margin: 0;\n\n      @include sm {\n        grid-template-columns: 1fr;\n        gap: 16px;\n      }\n\n      .search-col {\n        width: 100%;\n\n        .search-field {\n          width: 100%;\n\n          .field-label{\n            padding-bottom: 6px;\n          }\n          ::ng-deep {\n            .mat-form-field {\n              width: 100%;\n            }\n\n            .mat-form-field-wrapper {\n              padding: 0;\n              margin: 0;\n            }\n\n            .mat-form-field-flex {\n              background-color: $input-background;\n              border-radius: 6px;\n              height: 42px !important;\n              min-height: 42px !important;\n              padding: 0 16px;\n              transition: all 0.2s ease;\n\n              &:hover, &:focus-within {\n                background-color: $white;\n              }\n            }\n\n            .mat-form-field-infix {\n              padding: 0;\n              border-top: 0;\n              height: 42px;\n              display: flex;\n              align-items: center;\n            }\n\n            input.mat-input-element {\n              margin: 0;\n              font-size: 14px;\n              line-height: normal;\n              height: auto;\n              color: $primary-text-color;\n\n              &::placeholder {\n                color: rgba($primary-text-color, 0.7);\n              }\n            }\n\n            .mat-form-field-label {\n              color: rgba($primary-text-color, 0.7);\n              font-size: 14px;\n            }\n\n            .mat-form-field-underline {\n              display: none;\n            }\n\n            .mat-form-field-label-wrapper {\n              padding-top: 0;\n            }\n        \n            .mat-mdc-form-field-has-icon-suffix .mat-mdc-text-field-wrapper {\n                padding-right: 0;\n                background-color: #C9DDE2;\n                border-radius: 10px;\n            }\n          }\n        }\n      }\n\n      .type-col {\n        width: 100%;\n        min-width: 240px;\n        max-width: 320px;\n\n        .field-label{\n            padding-bottom: 6px;\n        }\n\n        ::ng-deep {\n          .mat-form-field {\n            width: 100%;\n          }\n\n          .mat-form-field-flex {\n            background-color: $input-background;\n            border-radius: 6px;\n            height: 42px !important;\n            min-height: 42px !important;\n            padding: 0 16px;\n          }\n\n          .mat-select-value {\n            color: $primary-text-color;\n          }\n\n          .mat-select-arrow {\n            color: $primary-text-color;\n          }\n\n          .mat-form-field-underline {\n            display: none;\n          }\n        }\n      }\n    }\n  }\n}\n\n.pokemon-search-filter {\n  background-color: $input-background;\n}\n\n// Dropdown panel styles\n::ng-deep {\n  .mat-select-panel {\n    background-color: $white;\n    border-radius: 6px !important;\n    margin-top: 4px;\n    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);\n\n    .mat-option {\n      height: 42px;\n      line-height: 42px;\n      font-size: 14px;\n      color: $primary-text-color;\n      padding: 0 16px;\n\n      &.mat-selected:not(.mat-option-multiple) {\n        background-color: rgba($primary-text-color, 0.1);\n      }\n\n      &:hover:not(.mat-option-disabled) {\n        background-color: rgba($primary-text-color, 0.1);\n      }\n    }\n  }\n}\n",
+                    "data": "@use 'variables' as *;\n@use 'common' as *;\n\n.filter-container {\n  padding: 0;\n\n  .filter-wrap {\n    @include flex-row(flex-start, space-between);\n    padding-top: 22px;\n\n    .filter-row-wrap {\n      display: grid;\n      gap: 16px;\n      width: 100%;\n      margin: 0;\n\n      @include sm {\n        grid-template-columns: 1fr;\n        gap: 16px;\n      }\n\n      .search-col {\n        width: 100%;\n\n        .search-field {\n          width: 100%;\n\n          .field-label{\n            padding-bottom: 6px;\n          }\n          ::ng-deep {\n            .mat-form-field {\n              width: 100%;\n            }\n\n            .mat-form-field-wrapper {\n              padding: 0;\n              margin: 0;\n            }\n\n            .mat-form-field-flex {\n              background-color: $input-background;\n              border-radius: 6px;\n              height: 42px !important;\n              min-height: 42px !important;\n              padding: 0 16px;\n              transition: all 0.2s ease;\n\n              &:hover, &:focus-within {\n                background-color: $white;\n              }\n            }\n\n            .mat-form-field-infix {\n              padding: 0;\n              border-top: 0;\n              height: 42px;\n              display: flex;\n              align-items: center;\n            }\n\n            input.mat-input-element {\n              margin: 0;\n              font-size: 14px;\n              line-height: normal;\n              height: auto;\n              color: $primary-text-color;\n\n              &::placeholder {\n                color: rgba($primary-text-color, 0.7);\n              }\n            }\n\n            .mat-form-field-label {\n              color: rgba($primary-text-color, 0.7);\n              font-size: 14px;\n            }\n\n            .mat-form-field-underline {\n              display: none;\n            }\n\n            .mat-form-field-label-wrapper {\n              padding-top: 0;\n            }\n        \n            .mat-mdc-form-field-has-icon-suffix .mat-mdc-text-field-wrapper {\n                padding-right: 0;\n                background-color: #C9DDE2;\n                border-radius: 10px;\n            }\n          }\n        }\n      }\n    }\n  }\n}\n\n.pokemon-search-filter {\n  background-color: $input-background;\n}\n\n// Dropdown panel styles\n::ng-deep {\n  .mat-select-panel {\n    background-color: $white;\n    border-radius: 6px !important;\n    margin-top: 4px;\n    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);\n\n    .mat-option {\n      height: 42px;\n      line-height: 42px;\n      font-size: 14px;\n      color: $primary-text-color;\n      padding: 0 16px;\n\n      &.mat-selected:not(.mat-option-multiple) {\n        background-color: rgba($primary-text-color, 0.1);\n      }\n\n      &:hover:not(.mat-option-disabled) {\n        background-color: rgba($primary-text-color, 0.1);\n      }\n    }\n  }\n}\n",
                     "styleUrl": "./filter.component.scss"
                 }
             ],
@@ -1650,7 +1486,7 @@
                         "deprecationMessage": ""
                     }
                 ],
-                "line": 24,
+                "line": 18,
                 "jsdoctags": [
                     {
                         "name": "pokemonService",
@@ -1668,7 +1504,7 @@
                 "OnInit",
                 "OnDestroy"
             ],
-            "templateData": "<div class=\"filter-container\">\n  <div class=\"filter-wrap\">\n    <div class=\"filter-row-wrap\">\n      <div class=\"search-col\">\n        <div class=\"search-field\">\n          <div class=\"field-label\">Search By</div>\n          <app-search-filter\n            placeholder=\"Search by Name\"\n            inputClass=\"pokemon-search-filter\"\n            (searchChange)=\"onSearchChange($event)\">\n          </app-search-filter>\n        </div>\n      </div>\n      \n      <div class=\"type-col\">\n        <div class=\"field-label\">Type</div>\n        <app-multi-select-dropdown\n          [placeholder]=\"'Select Types'\"\n          [data]=\"(pokemonTypes$ | async) || []\"\n          (selectionChange)=\"onTypeChange($event)\">\n        </app-multi-select-dropdown>\n      </div>\n\n    </div>\n  </div>\n</div> "
+            "templateData": "<div class=\"filter-container\">\n  <div class=\"filter-wrap\">\n    <div class=\"filter-row-wrap\">\n      <div class=\"search-col\">\n        <div class=\"search-field\">\n          <div class=\"field-label\">Search By</div>\n          <app-search-filter\n            placeholder=\"Search by Name\"\n            inputClass=\"pokemon-search-filter\"\n            (searchChange)=\"onSearchChange($event)\">\n          </app-search-filter>\n        </div>\n      </div>\n    </div>\n  </div>\n</div> "
         },
         {
             "name": "HeaderComponent",
@@ -3897,7 +3733,7 @@
                 "linktype": "injectable",
                 "name": "PokemonService",
                 "coveragePercent": 0,
-                "coverageCount": "0/32",
+                "coverageCount": "0/28",
                 "status": "low"
             },
             {
@@ -3987,7 +3823,7 @@
                 "linktype": "component",
                 "name": "FilterComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/16",
+                "coverageCount": "0/11",
                 "status": "low"
             },
             {

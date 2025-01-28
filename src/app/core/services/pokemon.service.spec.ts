@@ -84,13 +84,6 @@ describe('PokemonService', () => {
     req.flush(mockError, { status: 500, statusText: 'Server Error' });
   });
 
-  it('should transform type data', () => {
-    const mockTypes = [{ name: 'fire', url: 'fire-url' }];
-    const transformedData = service.transformTypeData(mockTypes);
-
-    expect(transformedData).toEqual([{ label: 'Fire', value: 'fire-url', url: 'fire-url' }]);
-  });
-
   it('should filter by search term', () => {
     service.allPokemonsList = [{ name: 'bulbasaur' }, { name: 'charmander' }];
     const searchTerm = 'bul';
@@ -106,30 +99,5 @@ describe('PokemonService', () => {
     expect(service.numberFormation(5)).toBe('005');
     expect(service.numberFormation(50)).toBe('050');
     expect(service.numberFormation(500)).toBe('500');
-  });
-
-  it('should handle filtering by types', () => {
-    const typeUrls = ['type-url-1', 'type-url-2'];
-    const mockResponses = [
-      { pokemon: [{ pokemon: { name: 'bulbasaur', url: 'url-1' } }] },
-      { pokemon: [{ pokemon: { name: 'charmander', url: 'url-2' } }] }
-    ];
-    const mockDetails = [{ name: 'bulbasaur' }, { name: 'charmander' }];
-
-    service.filterByTypes(typeUrls).subscribe(filteredList => {
-      expect(filteredList).toEqual(mockDetails);
-    });
-
-    const req1 = httpMock.expectOne('type-url-1');
-    req1.flush(mockResponses[0]);
-
-    const req2 = httpMock.expectOne('type-url-2');
-    req2.flush(mockResponses[1]);
-
-    const req3 = httpMock.expectOne('url-1');
-    req3.flush(mockDetails[0]);
-
-    const req4 = httpMock.expectOne('url-2');
-    req4.flush(mockDetails[1]);
   });
 });

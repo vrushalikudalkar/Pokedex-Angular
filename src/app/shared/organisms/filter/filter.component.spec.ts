@@ -41,11 +41,4 @@ describe('FilterComponent', () => {
     component.ngOnDestroy();
     expect(unsubscribeSpy).toHaveBeenCalled();
   });
-
-  it('should toggle isTypeFilterOpen on type filter open/close', () => {
-    component.onTypeFilterOpen();
-    expect(component.isTypeFilterOpen).toBe(true);
-    component.onTypeFilterClose();
-    expect(component.isTypeFilterOpen).toBe(false);
-  });
 }); 

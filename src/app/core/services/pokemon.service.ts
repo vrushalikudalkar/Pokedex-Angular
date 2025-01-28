@@ -59,17 +59,22 @@ export class PokemonService {
       return of([]);
     }
     
-    const observables = results.map(pokemon => 
-      this.http.get<any>(pokemon.url).pipe(
+    const observables = results.map(pokemon => {
+      if (!pokemon || !pokemon.url) {
+        return of(null);
+      }
+
+      return this.http.get<any>(pokemon.url).pipe(
         catchError(error => {
-          console.error(`Error fetching pokemon ${pokemon.name}:`, error);
           return of(null);
         })
-      )
-    );
+      );
+    });
     
     return forkJoin(observables).pipe(
-      map(pokemons => pokemons.filter(pokemon => pokemon !== null))
+      map(pokemons => {
+        return pokemons.filter(pokemon => pokemon !== null && pokemon.name);
+      })
     );
   }
 

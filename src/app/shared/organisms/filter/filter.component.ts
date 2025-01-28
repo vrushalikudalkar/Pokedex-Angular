@@ -14,12 +14,6 @@ export class FilterComponent implements OnInit, OnDestroy {
   private searchSubject = new Subject<any>();
   private searchSubscription: Subscription;
 
-  isTypeFilterOpen = false;
-  
-  pokemonTypes$: any = this.pokemonService.getPokemonTypes().pipe(
-    map(response => this.pokemonService.transformTypeData(response.results))
-  );
-
   isFilterEnabled = false;
   SEARCH_SLICED = 20;
 
@@ -81,28 +75,5 @@ export class FilterComponent implements OnInit, OnDestroy {
         this.pokemonService.setLoading(false); // Set loading to false after data is fetched
       });
     }
-  }
-
-  onTypeChange(values: any): any {
-    this.pokemonService.setLoading(true); // Set loading to true when filter starts
-    if (values.length) {
-      this.filterEnabled.emit(true);
-      this.pokemonService.filterByTypes(values).subscribe(() => {
-        this.pokemonService.setLoading(false); // Set loading to false after data is fetched
-      });
-    } else {
-      this.filterEnabled.emit(false);
-      this.pokemonService.getPokemonData(true).subscribe(() => {
-        this.pokemonService.setLoading(false); // Set loading to false after data is fetched
-      });
-    }
-  }
-
-  onTypeFilterOpen(): any {
-    this.isTypeFilterOpen = true;
-  }
-
-  onTypeFilterClose(): any {
-    this.isTypeFilterOpen = false;
   }
 } 

@@ -11,16 +11,6 @@
           </app-search-filter>
         </div>
       </div>
-      
-      <div class="type-col">
-        <div class="field-label">Type</div>
-        <app-multi-select-dropdown
-          [placeholder]="'Select Types'"
-          [data]="(pokemonTypes$ | async) || []"
-          (selectionChange)="onTypeChange($event)">
-        </app-multi-select-dropdown>
-      </div>
-
     </div>
   </div>
 </div> 

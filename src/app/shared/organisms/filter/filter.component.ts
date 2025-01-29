@@ -48,7 +48,7 @@ export class FilterComponent implements OnInit, OnDestroy {
     this.searchSubject.next(trimmedValue); // Emit the search term to the subject
   }
 
-  private performSearch(value: string): void {
+  performSearch(value: string): void {
     this.pokemonService.setLoading(true); // Set loading to true when search starts
     if (value.length) {
       this.isFilterEnabled = true;

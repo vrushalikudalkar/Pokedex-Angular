@@ -41,4 +41,66 @@ describe('FilterComponent', () => {
     component.ngOnDestroy();
     expect(unsubscribeSpy).toHaveBeenCalled();
   });
+
+  it('should emit a trimmed and lowercased search term', (done) => {
+    const searchTerm = '  Bulbasaur  ';
+    const expectedTerm = 'bulbasaur';
+
+    component['searchSubject'].subscribe((emittedValue) => {
+      expect(emittedValue).toBe(expectedTerm);
+      done();
+    });
+
+    component.onSearchChange(searchTerm);
+  });
+
+  it('should emit an empty string if the input is only whitespace', (done) => {
+    const searchTerm = '   ';
+    const expectedTerm = '';
+
+    component['searchSubject'].subscribe((emittedValue) => {
+      expect(emittedValue).toBe(expectedTerm);
+      done();
+    });
+
+    component.onSearchChange(searchTerm);
+  });
+
+  it('should emit a lowercased search term', (done) => {
+    const searchTerm = 'Ivysaur';
+    const expectedTerm = 'ivysaur';
+
+    component['searchSubject'].subscribe((emittedValue) => {
+      expect(emittedValue).toBe(expectedTerm);
+      done();
+    });
+
+    component.onSearchChange(searchTerm);
+  });
+
+  it('should emit true when a search term is provided', (done) => {
+    component.filterEnabled.subscribe((isEnabled) => {
+      expect(isEnabled).toBe(true);
+      done();
+    });
+
+    component.performSearch('bulba');
+  });
+
+  it('should emit false and reset the list when no search term is provided', (done) => {
+    component.filterEnabled.subscribe((isEnabled) => {
+      expect(isEnabled).toBe(false);
+      done();
+    });
+
+    component.performSearch('');
+    expect(mockPokemonService.setFilteredPokemonList).toHaveBeenCalledWith([]);
+    expect(mockPokemonService.getPokemonData).toHaveBeenCalledWith(true);
+  });
+
+  it('should set loading to false after fetching data', () => {
+    component.performSearch('bulba');
+
+    expect(mockPokemonService.setLoading).toHaveBeenCalledWith(false);
+  });
 }); 

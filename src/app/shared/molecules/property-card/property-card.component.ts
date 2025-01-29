@@ -14,20 +14,20 @@ export class PropertyCardComponent {
 
   getCamleCaseString = getCamleCaseString;
 
-  getBaseStats(): any {
+  getBaseStats(): string {
     return this.pokemon?.stats
       .map((stat: any) => `${this.getCamleCaseString(stat.stat.name)}: ${stat.base_stat}`)
       .join(', ');
   }
 
-  getMoves(): any {
+  getMoves(): string {
     return this.pokemon?.moves
       .slice(0, 5) // Limit to first 5 moves for brevity
       .map((move: any) => this.getCamleCaseString(move.move.name))
       .join(', ');
   }
 
-  getAbilities(): any {
+  getAbilities(): string {
     return this.pokemon?.abilities
       .map((item: any) => this.getCamleCaseString(item.ability.name))
       .join(', ');

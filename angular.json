@@ -116,21 +116,36 @@
           }
         },
         "test": {
-  "builder": "@angular-devkit/build-angular:karma",
-  "options": {
-    "main": "src/test.ts",
-    "polyfills": "src/polyfills.ts",
-    "tsConfig": "tsconfig.spec.json",
-    "karmaConfig": "karma.conf.js",
-    "scripts": [],
-    "styles": [],
-    "assets": ["src/favicon.ico", "src/assets"]
-  }
-}
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "src/test.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.spec.json",
+            "karmaConfig": "karma.conf.js",
+            "scripts": [],
+            "styles": [],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
+        }
       }
     }
   },
   "cli": {
-    "analytics": "5eb784ed-b37d-4396-867c-ae5118629f0a"
+    "analytics": "5eb784ed-b37d-4396-867c-ae5118629f0a",
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   }
 }

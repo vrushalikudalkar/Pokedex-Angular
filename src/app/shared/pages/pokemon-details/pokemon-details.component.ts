@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, of, Subject } from 'rxjs';
-import { switchMap, tap, takeUntil, finalize } from 'rxjs/operators';
+import { switchMap, tap, takeUntil } from 'rxjs/operators';
 import { PokemonService } from '../../../core/services/pokemon.service';
 import { Pokemon, PokemonSpecies } from '../../../core/models/pokemon.types';
 
@@ -13,8 +13,8 @@ import { Pokemon, PokemonSpecies } from '../../../core/models/pokemon.types';
 })
 export class PokemonDetailsComponent implements OnInit, OnDestroy {
   pokemon$: Observable<Pokemon> = of();
-  species$: any = of();
-  evolutionChain$: any = of([]);
+  species$: Observable<PokemonSpecies> = of();
+  evolutionChain$: Observable<Pokemon[]> = of([]);
   isLoading = true;
   currentId = 1;
   private destroy$ = new Subject<void>();
@@ -55,7 +55,7 @@ export class PokemonDetailsComponent implements OnInit, OnDestroy {
     );
 
     this.evolutionChain$ = this.species$.pipe(
-      switchMap((species:any) => this.pokemonService.getPokemonEvolutionChain(species)),
+      switchMap((species:PokemonSpecies) => this.pokemonService.getPokemonEvolutionChain(species)),
       takeUntil(this.destroy$)
     );
   }

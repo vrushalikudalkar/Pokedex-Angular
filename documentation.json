@@ -3,12 +3,12 @@
     "interfaces": [
         {
             "name": "EvolutionChain",
-            "id": "interface-EvolutionChain-4c349b4d181af37aa2c249a616407a45b3e209d912cbc25e18db5fcb53a4839cc4bb59b3a1566ff3849600d50188a3ef4b91dfeeaf26c7b84b57444ed080cd9c",
+            "id": "interface-EvolutionChain-7f894c0cc9dc459c5d60ee68fa0445a02ccbed12912f80dc43e1b4203fd76810314ffb77e10b0a9cfdb65366095b328f2cca45b12f266f4f203f91e2ab15ed33",
             "file": "src/app/core/models/pokemon.types.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "export interface PokemonType {\n  type: {\n    name: string;\n    url: string;\n  };\n}\n\nexport interface PokemonAbility {\n  ability: {\n    name: string;\n    url: string;\n  };\n  is_hidden: boolean;\n  slot: number;\n}\n\nexport interface PokemonStat {\n  base_stat: number;\n  effort: number;\n  stat: {\n    name: string;\n    url: string;\n  };\n}\n\nexport interface Pokemon {\n  id: number;\n  name: string;\n  height: number;\n  weight: number;\n  types: {\n    type: {\n      name: string;\n    }\n  }[];\n  abilities: PokemonAbility[];\n  stats: PokemonStat[];\n  sprites: {\n    front_default: string;\n    other: {\n      dream_world: {\n        front_default: string;\n      };\n      'official-artwork': {\n        front_default: string;\n      };\n    };\n  };\n}\n\nexport interface PokemonSpecies {\n  egg_groups: {\n    name: string;\n    url: string;\n  }[];\n  flavor_text_entries: {\n    flavor_text: string;\n    language: {\n      name: string;\n      url: string;\n    };\n  }[];\n  evolution_chain: {\n    url: string;\n  };\n}\n\nexport interface EvolutionChain {\n  chain: {\n    species: {\n      name: string;\n      url: string;\n    };\n    evolves_to: Array<{\n      species: {\n        name: string;\n        url: string;\n      };\n      evolves_to: Array<{\n        species: {\n          name: string;\n          url: string;\n        };\n      }>;\n    }>;\n  };\n} ",
+            "sourceCode": "export interface PokemonType {\n  type: {\n    name: string;\n    url: string;\n  };\n}\n\nexport interface PokemonAbility {\n  ability: {\n    name: string;\n    url: string;\n  };\n  is_hidden: boolean;\n  slot: number;\n}\n\nexport interface PokemonStat {\n  base_stat: number;\n  effort: number;\n  stat: {\n    name: string;\n    url: string;\n  };\n}\n\nexport interface Pokemon {\n  id: number;\n  name: string;\n  height: number;\n  weight: number;\n  types: {\n    type: {\n      name: string;\n    }\n  }[];\n  abilities: PokemonAbility[];\n  stats: PokemonStat[];\n  sprites: {\n    front_default: string;\n    other: {\n      dream_world: {\n        front_default: string;\n      };\n      'official-artwork': {\n        front_default: string;\n      };\n    };\n  };\n  moves:[{\n    move:{name:string,url:string}\n  }]\n}\n\nexport interface PokemonSpecies {\n  egg_groups: {\n    name: string;\n    url: string;\n  }[];\n  flavor_text_entries: {\n    flavor_text: string;\n    language: {\n      name: string;\n      url: string;\n    };\n  }[];\n  evolution_chain: {\n    url: string;\n  };\n}\n\nexport interface EvolutionChain {\n  chain: {\n    species: {\n      name: string;\n      url: string;\n    };\n    evolves_to: Array<{\n      species: {\n        name: string;\n        url: string;\n      };\n      evolves_to: Array<{\n        species: {\n          name: string;\n          url: string;\n        };\n      }>;\n    }>;\n  };\n} ",
             "properties": [
                 {
                     "name": "chain",
@@ -18,7 +18,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 69
+                    "line": 72
                 }
             ],
             "indexSignatures": [],
@@ -28,12 +28,12 @@
         },
         {
             "name": "Pokemon",
-            "id": "interface-Pokemon-4c349b4d181af37aa2c249a616407a45b3e209d912cbc25e18db5fcb53a4839cc4bb59b3a1566ff3849600d50188a3ef4b91dfeeaf26c7b84b57444ed080cd9c",
+            "id": "interface-Pokemon-7f894c0cc9dc459c5d60ee68fa0445a02ccbed12912f80dc43e1b4203fd76810314ffb77e10b0a9cfdb65366095b328f2cca45b12f266f4f203f91e2ab15ed33",
             "file": "src/app/core/models/pokemon.types.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "export interface PokemonType {\n  type: {\n    name: string;\n    url: string;\n  };\n}\n\nexport interface PokemonAbility {\n  ability: {\n    name: string;\n    url: string;\n  };\n  is_hidden: boolean;\n  slot: number;\n}\n\nexport interface PokemonStat {\n  base_stat: number;\n  effort: number;\n  stat: {\n    name: string;\n    url: string;\n  };\n}\n\nexport interface Pokemon {\n  id: number;\n  name: string;\n  height: number;\n  weight: number;\n  types: {\n    type: {\n      name: string;\n    }\n  }[];\n  abilities: PokemonAbility[];\n  stats: PokemonStat[];\n  sprites: {\n    front_default: string;\n    other: {\n      dream_world: {\n        front_default: string;\n      };\n      'official-artwork': {\n        front_default: string;\n      };\n    };\n  };\n}\n\nexport interface PokemonSpecies {\n  egg_groups: {\n    name: string;\n    url: string;\n  }[];\n  flavor_text_entries: {\n    flavor_text: string;\n    language: {\n      name: string;\n      url: string;\n    };\n  }[];\n  evolution_chain: {\n    url: string;\n  };\n}\n\nexport interface EvolutionChain {\n  chain: {\n    species: {\n      name: string;\n      url: string;\n    };\n    evolves_to: Array<{\n      species: {\n        name: string;\n        url: string;\n      };\n      evolves_to: Array<{\n        species: {\n          name: string;\n          url: string;\n        };\n      }>;\n    }>;\n  };\n} ",
+            "sourceCode": "export interface PokemonType {\n  type: {\n    name: string;\n    url: string;\n  };\n}\n\nexport interface PokemonAbility {\n  ability: {\n    name: string;\n    url: string;\n  };\n  is_hidden: boolean;\n  slot: number;\n}\n\nexport interface PokemonStat {\n  base_stat: number;\n  effort: number;\n  stat: {\n    name: string;\n    url: string;\n  };\n}\n\nexport interface Pokemon {\n  id: number;\n  name: string;\n  height: number;\n  weight: number;\n  types: {\n    type: {\n      name: string;\n    }\n  }[];\n  abilities: PokemonAbility[];\n  stats: PokemonStat[];\n  sprites: {\n    front_default: string;\n    other: {\n      dream_world: {\n        front_default: string;\n      };\n      'official-artwork': {\n        front_default: string;\n      };\n    };\n  };\n  moves:[{\n    move:{name:string,url:string}\n  }]\n}\n\nexport interface PokemonSpecies {\n  egg_groups: {\n    name: string;\n    url: string;\n  }[];\n  flavor_text_entries: {\n    flavor_text: string;\n    language: {\n      name: string;\n      url: string;\n    };\n  }[];\n  evolution_chain: {\n    url: string;\n  };\n}\n\nexport interface EvolutionChain {\n  chain: {\n    species: {\n      name: string;\n      url: string;\n    };\n    evolves_to: Array<{\n      species: {\n        name: string;\n        url: string;\n      };\n      evolves_to: Array<{\n        species: {\n          name: string;\n          url: string;\n        };\n      }>;\n    }>;\n  };\n} ",
             "properties": [
                 {
                     "name": "abilities",
@@ -64,6 +64,16 @@
                     "optional": false,
                     "description": "",
                     "line": 27
+                },
+                {
+                    "name": "moves",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "[literal type]",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 49
                 },
                 {
                     "name": "name",
@@ -123,12 +133,12 @@
         },
         {
             "name": "PokemonAbility",
-            "id": "interface-PokemonAbility-4c349b4d181af37aa2c249a616407a45b3e209d912cbc25e18db5fcb53a4839cc4bb59b3a1566ff3849600d50188a3ef4b91dfeeaf26c7b84b57444ed080cd9c",
+            "id": "interface-PokemonAbility-7f894c0cc9dc459c5d60ee68fa0445a02ccbed12912f80dc43e1b4203fd76810314ffb77e10b0a9cfdb65366095b328f2cca45b12f266f4f203f91e2ab15ed33",
             "file": "src/app/core/models/pokemon.types.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "export interface PokemonType {\n  type: {\n    name: string;\n    url: string;\n  };\n}\n\nexport interface PokemonAbility {\n  ability: {\n    name: string;\n    url: string;\n  };\n  is_hidden: boolean;\n  slot: number;\n}\n\nexport interface PokemonStat {\n  base_stat: number;\n  effort: number;\n  stat: {\n    name: string;\n    url: string;\n  };\n}\n\nexport interface Pokemon {\n  id: number;\n  name: string;\n  height: number;\n  weight: number;\n  types: {\n    type: {\n      name: string;\n    }\n  }[];\n  abilities: PokemonAbility[];\n  stats: PokemonStat[];\n  sprites: {\n    front_default: string;\n    other: {\n      dream_world: {\n        front_default: string;\n      };\n      'official-artwork': {\n        front_default: string;\n      };\n    };\n  };\n}\n\nexport interface PokemonSpecies {\n  egg_groups: {\n    name: string;\n    url: string;\n  }[];\n  flavor_text_entries: {\n    flavor_text: string;\n    language: {\n      name: string;\n      url: string;\n    };\n  }[];\n  evolution_chain: {\n    url: string;\n  };\n}\n\nexport interface EvolutionChain {\n  chain: {\n    species: {\n      name: string;\n      url: string;\n    };\n    evolves_to: Array<{\n      species: {\n        name: string;\n        url: string;\n      };\n      evolves_to: Array<{\n        species: {\n          name: string;\n          url: string;\n        };\n      }>;\n    }>;\n  };\n} ",
+            "sourceCode": "export interface PokemonType {\n  type: {\n    name: string;\n    url: string;\n  };\n}\n\nexport interface PokemonAbility {\n  ability: {\n    name: string;\n    url: string;\n  };\n  is_hidden: boolean;\n  slot: number;\n}\n\nexport interface PokemonStat {\n  base_stat: number;\n  effort: number;\n  stat: {\n    name: string;\n    url: string;\n  };\n}\n\nexport interface Pokemon {\n  id: number;\n  name: string;\n  height: number;\n  weight: number;\n  types: {\n    type: {\n      name: string;\n    }\n  }[];\n  abilities: PokemonAbility[];\n  stats: PokemonStat[];\n  sprites: {\n    front_default: string;\n    other: {\n      dream_world: {\n        front_default: string;\n      };\n      'official-artwork': {\n        front_default: string;\n      };\n    };\n  };\n  moves:[{\n    move:{name:string,url:string}\n  }]\n}\n\nexport interface PokemonSpecies {\n  egg_groups: {\n    name: string;\n    url: string;\n  }[];\n  flavor_text_entries: {\n    flavor_text: string;\n    language: {\n      name: string;\n      url: string;\n    };\n  }[];\n  evolution_chain: {\n    url: string;\n  };\n}\n\nexport interface EvolutionChain {\n  chain: {\n    species: {\n      name: string;\n      url: string;\n    };\n    evolves_to: Array<{\n      species: {\n        name: string;\n        url: string;\n      };\n      evolves_to: Array<{\n        species: {\n          name: string;\n          url: string;\n        };\n      }>;\n    }>;\n  };\n} ",
             "properties": [
                 {
                     "name": "ability",
@@ -168,12 +178,12 @@
         },
         {
             "name": "PokemonSpecies",
-            "id": "interface-PokemonSpecies-4c349b4d181af37aa2c249a616407a45b3e209d912cbc25e18db5fcb53a4839cc4bb59b3a1566ff3849600d50188a3ef4b91dfeeaf26c7b84b57444ed080cd9c",
+            "id": "interface-PokemonSpecies-7f894c0cc9dc459c5d60ee68fa0445a02ccbed12912f80dc43e1b4203fd76810314ffb77e10b0a9cfdb65366095b328f2cca45b12f266f4f203f91e2ab15ed33",
             "file": "src/app/core/models/pokemon.types.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "export interface PokemonType {\n  type: {\n    name: string;\n    url: string;\n  };\n}\n\nexport interface PokemonAbility {\n  ability: {\n    name: string;\n    url: string;\n  };\n  is_hidden: boolean;\n  slot: number;\n}\n\nexport interface PokemonStat {\n  base_stat: number;\n  effort: number;\n  stat: {\n    name: string;\n    url: string;\n  };\n}\n\nexport interface Pokemon {\n  id: number;\n  name: string;\n  height: number;\n  weight: number;\n  types: {\n    type: {\n      name: string;\n    }\n  }[];\n  abilities: PokemonAbility[];\n  stats: PokemonStat[];\n  sprites: {\n    front_default: string;\n    other: {\n      dream_world: {\n        front_default: string;\n      };\n      'official-artwork': {\n        front_default: string;\n      };\n    };\n  };\n}\n\nexport interface PokemonSpecies {\n  egg_groups: {\n    name: string;\n    url: string;\n  }[];\n  flavor_text_entries: {\n    flavor_text: string;\n    language: {\n      name: string;\n      url: string;\n    };\n  }[];\n  evolution_chain: {\n    url: string;\n  };\n}\n\nexport interface EvolutionChain {\n  chain: {\n    species: {\n      name: string;\n      url: string;\n    };\n    evolves_to: Array<{\n      species: {\n        name: string;\n        url: string;\n      };\n      evolves_to: Array<{\n        species: {\n          name: string;\n          url: string;\n        };\n      }>;\n    }>;\n  };\n} ",
+            "sourceCode": "export interface PokemonType {\n  type: {\n    name: string;\n    url: string;\n  };\n}\n\nexport interface PokemonAbility {\n  ability: {\n    name: string;\n    url: string;\n  };\n  is_hidden: boolean;\n  slot: number;\n}\n\nexport interface PokemonStat {\n  base_stat: number;\n  effort: number;\n  stat: {\n    name: string;\n    url: string;\n  };\n}\n\nexport interface Pokemon {\n  id: number;\n  name: string;\n  height: number;\n  weight: number;\n  types: {\n    type: {\n      name: string;\n    }\n  }[];\n  abilities: PokemonAbility[];\n  stats: PokemonStat[];\n  sprites: {\n    front_default: string;\n    other: {\n      dream_world: {\n        front_default: string;\n      };\n      'official-artwork': {\n        front_default: string;\n      };\n    };\n  };\n  moves:[{\n    move:{name:string,url:string}\n  }]\n}\n\nexport interface PokemonSpecies {\n  egg_groups: {\n    name: string;\n    url: string;\n  }[];\n  flavor_text_entries: {\n    flavor_text: string;\n    language: {\n      name: string;\n      url: string;\n    };\n  }[];\n  evolution_chain: {\n    url: string;\n  };\n}\n\nexport interface EvolutionChain {\n  chain: {\n    species: {\n      name: string;\n      url: string;\n    };\n    evolves_to: Array<{\n      species: {\n        name: string;\n        url: string;\n      };\n      evolves_to: Array<{\n        species: {\n          name: string;\n          url: string;\n        };\n      }>;\n    }>;\n  };\n} ",
             "properties": [
                 {
                     "name": "egg_groups",
@@ -183,7 +193,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 52
+                    "line": 55
                 },
                 {
                     "name": "evolution_chain",
@@ -193,7 +203,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 63
+                    "line": 66
                 },
                 {
                     "name": "flavor_text_entries",
@@ -203,7 +213,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 56
+                    "line": 59
                 }
             ],
             "indexSignatures": [],
@@ -213,12 +223,12 @@
         },
         {
             "name": "PokemonStat",
-            "id": "interface-PokemonStat-4c349b4d181af37aa2c249a616407a45b3e209d912cbc25e18db5fcb53a4839cc4bb59b3a1566ff3849600d50188a3ef4b91dfeeaf26c7b84b57444ed080cd9c",
+            "id": "interface-PokemonStat-7f894c0cc9dc459c5d60ee68fa0445a02ccbed12912f80dc43e1b4203fd76810314ffb77e10b0a9cfdb65366095b328f2cca45b12f266f4f203f91e2ab15ed33",
             "file": "src/app/core/models/pokemon.types.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "export interface PokemonType {\n  type: {\n    name: string;\n    url: string;\n  };\n}\n\nexport interface PokemonAbility {\n  ability: {\n    name: string;\n    url: string;\n  };\n  is_hidden: boolean;\n  slot: number;\n}\n\nexport interface PokemonStat {\n  base_stat: number;\n  effort: number;\n  stat: {\n    name: string;\n    url: string;\n  };\n}\n\nexport interface Pokemon {\n  id: number;\n  name: string;\n  height: number;\n  weight: number;\n  types: {\n    type: {\n      name: string;\n    }\n  }[];\n  abilities: PokemonAbility[];\n  stats: PokemonStat[];\n  sprites: {\n    front_default: string;\n    other: {\n      dream_world: {\n        front_default: string;\n      };\n      'official-artwork': {\n        front_default: string;\n      };\n    };\n  };\n}\n\nexport interface PokemonSpecies {\n  egg_groups: {\n    name: string;\n    url: string;\n  }[];\n  flavor_text_entries: {\n    flavor_text: string;\n    language: {\n      name: string;\n      url: string;\n    };\n  }[];\n  evolution_chain: {\n    url: string;\n  };\n}\n\nexport interface EvolutionChain {\n  chain: {\n    species: {\n      name: string;\n      url: string;\n    };\n    evolves_to: Array<{\n      species: {\n        name: string;\n        url: string;\n      };\n      evolves_to: Array<{\n        species: {\n          name: string;\n          url: string;\n        };\n      }>;\n    }>;\n  };\n} ",
+            "sourceCode": "export interface PokemonType {\n  type: {\n    name: string;\n    url: string;\n  };\n}\n\nexport interface PokemonAbility {\n  ability: {\n    name: string;\n    url: string;\n  };\n  is_hidden: boolean;\n  slot: number;\n}\n\nexport interface PokemonStat {\n  base_stat: number;\n  effort: number;\n  stat: {\n    name: string;\n    url: string;\n  };\n}\n\nexport interface Pokemon {\n  id: number;\n  name: string;\n  height: number;\n  weight: number;\n  types: {\n    type: {\n      name: string;\n    }\n  }[];\n  abilities: PokemonAbility[];\n  stats: PokemonStat[];\n  sprites: {\n    front_default: string;\n    other: {\n      dream_world: {\n        front_default: string;\n      };\n      'official-artwork': {\n        front_default: string;\n      };\n    };\n  };\n  moves:[{\n    move:{name:string,url:string}\n  }]\n}\n\nexport interface PokemonSpecies {\n  egg_groups: {\n    name: string;\n    url: string;\n  }[];\n  flavor_text_entries: {\n    flavor_text: string;\n    language: {\n      name: string;\n      url: string;\n    };\n  }[];\n  evolution_chain: {\n    url: string;\n  };\n}\n\nexport interface EvolutionChain {\n  chain: {\n    species: {\n      name: string;\n      url: string;\n    };\n    evolves_to: Array<{\n      species: {\n        name: string;\n        url: string;\n      };\n      evolves_to: Array<{\n        species: {\n          name: string;\n          url: string;\n        };\n      }>;\n    }>;\n  };\n} ",
             "properties": [
                 {
                     "name": "base_stat",
@@ -258,12 +268,12 @@
         },
         {
             "name": "PokemonType",
-            "id": "interface-PokemonType-4c349b4d181af37aa2c249a616407a45b3e209d912cbc25e18db5fcb53a4839cc4bb59b3a1566ff3849600d50188a3ef4b91dfeeaf26c7b84b57444ed080cd9c",
+            "id": "interface-PokemonType-7f894c0cc9dc459c5d60ee68fa0445a02ccbed12912f80dc43e1b4203fd76810314ffb77e10b0a9cfdb65366095b328f2cca45b12f266f4f203f91e2ab15ed33",
             "file": "src/app/core/models/pokemon.types.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "export interface PokemonType {\n  type: {\n    name: string;\n    url: string;\n  };\n}\n\nexport interface PokemonAbility {\n  ability: {\n    name: string;\n    url: string;\n  };\n  is_hidden: boolean;\n  slot: number;\n}\n\nexport interface PokemonStat {\n  base_stat: number;\n  effort: number;\n  stat: {\n    name: string;\n    url: string;\n  };\n}\n\nexport interface Pokemon {\n  id: number;\n  name: string;\n  height: number;\n  weight: number;\n  types: {\n    type: {\n      name: string;\n    }\n  }[];\n  abilities: PokemonAbility[];\n  stats: PokemonStat[];\n  sprites: {\n    front_default: string;\n    other: {\n      dream_world: {\n        front_default: string;\n      };\n      'official-artwork': {\n        front_default: string;\n      };\n    };\n  };\n}\n\nexport interface PokemonSpecies {\n  egg_groups: {\n    name: string;\n    url: string;\n  }[];\n  flavor_text_entries: {\n    flavor_text: string;\n    language: {\n      name: string;\n      url: string;\n    };\n  }[];\n  evolution_chain: {\n    url: string;\n  };\n}\n\nexport interface EvolutionChain {\n  chain: {\n    species: {\n      name: string;\n      url: string;\n    };\n    evolves_to: Array<{\n      species: {\n        name: string;\n        url: string;\n      };\n      evolves_to: Array<{\n        species: {\n          name: string;\n          url: string;\n        };\n      }>;\n    }>;\n  };\n} ",
+            "sourceCode": "export interface PokemonType {\n  type: {\n    name: string;\n    url: string;\n  };\n}\n\nexport interface PokemonAbility {\n  ability: {\n    name: string;\n    url: string;\n  };\n  is_hidden: boolean;\n  slot: number;\n}\n\nexport interface PokemonStat {\n  base_stat: number;\n  effort: number;\n  stat: {\n    name: string;\n    url: string;\n  };\n}\n\nexport interface Pokemon {\n  id: number;\n  name: string;\n  height: number;\n  weight: number;\n  types: {\n    type: {\n      name: string;\n    }\n  }[];\n  abilities: PokemonAbility[];\n  stats: PokemonStat[];\n  sprites: {\n    front_default: string;\n    other: {\n      dream_world: {\n        front_default: string;\n      };\n      'official-artwork': {\n        front_default: string;\n      };\n    };\n  };\n  moves:[{\n    move:{name:string,url:string}\n  }]\n}\n\nexport interface PokemonSpecies {\n  egg_groups: {\n    name: string;\n    url: string;\n  }[];\n  flavor_text_entries: {\n    flavor_text: string;\n    language: {\n      name: string;\n      url: string;\n    };\n  }[];\n  evolution_chain: {\n    url: string;\n  };\n}\n\nexport interface EvolutionChain {\n  chain: {\n    species: {\n      name: string;\n      url: string;\n    };\n    evolves_to: Array<{\n      species: {\n        name: string;\n        url: string;\n      };\n      evolves_to: Array<{\n        species: {\n          name: string;\n          url: string;\n        };\n      }>;\n    }>;\n  };\n} ",
             "properties": [
                 {
                     "name": "type",
@@ -1116,7 +1126,7 @@
             ],
             "stylesData": "",
             "extends": [],
-            "templateData": "<div>\n  <div [class]=\"className\">\n    <span class=\"colorful-tag\" [style.background]=\"getPokemonColor(type)\">\n      {{text}}\n    </span>\n  </div>\n</div> "
+            "templateData": "<div>\n  <div [class]=\"className\">\n    <span class=\"colorful-tag\" [style.background]=\"getPokemonColor(type)\" [attr.aria-label]=\"'Type: ' + text\" role=\"text\">\n      {{text}}\n    </span>\n  </div>\n</div> "
         },
         {
             "name": "DetailsHeaderComponent",
@@ -1242,7 +1252,7 @@
         },
         {
             "name": "EvolutionChainCardComponent",
-            "id": "component-EvolutionChainCardComponent-762d1f2f318fb8dcaf973c854ed3d67d18acdb69adc6409844963b49972a4b8e35157460d94686c43606f9899e73235dda24f9d0012081500fa023e2bc0602c0",
+            "id": "component-EvolutionChainCardComponent-adb9b1e685841adf4bc34f682d0c1ef8c733a78e577fc69bc41cab098446279a39da0ad2afa1ae68e7b26df3eb98ebc0acb81f244ae3aa1a435181b20bbed28e",
             "file": "src/app/shared/molecules/evolution-chain-card/evolution-chain-card.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1264,7 +1274,7 @@
                     "name": "evolutionChain",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 10,
+                    "line": 9,
                     "type": "any",
                     "decorators": []
                 }
@@ -1281,7 +1291,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { Pokemon } from '../../../core/models/pokemon.types';\n\n@Component({\n  selector: 'app-evolution-chain-card',\n  templateUrl: './evolution-chain-card.component.html',\n  styleUrls: ['./evolution-chain-card.component.scss']\n})\nexport class EvolutionChainCardComponent {\n  @Input() evolutionChain!:any;\n} ",
+            "sourceCode": "import { Component, Input } from '@angular/core';\n\n@Component({\n  selector: 'app-evolution-chain-card',\n  templateUrl: './evolution-chain-card.component.html',\n  styleUrls: ['./evolution-chain-card.component.scss']\n})\nexport class EvolutionChainCardComponent {\n  @Input() evolutionChain!:any;\n} ",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -1291,11 +1301,11 @@
             ],
             "stylesData": "",
             "extends": [],
-            "templateData": "<div class=\"evolution-chain-card\">\n  <h3>Evolution Chain</h3>\n  <div class=\"evolution-chain\">\n    <ng-container *ngFor=\"let pokemon of evolutionChain; let last = last\">\n      <div class=\"pokemon-evolution\">\n        <img [src]=\"pokemon.sprites.other['official-artwork'].front_default\" [alt]=\"pokemon.name\">\n        <span class=\"name\">{{pokemon.name | titlecase}}</span>\n      </div>\n      <span class=\"evolution-arrow\" *ngIf=\"!last\">→</span>\n    </ng-container>\n  </div>\n</div> "
+            "templateData": "<div class=\"evolution-chain-card\">\n  <h3>Evolution Chain</h3>\n  <div class=\"evolution-chain\" role=\"list\">\n    <ng-container *ngFor=\"let pokemon of evolutionChain; let last = last\">\n      <div class=\"pokemon-evolution\" role=\"listitem\">\n        <img [src]=\"pokemon.sprites.other['official-artwork'].front_default\" [alt]=\"pokemon.name + ' official artwork'\">\n        <span class=\"name\">{{pokemon.name | titlecase}}</span>\n      </div>\n      <span class=\"evolution-arrow\" *ngIf=\"!last\" aria-hidden=\"true\">→</span>\n    </ng-container>\n  </div>\n</div> "
         },
         {
             "name": "FilterComponent",
-            "id": "component-FilterComponent-853bb72cfddfcc7d92ec36ddb1d2e4bfee6ec7f5169d76eae06a930e94207c034f47bb3546902c768a3acedc1eb9796d4da29c6a382a4235c546d6d28f35ab2b",
+            "id": "component-FilterComponent-93abb9f9699d823ee4018736c7e3c781990b6575ad5b57a57f8066d95921efe3e9116995d2f3551946e3b932b06ff33f0f602ef8c3dc8a3de3ccb1e1384a724b",
             "file": "src/app/shared/organisms/filter/filter.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1316,10 +1326,10 @@
             "outputsClass": [
                 {
                     "name": "filterEnabled",
-                    "defaultValue": "new EventEmitter<any>()",
+                    "defaultValue": "new EventEmitter<boolean>()",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 12,
+                    "line": 13,
                     "type": "EventEmitter"
                 }
             ],
@@ -1333,7 +1343,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 17
+                    "line": 18
                 },
                 {
                     "name": "SEARCH_SLICED",
@@ -1344,18 +1354,18 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 18
+                    "line": 19
                 },
                 {
                     "name": "searchSubject",
-                    "defaultValue": "new Subject<any>()",
+                    "defaultValue": "new Subject<string>()",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 14,
+                    "line": 15,
                     "modifierKind": [
                         123
                     ]
@@ -1368,7 +1378,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 15,
+                    "line": 16,
                     "modifierKind": [
                         123
                     ]
@@ -1381,7 +1391,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 39,
+                    "line": 40,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -1391,7 +1401,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 30,
+                    "line": 31,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -1400,7 +1410,7 @@
                     "args": [
                         {
                             "name": "value",
-                            "type": "any",
+                            "type": "string",
                             "deprecated": false,
                             "deprecationMessage": ""
                         }
@@ -1408,13 +1418,13 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 45,
+                    "line": 46,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
                         {
                             "name": "value",
-                            "type": "any",
+                            "type": "string",
                             "deprecated": false,
                             "deprecationMessage": "",
                             "tagName": {
@@ -1428,7 +1438,7 @@
                     "args": [
                         {
                             "name": "value",
-                            "type": "any",
+                            "type": "string",
                             "deprecated": false,
                             "deprecationMessage": ""
                         }
@@ -1436,16 +1446,13 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 50,
+                    "line": 51,
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "modifierKind": [
-                        123
-                    ],
                     "jsdoctags": [
                         {
                             "name": "value",
-                            "type": "any",
+                            "type": "string",
                             "deprecated": false,
                             "deprecationMessage": "",
                             "tagName": {
@@ -1464,7 +1471,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Output, EventEmitter, OnInit, OnDestroy } from '@angular/core';\nimport { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';\nimport { Observable,  Subject, Subscription } from 'rxjs';\nimport { PokemonService } from '../../../core/services/pokemon.service';\n\n@Component({\n  selector: 'app-filter',\n  templateUrl: './filter.component.html',\n  styleUrls: ['./filter.component.scss']\n})\nexport class FilterComponent implements OnInit, OnDestroy {\n  @Output() filterEnabled = new EventEmitter<any>();\n\n  private searchSubject = new Subject<any>();\n  private searchSubscription: Subscription;\n\n  isFilterEnabled = false;\n  SEARCH_SLICED = 20;\n\n  constructor(private pokemonService: PokemonService) {\n    // Setup the debounced search\n    this.searchSubscription = this.searchSubject.pipe(\n      debounceTime(500),\n      distinctUntilChanged()\n    ).subscribe(searchTerm => {\n      this.performSearch(searchTerm);\n    });\n  }\n\n  ngOnInit(): void {\n    // Get all pokemon list at initialization\n    this.pokemonService.getAllPokemonDataList().subscribe(\n      (data: any) => {\n        this.pokemonService.allPokemonsList = data.results;\n      }\n    );\n  }\n\n  ngOnDestroy(): void {\n    if (this.searchSubscription) {\n      this.searchSubscription.unsubscribe();\n    }\n  }\n\n  onSearchChange(value: any): void {\n    const trimmedValue = value.trim().toLowerCase();\n    this.searchSubject.next(trimmedValue); // Emit the search term to the subject\n  }\n\n  private performSearch(value: any): void {\n    this.pokemonService.setLoading(true); // Set loading to true when search starts\n    if (value.length) {\n      this.isFilterEnabled = true;\n      this.filterEnabled.emit(true);\n      \n      // Filter the allPokemonsList\n      const filteredList = this.pokemonService.allPokemonsList.filter(pokemon => \n        pokemon.name.toLowerCase().includes(value)\n      );\n\n      if (filteredList.length > this.SEARCH_SLICED) {\n        filteredList.length = this.SEARCH_SLICED;\n      }\n\n      // Get detailed data for filtered pokemon\n      this.pokemonService.getPokemonDetailsListByUrl(filteredList)\n        .subscribe(detailedList => {\n          this.pokemonService.setFilteredPokemonList(detailedList);\n          this.pokemonService.setLoading(false); // Set loading to false after data is fetched\n        });\n    } else {\n      this.filterEnabled.emit(false);\n      this.pokemonService.setFilteredPokemonList([]);\n      this.pokemonService.getPokemonData(true).subscribe(() => {\n        this.pokemonService.setLoading(false); // Set loading to false after data is fetched\n      });\n    }\n  }\n} ",
+            "sourceCode": "import { Component, Output, EventEmitter, OnInit, OnDestroy } from '@angular/core';\nimport { debounceTime, distinctUntilChanged } from 'rxjs/operators';\nimport { Subject, Subscription } from 'rxjs';\nimport { PokemonService } from '../../../core/services/pokemon.service';\nimport { Pokemon } from 'src/app/core/models/pokemon.types';\n\n@Component({\n  selector: 'app-filter',\n  templateUrl: './filter.component.html',\n  styleUrls: ['./filter.component.scss']\n})\nexport class FilterComponent implements OnInit, OnDestroy {\n  @Output() filterEnabled = new EventEmitter<boolean>();\n\n  private searchSubject = new Subject<string>();\n  private searchSubscription: Subscription;\n\n  isFilterEnabled = false;\n  SEARCH_SLICED = 20;\n\n  constructor(private pokemonService: PokemonService) {\n    // Setup the debounced search\n    this.searchSubscription = this.searchSubject.pipe(\n      debounceTime(500),\n      distinctUntilChanged()\n    ).subscribe(searchTerm => {\n      this.performSearch(searchTerm);\n    });\n  }\n\n  ngOnInit(): void {\n    // Get all pokemon list at initialization\n    this.pokemonService.getAllPokemonDataList().subscribe(\n      (data: { results: Pokemon[] }) => {\n        this.pokemonService.allPokemonsList = data.results;\n      }\n    );\n  }\n\n  ngOnDestroy(): void {\n    if (this.searchSubscription) {\n      this.searchSubscription.unsubscribe();\n    }\n  }\n\n  onSearchChange(value: string): void {\n    const trimmedValue = value.trim().toLowerCase();\n    this.searchSubject.next(trimmedValue); // Emit the search term to the subject\n  }\n\n  performSearch(value: string): void {\n    this.pokemonService.setLoading(true); // Set loading to true when search starts\n    if (value.length) {\n      this.isFilterEnabled = true;\n      this.filterEnabled.emit(true);\n      \n      // Filter the allPokemonsList\n      const filteredList = this.pokemonService.allPokemonsList.filter(pokemon => \n        pokemon.name.toLowerCase().includes(value)\n      );\n\n      if (filteredList.length > this.SEARCH_SLICED) {\n        filteredList.length = this.SEARCH_SLICED;\n      }\n\n      // Get detailed data for filtered pokemon\n      this.pokemonService.getPokemonDetailsListByUrl(filteredList)\n        .subscribe(detailedList => {\n          this.pokemonService.setFilteredPokemonList(detailedList);\n          this.pokemonService.setLoading(false); // Set loading to false after data is fetched\n        });\n    } else {\n      this.filterEnabled.emit(false);\n      this.pokemonService.setFilteredPokemonList([]);\n      this.pokemonService.getPokemonData(true).subscribe(() => {\n        this.pokemonService.setLoading(false); // Set loading to false after data is fetched\n      });\n    }\n  }\n} ",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -1486,7 +1493,7 @@
                         "deprecationMessage": ""
                     }
                 ],
-                "line": 18,
+                "line": 19,
                 "jsdoctags": [
                     {
                         "name": "pokemonService",
@@ -1504,7 +1511,7 @@
                 "OnInit",
                 "OnDestroy"
             ],
-            "templateData": "<div class=\"filter-container\">\n  <div class=\"filter-wrap\">\n    <div class=\"filter-row-wrap\">\n      <div class=\"search-col\">\n        <div class=\"search-field\">\n          <div class=\"field-label\">Search By</div>\n          <app-search-filter\n            placeholder=\"Search by Name\"\n            inputClass=\"pokemon-search-filter\"\n            (searchChange)=\"onSearchChange($event)\">\n          </app-search-filter>\n        </div>\n      </div>\n    </div>\n  </div>\n</div> "
+            "templateData": "<div class=\"filter-container\" role=\"search\">\n  <div class=\"filter-wrap\">\n    <div class=\"filter-row-wrap\">\n      <div class=\"search-col\">\n        <div class=\"search-field\">\n          <label for=\"pokemon-search\" class=\"field-label\">Search By</label>\n          <app-search-filter\n            id=\"pokemon-search\"\n            placeholder=\"Search by Name\"\n            inputClass=\"pokemon-search-filter\"\n            (searchChange)=\"onSearchChange($event)\"\n            aria-label=\"Search for Pokemon by name\">\n          </app-search-filter>\n        </div>\n      </div>\n    </div>\n  </div>\n</div> "
         },
         {
             "name": "HeaderComponent",
@@ -1734,7 +1741,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@use 'variables' as *;\n@use 'common' as *;\n\n.home-container {\n  padding: 32px 64px;\n  min-height: 100vh;\n  display: flex;\n  flex-direction: column;\n  max-width: 1440px; // Set maximum width\n  margin: 0 auto; \n\n  @include sm {\n    padding: 26px 22px;\n  }\n\n  .app-header-wrap {\n    display: flex;\n\n    @include sm {\n      @include flex-col(flex-start, flex-start);\n    }\n  }\n\n  .card-list {\n    margin-top: 2rem;\n    display: grid;\n    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));\n    gap: 3rem;\n    padding: 3rem 0;\n    flex: 1;\n  }\n\n  .no-data-found {\n    @include flex-row;\n    height: 300px;\n    font-size: 20px;\n    font-weight: bold;\n  }\n\n  .header-title {\n    font-size: 32px;\n    margin-bottom: 1rem;\n    font-weight: 600;\n\n    h3 {\n      color: #333;\n      margin: 0;\n    }\n  }\n\n  .subheading {\n    font-size: 20px;\n    padding-left: 32px;\n    color: #616161;\n\n    @include sm {\n      font-size: 18px;\n      padding-left: 0px;\n    }\n  }\n\n  .header-horizontal-line {\n    width: 2px;\n    // height: 40px;\n    background-color: $line-color;\n    margin: 0 32px;\n\n    @include sm {\n      width: 100%;\n      height: 2px;\n      margin: 16px 0;\n      padding: 0;\n    }\n  }\n\n  .load-more-wrap {\n    @include flex-row;\n    margin: 3rem 0;\n    padding: 2rem;\n\n    button {\n      background-color: $bg-popover;\n      color: white;\n      border: none;\n      cursor: pointer;\n      transition: all 0.2s ease;\n      font-weight: 500;\n\n      &:hover {\n        opacity: 0.9;\n        transform: translateY(-2px);\n      }\n\n      &:disabled {\n        opacity: 0.6;\n        cursor: not-allowed;\n        transform: none;\n      }\n    }\n  }\n\n  .loadmore-loader {\n    @include flex-row;\n    padding: 2rem;\n  }\n}\n\n.app-loader-wrapper {\n  @include flex-row;\n  height: calc(100vh - var(--header-height));\n  padding: 3rem;\n} ",
+                    "data": "@use 'variables' as *;\n@use 'common' as *;\n\n.home-container {\n  padding: 32px 64px;\n  min-height: 100vh;\n  display: flex;\n  flex-direction: column;\n  max-width: 1440px; // Set maximum width\n  margin: 0 auto; \n\n  @include sm {\n    padding: 26px 22px;\n  }\n\n  .app-header-wrap {\n    display: flex;\n\n    @include sm {\n      @include flex-col(flex-start, flex-start);\n    }\n  }\n\n  .card-list {\n    margin-top: 2rem;\n    display: grid;\n    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));\n    gap: 3rem;\n    padding: 3rem 0;\n    flex: 1;\n  }\n\n  .no-data-found {\n    @include flex-row;\n    height: 300px;\n    font-size: 20px;\n    font-weight: bold;\n  }\n\n  .header-title {\n    font-size: 32px;\n    margin-bottom: 1rem;\n    font-weight: 600;\n\n    h3 {\n      color: #333;\n      margin: 0;\n    }\n  }\n\n  .subheading {\n    font-size: 20px;\n    padding-left: 32px;\n    color: #616161;\n\n    @include sm {\n      font-size: 18px;\n      padding-left: 0px;\n    }\n  }\n\n  .header-horizontal-line {\n    width: 2px;\n    // height: 40px;\n    background-color: $line-color;\n    margin: 0 32px;\n\n    @include sm {\n      width: 100%;\n      height: 2px;\n      margin: 16px 0;\n      padding: 0;\n    }\n  }\n\n  .load-more-wrap {\n    @include flex-row;\n    margin: 3rem 0;\n    padding: 2rem;\n\n    button {\n      background-color: $bg-popover;\n      color: white;\n      border: none;\n      cursor: pointer;\n      transition: all 0.2s ease;\n      font-weight: 500;\n\n      &:hover {\n        opacity: 0.9;\n        transform: translateY(-2px);\n      }\n\n      &:disabled {\n        opacity: 0.6;\n        cursor: not-allowed;\n        transform: none;\n      }\n    }\n  }\n\n  .loadmore-loader {\n    @include flex-row;\n    padding: 2rem;\n  }\n}\n\n.app-loader-wrapper {\n  @include flex-row;\n  height: calc(100vh - var(--header-height));\n  padding: 3rem;\n} \n\n.visually-hidden{\n  display: none;\n}",
                     "styleUrl": "./home.component.scss"
                 }
             ],
@@ -1784,11 +1791,11 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div class=\"home-container\">\n  <div>\n    <app-header>\n      <div class=\"app-header-wrap\">\n        <div class=\"header-title\">\n          <h3>Pokédex</h3>\n        </div>\n        <div class=\"header-horizontal-line\"></div>\n        <div class=\"subheading\">\n          <span>Search for any Pokémon that exists on the planet</span>\n        </div>\n      </div>\n    </app-header>\n\n    <div>\n      <app-filter (filterEnabled)=\"onFilterEnabled($event)\"></app-filter>\n    </div>\n  </div>\n\n  <!-- Show loader if loading -->\n  <div *ngIf=\"isLoading$ | async\">\n    <app-loader className=\"app-loader-wrapper\"></app-loader>\n  </div>\n\n  <!-- Show content only if not loading -->\n  <ng-container *ngIf=\"!(isLoading$ | async)\">\n    <div *ngIf=\"getDisplayList() | async as pokemonList\">\n      <div *ngIf=\"pokemonList.length > 0\" class=\"card-list\">\n        <div *ngFor=\"let pokemon of pokemonList\" class=\"responsive\">\n          <app-pokemon-card\n            [data]=\"pokemon\"\n            (cardClick)=\"handlePokemonClick(pokemon.id)\">\n          </app-pokemon-card>\n        </div>\n      </div>\n\n      <div *ngIf=\"!isFilterEnabled && pokemonList.length > 0\" class=\"load-more-wrap\">\n        <button mat-button color=\"primary\" (click)=\"handleLoadMore()\">\n          Load more\n        </button>\n      </div>\n\n      <div *ngIf=\"pokemonList.length === 0\" class=\"no-data-found\">\n        <span>No data found</span>\n      </div>\n    </div>\n  </ng-container>\n</div> "
+            "templateData": "<div class=\"home-container\">\n  <header>\n    <app-header>\n      <div class=\"app-header-wrap\">\n        <div class=\"header-title\">\n          <h3>Pokédex</h3>\n        </div>\n        <div class=\"header-horizontal-line\" aria-hidden=\"true\"></div>\n        <div class=\"subheading\">\n          <span>Search for any Pokémon that exists on the planet</span>\n        </div>\n      </div>\n    </app-header>\n  </header>\n\n  <main>\n    <section aria-labelledby=\"filter-section\">\n      <h2 id=\"filter-section\" class=\"visually-hidden\">Filter Section</h2>\n      <app-filter (filterEnabled)=\"onFilterEnabled($event)\"></app-filter>\n    </section>\n\n    <!-- Show loader if loading -->\n    <div *ngIf=\"isLoading$ | async\" role=\"status\" aria-live=\"polite\">\n      <app-loader className=\"app-loader-wrapper\"></app-loader>\n    </div>\n\n    <!-- Show content only if not loading -->\n    <ng-container *ngIf=\"!(isLoading$ | async)\">\n      <section aria-labelledby=\"pokemon-list-section\">\n        <h2 id=\"pokemon-list-section\" class=\"visually-hidden\">Pokemon List</h2>\n        <div *ngIf=\"getDisplayList() | async as pokemonList\">\n          <div *ngIf=\"pokemonList.length > 0\" class=\"card-list\">\n            <div *ngFor=\"let pokemon of pokemonList\" class=\"responsive\">\n              <app-pokemon-card\n                [data]=\"pokemon\"\n                (cardClick)=\"handlePokemonClick(pokemon.id)\">\n              </app-pokemon-card>\n            </div>\n          </div>\n\n          <div *ngIf=\"!isFilterEnabled && pokemonList.length > 0\" class=\"load-more-wrap\">\n            <button mat-button color=\"primary\" (click)=\"handleLoadMore()\" aria-label=\"Load more Pokémon\">\n              Load more\n            </button>\n          </div>\n\n          <div *ngIf=\"pokemonList.length === 0\" class=\"no-data-found\">\n            <span>No data found</span>\n          </div>\n        </div>\n      </section>\n    </ng-container>\n  </main>\n</div> "
         },
         {
             "name": "LoaderComponent",
-            "id": "component-LoaderComponent-241dbe06759a84e69cb1c76ba8c179a708d11d862fcb7944babd80b6f3054b54c1a9867b920d7a4edd3e3ca1a08f05115a45879d502c067fbcbee16f56206c39",
+            "id": "component-LoaderComponent-3c6658f628c54d3e96b1495044228c57c2d0fb260725ad5c1642a1b668d25914f93ac61b477015e544796aa70a77b3b34417d2b02eaf3b32bc8f3aa1d4e82af7",
             "file": "src/app/shared/atoms/loader/loader.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1811,7 +1818,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "line": 9,
-                    "type": "any",
+                    "type": "string",
                     "decorators": []
                 }
             ],
@@ -1827,7 +1834,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input } from '@angular/core';\n\n@Component({\n  selector: 'app-loader',\n  templateUrl: './loader.component.html',\n  styleUrls: ['./loader.component.scss']\n})\nexport class LoaderComponent {\n  @Input() className?: any;\n} ",
+            "sourceCode": "import { Component, Input } from '@angular/core';\n\n@Component({\n  selector: 'app-loader',\n  templateUrl: './loader.component.html',\n  styleUrls: ['./loader.component.scss']\n})\nexport class LoaderComponent {\n  @Input() className?: string;\n} ",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -1837,7 +1844,7 @@
             ],
             "stylesData": "",
             "extends": [],
-            "templateData": "<div [class]=\"className\">\n  <mat-spinner diameter=\"40\"></mat-spinner>\n  <span>Loading...</span>\n</div> "
+            "templateData": "<!-- Start of Selection -->\n<div [class]=\"className\" role=\"status\" aria-live=\"polite\" aria-busy=\"true\">\n  <mat-progress-spinner diameter=\"40\" mode=\"indeterminate\" aria-label=\"Loading\"></mat-progress-spinner>\n  <span class=\"visually-hidden\">Loading...</span>\n</div> \n<!-- End of Selection -->"
         },
         {
             "name": "MultiSelectDropdownComponent",
@@ -2176,11 +2183,11 @@
             "implements": [
                 "ControlValueAccessor"
             ],
-            "templateData": "<div class=\"multiselect-dropdown-wrapper\">\n  <div class=\"dropdown-label\">\n    <span>{{label}}</span>\n  </div>\n  <mat-form-field appearance=\"outline\" class=\"dropdown-field\">\n    <mat-select [formControl]=\"selectControl\"\n                [placeholder]=\"placeholder\"\n                multiple\n                (openedChange)=\"onOpenChange($event)\">\n      <mat-select-trigger>\n        {{(selectControl.value?.length || 0) ? ((selectControl.value?.length || 0) + ' Selected') : placeholder}}\n      </mat-select-trigger>\n      <mat-option *ngFor=\"let item of data\" [value]=\"item.value\">\n        {{item.label}}\n      </mat-option>\n    </mat-select>\n    <button matSuffix mat-icon-button \n            *ngIf=\"selectControl.value?.length\"\n            (click)=\"onClear(); $event.stopPropagation()\">\n      <mat-icon>close</mat-icon>\n    </button>\n  </mat-form-field>\n</div> "
+            "templateData": "<div class=\"multiselect-dropdown-wrapper\">\n  <div class=\"dropdown-label\">\n    <span>{{label}}</span>\n  </div>\n  <mat-form-field appearance=\"outline\" class=\"dropdown-field\">\n    <mat-select [formControl]=\"selectControl\"\n                [placeholder]=\"placeholder\"        \n                [attr.aria-label]=\"label\"\n                multiple\n                (openedChange)=\"onOpenChange($event)\">\n      <mat-select-trigger>\n        {{(selectControl.value?.length || 0) ? ((selectControl.value?.length || 0) + ' Selected') : placeholder}}\n      </mat-select-trigger>\n      <mat-option *ngFor=\"let item of data\" [value]=\"item.value\" [attr.aria-label]=\"item.label\">\n        {{item.label}}\n      </mat-option>\n    </mat-select>\n    <button matSuffix mat-icon-button \n            *ngIf=\"selectControl.value?.length\"\n            (click)=\"onClear(); $event.stopPropagation()\"\n            aria-label=\"Clear selection\">\n      <mat-icon>close</mat-icon>\n    </button>\n  </mat-form-field>\n</div> "
         },
         {
             "name": "PokemonCardComponent",
-            "id": "component-PokemonCardComponent-0a70f7c9cb05dcf186e2cd82062a062eb3e3511ae7687ef9dc1568667084f3bee694f8c5f3d3acd66af5f763b11011ca47fa921ad8af8377b10be1495aa8a76e",
+            "id": "component-PokemonCardComponent-339fe083e169288672a978443d421e514934336c95821e43a8e5d28ca573732f11aed3a7bde7a6d88c671a4cefbcf06ee2a58d2c2c388292d105ae2878089f63",
             "file": "src/app/shared/molecules/pokemon-card/pokemon-card.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -2223,7 +2230,7 @@
                     "name": "getCardBackground",
                     "args": [],
                     "optional": false,
-                    "returnType": "any",
+                    "returnType": "string",
                     "typeParameters": [],
                     "line": 14,
                     "deprecated": false,
@@ -2244,13 +2251,13 @@
                     "args": [
                         {
                             "name": "id",
-                            "type": "any",
+                            "type": "number",
                             "deprecated": false,
                             "deprecationMessage": ""
                         }
                     ],
                     "optional": false,
-                    "returnType": "any",
+                    "returnType": "string",
                     "typeParameters": [],
                     "line": 18,
                     "deprecated": false,
@@ -2258,7 +2265,7 @@
                     "jsdoctags": [
                         {
                             "name": "id",
-                            "type": "any",
+                            "type": "number",
                             "deprecated": false,
                             "deprecationMessage": "",
                             "tagName": {
@@ -2277,7 +2284,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\nimport { Pokemon } from '../../../core/models/pokemon.types';\nimport { getBackground } from '../../../core/constants/pokemon-types';\n\n@Component({\n  selector: 'app-pokemon-card',\n  templateUrl: './pokemon-card.component.html',\n  styleUrls: ['./pokemon-card.component.scss']\n})\nexport class PokemonCardComponent {\n  @Input() data!: Pokemon;\n  @Output() cardClick = new EventEmitter<void>();\n\n  getCardBackground(): any {\n    return getBackground(this.data.types);\n  }\n\n  getPokemonNumber(id: any): any {\n    let result = id.toString();\n    if (id < 10) result = `00${id}`;\n    else if (id < 100) result = `0${id}`;\n    return result;\n  }\n\n  getImageUrl(): string {\n    return this.data.sprites.other?.['official-artwork']?.front_default ||\n           this.data.sprites.other?.dream_world?.front_default ||\n           this.data.sprites.front_default ||\n           'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/0.png';\n  }\n} ",
+            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\nimport { Pokemon } from '../../../core/models/pokemon.types';\nimport { getBackground } from '../../../core/constants/pokemon-types';\n\n@Component({\n  selector: 'app-pokemon-card',\n  templateUrl: './pokemon-card.component.html',\n  styleUrls: ['./pokemon-card.component.scss']\n})\nexport class PokemonCardComponent {\n  @Input() data!: Pokemon;\n  @Output() cardClick = new EventEmitter<void>();\n\n  getCardBackground(): string {\n    return getBackground(this.data.types);\n  }\n\n  getPokemonNumber(id: number): string {\n    let result = id.toString();\n    if (id < 10) result = `00${id}`;\n    else if (id < 100) result = `0${id}`;\n    return result;\n  }\n\n  getImageUrl(): string {\n    return this.data.sprites.other?.['official-artwork']?.front_default ||\n           this.data.sprites.other?.dream_world?.front_default ||\n           this.data.sprites.front_default ||\n           'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/0.png';\n  }\n} ",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -2287,7 +2294,7 @@
             ],
             "stylesData": "",
             "extends": [],
-            "templateData": "<div class=\"pokemon-card\" [style.background]=\"getCardBackground()\" (click)=\"cardClick.emit()\">\n  <div class=\"pokemon-number\">#{{getPokemonNumber(data.id)}}</div>\n  <div class=\"pokemon-image\">\n    <img [src]=\"getImageUrl()\" [alt]=\"data.name\">\n  </div>\n  <div class=\"pokemon-name\">{{data.name | titlecase}}</div>\n  <div class=\"pokemon-types\">\n    <span class=\"type\" *ngFor=\"let type of data.types\">\n      {{type.type.name | titlecase}}\n    </span>\n  </div>\n</div> "
+            "templateData": "<div class=\"pokemon-card\" [style.background]=\"getCardBackground()\" (click)=\"cardClick.emit()\" role=\"button\" tabindex=\"0\" aria-label=\"View details for pokemon\">\n  <div class=\"pokemon-number\" aria-hidden=\"true\">#{{getPokemonNumber(data.id)}}</div>\n  <div class=\"pokemon-image\">\n    <img [src]=\"getImageUrl()\" [alt]=\"data.name | titlecase\">\n  </div>\n  <div class=\"pokemon-name\">{{data.name | titlecase}}</div>\n  <div class=\"pokemon-types\">\n    <span class=\"type\" *ngFor=\"let type of data.types\" [attr.aria-label]=\"'Type: ' + (type.type.name | titlecase)\">\n      {{type.type.name | titlecase}}\n    </span>\n  </div>\n</div> "
         },
         {
             "name": "PokemonDetailsComponent",
@@ -2529,7 +2536,7 @@
         },
         {
             "name": "PropertyCardComponent",
-            "id": "component-PropertyCardComponent-ccc8c8c08d56728ee5202623ebc94e4adc4752acd77e2aa692fe3e8455f6a371c4734bfc86e03ea04d023854c35e5fe6b2f664d42a5816d3622f0df968242dc6",
+            "id": "component-PropertyCardComponent-7d17cd15a6cef524d1ad2f9b36d72482c9421fa6f1ba39fa73143c8f5670d138858c2ae727790267ab5044120089ca5da4081715c3ff03d97cc22d9cec64f61c",
             "file": "src/app/shared/molecules/property-card/property-card.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -2551,15 +2558,15 @@
                     "name": "pokemon",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 10,
-                    "type": "any",
+                    "line": 11,
+                    "type": "Pokemon",
                     "decorators": []
                 },
                 {
                     "name": "pokemonTypeData",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 12,
+                    "line": 13,
                     "type": "any",
                     "decorators": []
                 },
@@ -2567,7 +2574,7 @@
                     "name": "speciesData",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 11,
+                    "line": 12,
                     "type": "any",
                     "decorators": []
                 }
@@ -2583,7 +2590,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 14
+                    "line": 15
                 }
             ],
             "methodsClass": [
@@ -2593,7 +2600,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 29,
+                    "line": 30,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -2603,7 +2610,7 @@
                     "optional": false,
                     "returnType": "number",
                     "typeParameters": [],
-                    "line": 35,
+                    "line": 36,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -2613,7 +2620,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 16,
+                    "line": 17,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -2623,7 +2630,7 @@
                     "optional": false,
                     "returnType": "number",
                     "typeParameters": [],
-                    "line": 39,
+                    "line": 40,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -2633,7 +2640,7 @@
                     "optional": false,
                     "returnType": "string",
                     "typeParameters": [],
-                    "line": 43,
+                    "line": 44,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -2643,7 +2650,7 @@
                     "optional": false,
                     "returnType": "string",
                     "typeParameters": [],
-                    "line": 49,
+                    "line": 50,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -2653,7 +2660,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 22,
+                    "line": 23,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -2667,7 +2674,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { getCamleCaseString } from '../../../core/constants/pokemon-types';\n\n@Component({\n  selector: 'app-property-card',\n  templateUrl: './property-card.component.html',\n  styleUrls: ['./property-card.component.scss']\n})\nexport class PropertyCardComponent {\n  @Input() pokemon!: any;\n  @Input() speciesData: any;\n  @Input() pokemonTypeData: any;\n\n  getCamleCaseString = getCamleCaseString;\n\n  getBaseStats(): any {\n    return this.pokemon?.stats\n      .map((stat: any) => `${this.getCamleCaseString(stat.stat.name)}: ${stat.base_stat}`)\n      .join(', ');\n  }\n\n  getMoves(): any {\n    return this.pokemon?.moves\n      .slice(0, 5) // Limit to first 5 moves for brevity\n      .map((move: any) => this.getCamleCaseString(move.move.name))\n      .join(', ');\n  }\n\n  getAbilities(): any {\n    return this.pokemon?.abilities\n      .map((item: any) => this.getCamleCaseString(item.ability.name))\n      .join(', ');\n  }\n\n  getBaseHappiness(): number {\n    return this.speciesData?.base_happiness || 0;\n  }\n\n  getCaptureRate(): number {\n    return this.speciesData?.capture_rate || 0;\n  }\n\n  getEggGroups(): string {\n    return this.speciesData?.egg_groups\n      .map((group: any) => this.getCamleCaseString(group.name))\n      .join(', ') || 'Unknown';\n  }\n\n  getGrowthRate(): string {\n    return this.speciesData?.growth_rate?.name\n      ? this.getCamleCaseString(this.speciesData.growth_rate.name)\n      : 'Unknown';\n  }\n} ",
+            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { getCamleCaseString } from '../../../core/constants/pokemon-types';\nimport { Pokemon, PokemonSpecies } from 'src/app/core/models/pokemon.types';\n\n@Component({\n  selector: 'app-property-card',\n  templateUrl: './property-card.component.html',\n  styleUrls: ['./property-card.component.scss']\n})\nexport class PropertyCardComponent {\n  @Input() pokemon!: Pokemon;\n  @Input() speciesData!: any;\n  @Input() pokemonTypeData: any;\n\n  getCamleCaseString = getCamleCaseString;\n\n  getBaseStats(): any {\n    return this.pokemon?.stats\n      .map((stat: any) => `${this.getCamleCaseString(stat.stat.name)}: ${stat.base_stat}`)\n      .join(', ');\n  }\n\n  getMoves(): any {\n    return this.pokemon?.moves\n      .slice(0, 5) // Limit to first 5 moves for brevity\n      .map((move: any) => this.getCamleCaseString(move.move.name))\n      .join(', ');\n  }\n\n  getAbilities(): any {\n    return this.pokemon?.abilities\n      .map((item: any) => this.getCamleCaseString(item.ability.name))\n      .join(', ');\n  }\n\n  getBaseHappiness(): number {\n    return this.speciesData?.base_happiness || 0;\n  }\n\n  getCaptureRate(): number {\n    return this.speciesData?.capture_rate || 0;\n  }\n\n  getEggGroups(): string {\n    return this.speciesData?.egg_groups\n      .map((group: any) => this.getCamleCaseString(group.name))\n      .join(', ') || 'Unknown';\n  }\n\n  getGrowthRate(): string {\n    return this.speciesData?.growth_rate?.name\n      ? this.getCamleCaseString(this.speciesData.growth_rate.name)\n      : 'Unknown';\n  }\n} ",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -2677,11 +2684,11 @@
             ],
             "stylesData": "",
             "extends": [],
-            "templateData": "<div class=\"property-container\">\n  <div class=\"grid-container\">\n    <div class=\"property-item\">\n      <div class=\"prop-header\">Height</div>\n      <div class=\"prop-header-data\">{{pokemon.height}}</div>\n    </div>\n\n    <div class=\"property-item\">\n      <div class=\"prop-header\">Weight</div>\n      <div class=\"prop-header-data\">{{pokemon.weight / 10}} Kg</div>\n    </div>\n\n    <div class=\"property-item\">\n      <div class=\"prop-header\">Abilities</div>\n      <div class=\"prop-header-data\">{{getAbilities()}}</div>\n    </div>\n\n    <div class=\"property-item\">\n      <div class=\"prop-header\">Moves</div>\n      <div class=\"prop-header-data\">{{getMoves()}}</div>\n    </div>\n\n    <div class=\"property-item\">\n      <div class=\"prop-header\">Base Happiness</div>\n      <div class=\"prop-header-data\">{{getBaseHappiness()}}</div>\n    </div>\n\n    <div class=\"property-item\">\n      <div class=\"prop-header\">Capture Rate</div>\n      <div class=\"prop-header-data\">{{getCaptureRate()}}</div>\n    </div>\n\n    <div class=\"property-item\">\n      <div class=\"prop-header\">Egg Groups</div>\n      <div class=\"prop-header-data\">{{getEggGroups()}}</div>\n    </div>\n\n    <div class=\"property-item\">\n      <div class=\"prop-header\">Growth Rate</div>\n      <div class=\"prop-header-data\">{{getGrowthRate()}}</div>\n    </div>\n\n</div> "
+            "templateData": "<div class=\"property-container\" role=\"region\" aria-labelledby=\"property-card-title\">\n  <div class=\"grid-container\">\n    <div class=\"property-item\" role=\"listitem\">\n      <div class=\"prop-header\">Height</div>\n      <div class=\"prop-header-data\" aria-label=\"Height in decimeters\">{{pokemon.height}}</div>\n    </div>\n\n    <div class=\"property-item\" role=\"listitem\">\n      <div class=\"prop-header\">Weight</div>\n      <div class=\"prop-header-data\" aria-label=\"Weight in kilograms\">{{pokemon.weight / 10}} Kg</div>\n    </div>\n\n    <div class=\"property-item\" role=\"listitem\">\n      <div class=\"prop-header\">Abilities</div>\n      <div class=\"prop-header-data\" aria-label=\"Abilities\">{{getAbilities()}}</div>\n    </div>\n\n    <div class=\"property-item\" role=\"listitem\">\n      <div class=\"prop-header\">Moves</div>\n      <div class=\"prop-header-data\" aria-label=\"Moves\">{{getMoves()}}</div>\n    </div>\n\n    <div class=\"property-item\" role=\"listitem\">\n      <div class=\"prop-header\">Base Happiness</div>\n      <div class=\"prop-header-data\" aria-label=\"Base Happiness\">{{getBaseHappiness()}}</div>\n    </div>\n\n    <div class=\"property-item\" role=\"listitem\">\n      <div class=\"prop-header\">Capture Rate</div>\n      <div class=\"prop-header-data\" aria-label=\"Capture Rate\">{{getCaptureRate()}}</div>\n    </div>\n\n    <div class=\"property-item\" role=\"listitem\">\n      <div class=\"prop-header\">Egg Groups</div>\n      <div class=\"prop-header-data\" aria-label=\"Egg Groups\">{{getEggGroups()}}</div>\n    </div>\n\n    <div class=\"property-item\" role=\"listitem\">\n      <div class=\"prop-header\">Growth Rate</div>\n      <div class=\"prop-header-data\" aria-label=\"Growth Rate\">{{getGrowthRate()}}</div>\n    </div>\n  </div>\n</div> "
         },
         {
             "name": "SearchFilterComponent",
-            "id": "component-SearchFilterComponent-f96abb4093e709241908deb30a50498833d570b6555cbea665e8c4e45674bfedc23819292a06a63b446034cd835c63600fd89744879b78582b7459f0d5eeb4ef",
+            "id": "component-SearchFilterComponent-39acaf553f602469b45d2f1c973547ce08647b685c4cb19f12d1954fe75a3f4c29740053e6f10fd2280dad7f7a29c51273a0d53606e500b5cc2450bb0d110c11",
             "file": "src/app/shared/atoms/search-filter/search-filter.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -2730,7 +2737,7 @@
             "outputsClass": [
                 {
                     "name": "searchChange",
-                    "defaultValue": "new EventEmitter<any>()",
+                    "defaultValue": "new EventEmitter<string>()",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "line": 14,
@@ -2760,7 +2767,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\nimport { FormControl } from '@angular/forms';\nimport { debounceTime, distinctUntilChanged } from 'rxjs/operators';\n\n@Component({\n  selector: 'app-search-filter',\n  templateUrl: './search-filter.component.html',\n  styleUrls: ['./search-filter.component.scss']\n})\nexport class SearchFilterComponent {\n  @Input() placeholder = '';\n  @Input() inputClass = '';\n  @Input() label = '';\n  @Output() searchChange = new EventEmitter<any>();\n\n  searchControl = new FormControl('');\n\n  constructor() {\n    this.searchControl.valueChanges.pipe(\n      debounceTime(200),\n      distinctUntilChanged()\n    ).subscribe(value => {\n      this.searchChange.emit(value || '');\n    });\n  }\n} ",
+            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\nimport { FormControl } from '@angular/forms';\nimport { debounceTime, distinctUntilChanged } from 'rxjs/operators';\n\n@Component({\n  selector: 'app-search-filter',\n  templateUrl: './search-filter.component.html',\n  styleUrls: ['./search-filter.component.scss']\n})\nexport class SearchFilterComponent {\n  @Input() placeholder = '';\n  @Input() inputClass = '';\n  @Input() label = '';\n  @Output() searchChange = new EventEmitter<string>();\n\n  searchControl = new FormControl('');\n\n  constructor() {\n    this.searchControl.valueChanges.pipe(\n      debounceTime(200),\n      distinctUntilChanged()\n    ).subscribe(value => {\n      this.searchChange.emit(value || '');\n    });\n  }\n} ",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -2778,7 +2785,7 @@
                 "line": 16
             },
             "extends": [],
-            "templateData": "<div class=\"search-filter-wrapper\">\n  <div class=\"filter-label\">\n    <span>{{label}}</span>\n  </div>\n  <mat-form-field [class]=\"inputClass\">\n    <input matInput\n           [placeholder]=\"placeholder\"\n           [formControl]=\"searchControl\">\n  </mat-form-field>\n</div> "
+            "templateData": "<div class=\"search-filter-wrapper\">\n  <div class=\"filter-label\">\n    <span>{{label}}</span>\n  </div>\n  <mat-form-field [class]=\"inputClass\">\n    <input matInput\n           [placeholder]=\"placeholder\"\n           [formControl]=\"searchControl\"\n           aria-label=\"search by Pokemon name\">\n  </mat-form-field>\n</div> "
         },
         {
             "name": "StatCardComponent",
@@ -3688,7 +3695,7 @@
                 "linktype": "interface",
                 "name": "Pokemon",
                 "coveragePercent": 0,
-                "coverageCount": "0/9",
+                "coverageCount": "0/10",
                 "status": "low"
             },
             {

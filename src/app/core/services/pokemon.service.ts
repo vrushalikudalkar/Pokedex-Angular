@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, forkJoin, of } from 'rxjs';
 import { map, catchError, switchMap, tap } from 'rxjs/operators';
 import { API_URLS } from '../constants/api-urls';
-import { EvolutionChain, PokemonSpecies, Pokemon } from '../models/pokemon.types';
+import { EvolutionChain, PokemonSpecies, Pokemon, PokemonData } from '../models/pokemon.types';
 
 export interface PokemonListResponse {
   next: string;
@@ -29,7 +29,7 @@ export class PokemonService {
 
   private nextUrl: string = this.initialURL;
 
-  allPokemonsList: Pokemon[] = [];
+  allPokemonsList: PokemonData[] = [];
 
   constructor(private http: HttpClient) {}
 

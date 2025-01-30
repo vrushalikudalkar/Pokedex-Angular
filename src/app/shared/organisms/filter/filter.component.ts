@@ -18,7 +18,6 @@ export class FilterComponent implements OnInit, OnDestroy {
   SEARCH_SLICED = 20;
 
   constructor(private pokemonService: PokemonService) {
-    // Setup the debounced search
     this.searchSubscription = this.searchSubject.pipe(
       debounceTime(500),
       distinctUntilChanged()
@@ -30,7 +29,7 @@ export class FilterComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     // Get all pokemon list at initialization
     this.pokemonService.getAllPokemonDataList().subscribe(
-      (data :any) => {
+      (data) => {
         this.pokemonService.allPokemonsList = data.results;
       }
     );
@@ -62,7 +61,7 @@ export class FilterComponent implements OnInit, OnDestroy {
         filteredList.length = this.SEARCH_SLICED;
       }
       // Get detailed data for filtered pokemon
-      this.pokemonService.getPokemonDetailsListByUrl(filteredList as any)
+      this.pokemonService.getPokemonDetailsListByUrl(filteredList)
         .subscribe(detailedList => {
           this.pokemonService.setFilteredPokemonList(detailedList);
           this.pokemonService.setLoading(false); // Set loading to false after data is fetched

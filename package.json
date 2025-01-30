@@ -10,7 +10,7 @@
     "clear-jest-cache": "jest --clearCache",
     "storybook": "ng run pokemon-angular:storybook",
     "build-storybook": "ng run pokemon-angular:build-storybook",
-    "lint": "ng lint"
+    "lint": "ng lint --fix"
   },
   "private": true,
   "dependencies": {
@@ -34,7 +34,7 @@
     "@angular-eslint/eslint-plugin": "^19.0.2",
     "@angular-eslint/eslint-plugin-template": "^19.0.2",
     "@angular-eslint/schematics": "19.0.2",
-    "@angular-eslint/template-parser": "19.0.2",
+    "@angular-eslint/template-parser": "^19.0.2",
     "@angular/cli": "~15.0.0",
     "@angular/compiler-cli": "^15.0.0",
     "@babel/core": "^7.26.7",

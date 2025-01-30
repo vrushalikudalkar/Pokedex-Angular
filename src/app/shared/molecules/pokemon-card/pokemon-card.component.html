@@ -1,9 +1,9 @@
-<div class="pokemon-card" [style.background]="getCardBackground()" (click)="cardClick.emit()" (keydown.enter)="cardClick.emit()" (keydown.space)="cardClick.emit()" role="button" tabindex="0" aria-label="View details for pokemon">
-  <div class="pokemon-number" aria-hidden="true">#{{getPokemonNumber(data.id)}}</div>
+<div class="pokemon-card" [style.background]="getCardBackground()" (click)="cardClick.emit()" (keydown.enter)="cardClick.emit()" (keydown.space)="cardClick.emit()" role="button" tabindex="0" aria-label="View details for pokemon" >
+  <div class="pokemon-number" aria-hidden="true" [style.color]="'#1a1a1a'">#{{getPokemonNumber(data.id)}}</div>
   <div class="pokemon-image">
     <img [src]="getImageUrl()" [alt]="data.name | titlecase">
   </div>
-  <div class="pokemon-name">{{data.name | titlecase}}</div>
+  <div class="pokemon-name" [style.color]="'#1a1a1a'">{{data.name | titlecase}}</div>
   <div class="pokemon-types">
     <span class="type" *ngFor="let type of data.types" [attr.aria-label]="'Type: ' + (type.type.name | titlecase)">
       {{type.type.name | titlecase}}

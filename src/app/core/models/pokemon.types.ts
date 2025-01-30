@@ -82,3 +82,8 @@ export interface EvolutionNode {
 export interface EvolutionChain {
   chain: EvolutionNode;
 } 
+
+export interface PokemonData {
+  name: string;
+  url: string;
+}

@@ -12,13 +12,13 @@
           <h3>{{pokemon.id | number:'3.0-0'}}</h3>
         </div>
         <div class="navigation-icons">
-          <button mat-icon-button (click)="backClick.emit()" matTooltip="Previous Pokemon">
+          <button mat-icon-button (click)="backClick.emit()" matTooltip="Previous Pokemon" aria-label="Previous Pokemon">
             <mat-icon>chevron_left</mat-icon>
           </button>
-          <button mat-icon-button (click)="closeClick.emit()" matTooltip="Close">
+          <button mat-icon-button (click)="closeClick.emit()" matTooltip="Close" aria-label="Close">
             <mat-icon>close</mat-icon>
           </button>
-          <button mat-icon-button (click)="forwardClick.emit()" matTooltip="Next Pokemon">
+          <button mat-icon-button (click)="forwardClick.emit()" matTooltip="Next Pokemon" aria-label="Next Pokemon">
             <mat-icon>chevron_right</mat-icon>
           </button>
         </div>

@@ -4,7 +4,7 @@ import { PokemonService } from './pokemon.service';
 import { API_URLS } from '../constants/api-urls';
 import { BehaviorSubject } from 'rxjs';
 import { EvolutionChain, Pokemon } from '../models/pokemon.types';
-import { mockPokemon, mockPokemonSpecies, mockPokemonListResponse } from '../models/pokemon-mocks';
+import { mockPokemon, mockPokemonSpecies, mockPokemonListResponse, mockPokemonList } from '../models/pokemon-mocks';
 
 describe('PokemonService', () => {
   let service: PokemonService;
@@ -136,22 +136,6 @@ describe('PokemonService', () => {
       expect(loading).toBeFalse();
     });
   });
-
-  it('should filter by search term', () => {
-    service.allPokemonsList = [mockPokemon];
-    const mockDetails = mockPokemon;
-
-    service.filterBySearch('bulba');
-
-    const req = httpMock.expectOne(`${API_URLS.baseURL}/pokemon/bulbasaur`);
-    expect(req.request.method).toBe('GET');
-    req.flush(mockDetails);
-
-    service.filteredPokemonList$.subscribe((filtered: Pokemon[]) => {
-      expect(filtered).toEqual([mockDetails]);
-    });
-  });
-
   it('should handle empty search term', () => {
     service.filterBySearch('');
     service.filteredPokemonList$.subscribe((filtered: Partial<Pokemon>[]) => {

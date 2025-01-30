@@ -1,4 +1,4 @@
-import { Pokemon, PokemonAbility, PokemonSpecies, PokemonStat, PokemonType, EvolutionChain } from './pokemon.types';
+import { Pokemon, PokemonAbility, PokemonSpecies, PokemonStat, PokemonType, EvolutionChain, PokemonData } from './pokemon.types';
 
 export const mockPokemonType: PokemonType = {
   type: {
@@ -90,3 +90,9 @@ export const mockPokemonListResponse = {
     }
   ]
 };
+
+
+export const mockPokemonList : PokemonData[] = [
+    { name: "Pikachu", url: "https://your-api-url.com/pokemon/Pikachu" },
+    { name: "Charmander", url: "https://your-api-url.com/pokemon/Charmander" }
+  ]

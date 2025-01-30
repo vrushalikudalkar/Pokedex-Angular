@@ -1,8 +1,8 @@
-import { TestBed } from '@angular/core/testing';
+import { fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { PokemonService } from './pokemon.service';
 import { API_URLS } from '../constants/api-urls';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, throwError, of } from 'rxjs';
 import { EvolutionChain, Pokemon } from '../models/pokemon.types';
 import { mockPokemon, mockPokemonSpecies, mockPokemonListResponse, mockPokemonList } from '../models/pokemon-mocks';
 
@@ -343,5 +343,33 @@ describe('PokemonService', () => {
 
     const req = httpMock.expectOne(service['nextUrl']);
     req.error(new ErrorEvent('Network error'));
+  });
+
+  it('should fetch the evolution chain and return Pokemon details', () => {
+    const mockSpeciesData = mockPokemonSpecies;
+    const mockEvolutionChain = {
+      chain: {
+        species: { name: 'bulbasaur', url: '' },
+        evolves_to: [
+          {
+            species: { name: 'ivysaur', url: '' },
+            evolves_to: [{ species: { name: 'venusaur', url: '' }, evolves_to: [] }]
+          }
+        ]
+      }
+    };
+    const mockPokemonDetails = [mockPokemon, mockPokemon, mockPokemon];
+
+    service.getPokemonEvolutionChain(mockSpeciesData).subscribe((pokemonList) => {
+      expect(pokemonList).toEqual(mockPokemonDetails);
+    });
+
+    const evolutionChainRequest = httpMock.expectOne(mockSpeciesData.evolution_chain.url);
+    expect(evolutionChainRequest.request.method).toBe('GET');
+    evolutionChainRequest.flush(mockEvolutionChain);
+
+    const pokemonRequests = httpMock.match(req => req.url.includes(`${API_URLS.baseURL}/pokemon/`));
+    expect(pokemonRequests.length).toBe(3);
+    pokemonRequests.forEach(req => req.flush(mockPokemon));
   });
 });

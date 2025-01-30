@@ -4,6 +4,7 @@ import { By } from '@angular/platform-browser';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { mockPokemon, mockPokemonSpecies } from 'src/app/core/models/pokemon-mocks';
 
 jest.mock('../../../core/constants/pokemon-types', () => ({
   getPokemonDescription: jest.fn(() => 'Mocked description'),
@@ -24,8 +25,8 @@ describe('DetailsHeaderComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(DetailsHeaderComponent);
     component = fixture.componentInstance;
-    component.pokemon = { name: 'Pikachu', id: 25 };
-    component.speciesData = { flavor_text_entries: [{ flavor_text: 'Electric mouse', language: { name: 'en' } }] };
+    component.pokemon = mockPokemon;
+    component.speciesData = mockPokemonSpecies
     fixture.detectChanges();
   });
 
@@ -43,8 +44,8 @@ describe('DetailsHeaderComponent', () => {
   it('should display the correct pokemon name and id', () => {
     const nameElement = fixture.debugElement.query(By.css('.pokemon-name .text-caps')).nativeElement;
     const idElement = fixture.debugElement.query(By.css('.pokemon-name .id-wrap h3')).nativeElement;
-    expect(nameElement.textContent).toBe('Pikachu');
-    expect(idElement.textContent).toBe('025');
+    expect(nameElement.textContent).toBe('bulbasaur');
+    expect(idElement.textContent).toBe('001');
   });
 
   it('should display the correct description', () => {

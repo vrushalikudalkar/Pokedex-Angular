@@ -1,4 +1,4 @@
-<div class="pokemon-card" [style.background]="getCardBackground()" (click)="cardClick.emit()" role="button" tabindex="0" aria-label="View details for pokemon">
+<div class="pokemon-card" [style.background]="getCardBackground()" (click)="cardClick.emit()" (keydown.enter)="cardClick.emit()" (keydown.space)="cardClick.emit()" role="button" tabindex="0" aria-label="View details for pokemon">
   <div class="pokemon-number" aria-hidden="true">#{{getPokemonNumber(data.id)}}</div>
   <div class="pokemon-image">
     <img [src]="getImageUrl()" [alt]="data.name | titlecase">

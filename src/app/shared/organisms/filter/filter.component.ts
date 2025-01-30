@@ -2,7 +2,6 @@ import { Component, Output, EventEmitter, OnInit, OnDestroy } from '@angular/cor
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { Subject, Subscription } from 'rxjs';
 import { PokemonService } from '../../../core/services/pokemon.service';
-import { Pokemon } from 'src/app/core/models/pokemon.types';
 
 @Component({
   selector: 'app-filter',
@@ -31,7 +30,7 @@ export class FilterComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     // Get all pokemon list at initialization
     this.pokemonService.getAllPokemonDataList().subscribe(
-      (data: { results: Pokemon[] }) => {
+      (data :any) => {
         this.pokemonService.allPokemonsList = data.results;
       }
     );
@@ -62,9 +61,8 @@ export class FilterComponent implements OnInit, OnDestroy {
       if (filteredList.length > this.SEARCH_SLICED) {
         filteredList.length = this.SEARCH_SLICED;
       }
-
       // Get detailed data for filtered pokemon
-      this.pokemonService.getPokemonDetailsListByUrl(filteredList)
+      this.pokemonService.getPokemonDetailsListByUrl(filteredList as any)
         .subscribe(detailedList => {
           this.pokemonService.setFilteredPokemonList(detailedList);
           this.pokemonService.setLoading(false); // Set loading to false after data is fetched

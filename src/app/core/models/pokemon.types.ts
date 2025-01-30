@@ -66,25 +66,19 @@ export interface PokemonSpecies {
   evolution_chain: {
     url: string;
   };
+  base_happiness:number;
+  capture_rate:number;
+  growth_rate:{name:string}
+}
+
+export interface EvolutionNode {
+  species: {
+    name: string;
+    url: string;
+  };
+  evolves_to: EvolutionNode[];
 }
 
 export interface EvolutionChain {
-  chain: {
-    species: {
-      name: string;
-      url: string;
-    };
-    evolves_to: Array<{
-      species: {
-        name: string;
-        url: string;
-      };
-      evolves_to: Array<{
-        species: {
-          name: string;
-          url: string;
-        };
-      }>;
-    }>;
-  };
+  chain: EvolutionNode;
 } 

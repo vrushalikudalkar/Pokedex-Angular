@@ -39,7 +39,7 @@ export function getPokcolor(type: string): string {
   return POKEMON_TYPE[type.toLowerCase()]?.color || POKEMON_TYPE['unknown'].color;
 }
 
-export function getBackground(pokemonTypes: any[]): string {
+export function getBackground(pokemonTypes: { type: { name: string } }[]): string {
   let color = "";
   if (pokemonTypes.length) {
     const pokemontype1 = pokemonTypes[0].type.name;
@@ -53,9 +53,9 @@ export function getBackground(pokemonTypes: any[]): string {
   return color;
 }
 
-export function getPokemonDescription(data: any[] = []): string {
+export function getPokemonDescription(data: { language: { name: string }, flavor_text: string }[] = []): string {
   if (data.length) {
-    let uniqueTextArray: string[] = [];
+    const uniqueTextArray: string[] = [];
     return data.reduce((acc, next) => {
       if (next.language.name === "en" && !uniqueTextArray.includes(next.flavor_text)) {
         uniqueTextArray.push(next.flavor_text);

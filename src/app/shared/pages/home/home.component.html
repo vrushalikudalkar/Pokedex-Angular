@@ -25,7 +25,7 @@
     </div>
 
     <!-- Show content only if not loading -->
-    <ng-container *ngIf="!(isLoading$ | async)">
+    <ng-container *ngIf="(isLoading$ | async)===false">
       <section aria-labelledby="pokemon-list-section">
         <h2 id="pokemon-list-section" class="visually-hidden">Pokemon List</h2>
         <div *ngIf="getDisplayList() | async as pokemonList">

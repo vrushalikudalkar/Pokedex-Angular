@@ -11,7 +11,7 @@
     <div class="details-content">
       <div class="left-section">
         <app-property-card [pokemon]="pokemon" [speciesData]="species$ | async"></app-property-card>
-        <app-stat-card [stats]="pokemon.stats"></app-stat-card>
+        <app-stat-card [stats]="pokemon?.stats"></app-stat-card>
       </div>
       
       <div class="right-section">

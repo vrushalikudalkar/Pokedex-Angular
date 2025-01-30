@@ -11,8 +11,8 @@
       <mat-select-trigger>
         {{(selectControl.value?.length || 0) ? ((selectControl.value?.length || 0) + ' Selected') : placeholder}}
       </mat-select-trigger>
-      <mat-option *ngFor="let item of data" [value]="item.value" [attr.aria-label]="item.label">
-        {{item.label}}
+      <mat-option *ngFor="let item of data" [value]="item" [attr.aria-label]="item">
+        {{item}}
       </mat-option>
     </mat-select>
     <button matSuffix mat-icon-button 

@@ -12,9 +12,9 @@ import { Pokemon } from '../../../core/models/pokemon.types';
 })
 export class HomeComponent implements OnInit {
   isFilterEnabled = false;
-  pokemonList$: Observable<any>;
-  filteredList$: Observable<any>;
-  isLoading$: Observable<any>;
+  pokemonList$: Observable<Pokemon[]>;
+  filteredList$: Observable<Pokemon[]>;
+  isLoading$: Observable<boolean>;
   isLoadMoreInProgress$: Observable<boolean>;
 
   constructor(

@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Pokemon } from 'src/app/core/models/pokemon.types';
 
 @Component({
   selector: 'app-evolution-chain-card',
@@ -6,5 +7,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./evolution-chain-card.component.scss']
 })
 export class EvolutionChainCardComponent {
-  @Input() evolutionChain!:any;
+  @Input() evolutionChain!:Pokemon[];
 } 

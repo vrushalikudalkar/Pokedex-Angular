@@ -9,27 +9,26 @@ import { Pokemon, PokemonSpecies } from 'src/app/core/models/pokemon.types';
 })
 export class PropertyCardComponent {
   @Input() pokemon!: Pokemon;
-  @Input() speciesData!: any;
-  @Input() pokemonTypeData: any;
+  @Input() speciesData!: PokemonSpecies |null;
 
   getCamleCaseString = getCamleCaseString;
 
   getBaseStats(): string {
     return this.pokemon?.stats
-      .map((stat: any) => `${this.getCamleCaseString(stat.stat.name)}: ${stat.base_stat}`)
+      .map((stat) => `${this.getCamleCaseString(stat.stat.name)}: ${stat.base_stat}`)
       .join(', ');
   }
 
   getMoves(): string {
     return this.pokemon?.moves
       .slice(0, 5) // Limit to first 5 moves for brevity
-      .map((move: any) => this.getCamleCaseString(move.move.name))
+      .map((move) => this.getCamleCaseString(move.move.name))
       .join(', ');
   }
 
   getAbilities(): string {
     return this.pokemon?.abilities
-      .map((item: any) => this.getCamleCaseString(item.ability.name))
+      .map((item) => this.getCamleCaseString(item.ability.name))
       .join(', ');
   }
 
@@ -43,7 +42,7 @@ export class PropertyCardComponent {
 
   getEggGroups(): string {
     return this.speciesData?.egg_groups
-      .map((group: any) => this.getCamleCaseString(group.name))
+      .map((group) => this.getCamleCaseString(group.name))
       .join(', ') || 'Unknown';
   }
 

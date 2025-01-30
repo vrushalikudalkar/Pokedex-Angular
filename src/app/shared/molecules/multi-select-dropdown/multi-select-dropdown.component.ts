@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter, forwardRef } from '@angular/core';
 import { FormControl, NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
+import { Pokemon } from 'src/app/core/models/pokemon.types';
 
 @Component({
   selector: 'app-multi-select-dropdown',
@@ -16,16 +17,16 @@ import { FormControl, NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/f
 export class MultiSelectDropdownComponent implements ControlValueAccessor {
   @Input() placeholder = '';
   @Input() label = '';
-  @Input() data: any[] = [];
+  @Input() data: Pokemon[] = [];
   @Input() isOpen = false;
-  @Output() selectionChange = new EventEmitter<any>();
+  @Output() selectionChange = new EventEmitter<string[]>();
   @Output() openChange = new EventEmitter<void>();
   @Output() closeChange = new EventEmitter<void>();
   @Output() cleanChange = new EventEmitter<void>();
 
-  selectControl = new FormControl<any>([]);
+  selectControl = new FormControl<string[]>([]);
 
-  private onChange: (value: any) => void = () => {};
+  private onChange: (value: string[]) => void = () => {};
   private onTouched: () => void = () => {};
 
   constructor() {
@@ -36,7 +37,7 @@ export class MultiSelectDropdownComponent implements ControlValueAccessor {
     });
   }
 
-  onOpenChange(isOpen: any): void {
+  onOpenChange(isOpen: boolean): void {
     if (isOpen) {
       this.openChange.emit();
     } else {
@@ -49,11 +50,11 @@ export class MultiSelectDropdownComponent implements ControlValueAccessor {
     this.cleanChange.emit();
   }
 
-  writeValue(value: any): void {
+  writeValue(): void {
     // Update the component with the new value
   }
 
-  registerOnChange(fn: (value: any) => void): void {
+  registerOnChange(fn: (value: string[]) => void): void {
     this.onChange = fn;
   }
 
@@ -61,7 +62,7 @@ export class MultiSelectDropdownComponent implements ControlValueAccessor {
     this.onTouched = fn;
   }
 
-  setDisabledState?(isDisabled: boolean): void {
+  setDisabledState?(): void {
     // Handle the disabled state
   }
 } 

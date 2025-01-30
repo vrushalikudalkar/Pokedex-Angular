@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { PokemonDetailsComponent } from './pokemon-details.component';
 import { PokemonService } from '../../../core/services/pokemon.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { of, Subject } from 'rxjs';
+import { of } from 'rxjs';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 describe('PokemonDetailsComponent', () => {
@@ -10,7 +10,7 @@ describe('PokemonDetailsComponent', () => {
   let fixture: ComponentFixture<PokemonDetailsComponent>;
   let mockPokemonService: jest.Mocked<PokemonService>;
   let mockRouter: jest.Mocked<Router>;
-  let mockActivatedRoute: any;
+  let mockActivatedRoute: Partial<ActivatedRoute>;
 
   beforeEach(async () => {
     mockPokemonService = {

@@ -1,48 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { PropertyCardComponent } from './property-card.component';
+import { mockPokemon, mockPokemonSpecies, mockPokemonSpeciesEmpty, mockPokemonSpeciesUndefined } from 'src/app/core/models/pokemon-mocks';
 
 describe('PropertyCardComponent', () => {
   let component: PropertyCardComponent;
   let fixture: ComponentFixture<PropertyCardComponent>;
-
-  const mockPokemon: any = {
-    id: 1,
-    name: 'Pikachu',
-    height: 0.4,
-    weight: 6,
-    types: [{ type: { name: 'electric' } }],
-    abilities: [
-      {
-          ability: { name: 'static', url: '' }, is_hidden: false,
-          slot: 0
-      },
-      {
-          ability: { name: 'lightning-rod', url: '' }, is_hidden: true,
-          slot: 0
-      }
-    ],
-    stats: [
-      { base_stat: 35, effort: 0, stat: { name: 'hp', url: '' } },
-      { base_stat: 55, effort: 0, stat: { name: 'attack', url: '' } }
-    ],
-    sprites: {
-      front_default: 'front-default-url',
-      other: {
-        dream_world: { front_default: 'dream-world-url' },
-        'official-artwork': { front_default: 'official-artwork-url' }
-      }
-    },
-    moves:[{move:
-        {name: "razor-wind", url: "https://pokeapi.co/api/v2/move/13/"}},
-        {move:
-            {name: "razor-wind", url: "https://pokeapi.co/api/v2/move/13/"}},
-            {move:
-                {name: "razor-wind", url: "https://pokeapi.co/api/v2/move/13/"}},
-                {move:
-                    {name: "razor-wind", url: "https://pokeapi.co/api/v2/move/13/"}},
-                    {move:
-                        {name: "razor-wind", url: "https://pokeapi.co/api/v2/move/13/"}}]
-  };
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -52,7 +14,6 @@ describe('PropertyCardComponent', () => {
     fixture = TestBed.createComponent(PropertyCardComponent);
     component = fixture.componentInstance;
     component.pokemon = mockPokemon;
-    component.speciesData = { base_happiness: 70, capture_rate: 190, egg_groups: [{ name: 'field', url: '' }], growth_rate: { name: 'medium-slow', url: '' } };
     fixture.detectChanges();
   });
 
@@ -62,34 +23,34 @@ describe('PropertyCardComponent', () => {
 
   it('should return formatted stats', () => {
     const result = component.getBaseStats();
-    expect(result).toBe('Hp: 35, Attack: 55');
+    expect(result).toBe('Speed: 45');
   });
 
   it('should return abilities', () => {
     const result = component.getAbilities();
-    expect(result).toBe('Static, Lightning-rod');
+    expect(result).toBe('Overgrow');
   });
 
   it('should return formatted growth rate', () => {
     const result = component.getGrowthRate();
-    expect(result).toBe('Medium-slow');
+    expect(result).toBe('Unknown');
   });
 
   describe('getBaseHappiness', () => {
     it('should return the base happiness from speciesData', () => {
-      component.speciesData = { base_happiness: 70 };
+      component.speciesData = mockPokemonSpecies;
       const result = component.getBaseHappiness();
       expect(result).toBe(70);
     });
 
     it('should return 0 if base_happiness is not defined', () => {
-      component.speciesData = {};
+      component.speciesData = mockPokemonSpeciesEmpty;
       const result = component.getBaseHappiness();
       expect(result).toBe(0);
     });
 
     it('should return 0 if speciesData is undefined', () => {
-      component.speciesData = undefined;
+      component.speciesData = mockPokemonSpeciesUndefined;
       const result = component.getBaseHappiness();
       expect(result).toBe(0);
     });
@@ -97,19 +58,19 @@ describe('PropertyCardComponent', () => {
 
   describe('getCaptureRate', () => {
     it('should return the capture rate from speciesData', () => {
-      component.speciesData = { capture_rate: 190 };
+      component.speciesData = mockPokemonSpecies;
       const result = component.getCaptureRate();
-      expect(result).toBe(190);
+      expect(result).toBe(45);
     });
 
     it('should return 0 if capture_rate is not defined', () => {
-      component.speciesData = {};
+      component.speciesData = mockPokemonSpeciesEmpty;
       const result = component.getCaptureRate();
       expect(result).toBe(0);
     });
 
     it('should return 0 if speciesData is undefined', () => {
-      component.speciesData = undefined;
+      component.speciesData = mockPokemonSpeciesUndefined;
       const result = component.getCaptureRate();
       expect(result).toBe(0);
     });
@@ -117,29 +78,27 @@ describe('PropertyCardComponent', () => {
 
   describe('getEggGroups', () => {
     it('should return formatted egg groups as a string', () => {
-      component.speciesData = {
-        egg_groups: [{ name: 'monster' }, { name: 'dragon' }],
-      };
+      component.speciesData = mockPokemonSpecies
       const result = component.getEggGroups();
-      expect(result).toBe('Monster, Dragon');
+      expect(result).toBe('Monster');
     });
   });
 
   describe('getGrowthRate', () => {
     it('should return formatted growth rate as a string', () => {
-      component.speciesData = { growth_rate: { name: 'medium-slow' } };
+      component.speciesData = mockPokemonSpecies;
       const result = component.getGrowthRate();
       expect(result).toBe('Medium-slow');
     });
 
     it('should return "Unknown" if growth_rate is not defined', () => {
-      component.speciesData = {};
+      component.speciesData = mockPokemonSpeciesEmpty;
       const result = component.getGrowthRate();
       expect(result).toBe('Unknown');
     });
 
     it('should return "Unknown" if speciesData is undefined', () => {
-      component.speciesData = undefined;
+      component.speciesData = mockPokemonSpeciesUndefined;
       const result = component.getGrowthRate();
       expect(result).toBe('Unknown');
     });

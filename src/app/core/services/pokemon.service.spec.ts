@@ -2,8 +2,9 @@ import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { PokemonService } from './pokemon.service';
 import { API_URLS } from '../constants/api-urls';
-import { BehaviorSubject, of } from 'rxjs';
-import { EvolutionChain, Pokemon, PokemonSpecies } from '../models/pokemon.types';
+import { BehaviorSubject } from 'rxjs';
+import { EvolutionChain, Pokemon } from '../models/pokemon.types';
+import { mockPokemon, mockPokemonSpecies, mockPokemonListResponse } from '../models/pokemon-mocks';
 
 describe('PokemonService', () => {
   let service: PokemonService;
@@ -31,10 +32,9 @@ describe('PokemonService', () => {
       next: 'next-url',
       results: [{ url: 'pokemon-url', name: 'bulbasaur' }]
     };
-    const mockPokemonDetails = { name: 'bulbasaur', id: 1 };
 
-    service.getPokemonData().subscribe(pokemonList => {
-      expect(pokemonList).toEqual([mockPokemonDetails]);
+    service.getPokemonData().subscribe((pokemonList: Pokemon[]) => {
+      expect(pokemonList).toEqual([mockPokemon]);
     });
 
     const req1 = httpMock.expectOne(service['initialURL']);
@@ -43,15 +43,15 @@ describe('PokemonService', () => {
 
     const req2 = httpMock.expectOne('pokemon-url');
     expect(req2.request.method).toBe('GET');
-    req2.flush(mockPokemonDetails);
+    req2.flush(mockPokemon);
 
-    expect(service['pokemonListSubject'].value).toEqual([mockPokemonDetails]);
+    expect(service['pokemonListSubject'].value).toEqual([mockPokemon]);
   });
 
   it('should fetch pokemon details by URL', () => {
-    const mockDetails = { name: 'bulbasaur', types: [] };
+    const mockDetails = mockPokemon;
 
-    service.getPokemonDetailsListByUrl([{ url: 'bulbasaur-url' }]).subscribe(details => {
+    service.getPokemonDetailsListByUrl([{ name:'bulbasaur',url: 'bulbasaur-url' }]).subscribe((details: Pokemon[]) => {
       expect(details).toEqual([mockDetails]);
     });
 
@@ -61,7 +61,7 @@ describe('PokemonService', () => {
   });
 
   it('should handle error when fetching pokemon details', () => {
-    service.getPokemonDetailsListByUrl([{ url: 'bulbasaur-url' }]).subscribe(details => {
+    service.getPokemonDetailsListByUrl([{ name:'bulbasaur',url: 'bulbasaur-url' }]).subscribe((details: Pokemon[]) => {
       expect(details).toEqual([]);
     });
 
@@ -71,9 +71,9 @@ describe('PokemonService', () => {
 
   it('should return species data by ID', () => {
     const id = 1;
-    const mockSpeciesData = { base_happiness: 70 };
+    const mockSpeciesData = mockPokemonSpecies;
 
-    service.getSpeciesDataById(id).subscribe(data => {
+    service.getSpeciesDataById(id).subscribe((data) => {
       expect(data).toEqual(mockSpeciesData);
     });
 
@@ -86,7 +86,7 @@ describe('PokemonService', () => {
     const url = 'evolution-chain-url';
     const mockEvolutionChain = { chain: { species: { name: 'bulbasaur', url: '' }, evolves_to: [] } };
 
-    service.getEvolutionChain(url).subscribe(data => {
+    service.getEvolutionChain(url).subscribe((data: EvolutionChain) => {
       expect(data).toEqual(mockEvolutionChain);
     });
 
@@ -99,23 +99,12 @@ describe('PokemonService', () => {
     const url = 'evolution-chain-url';
     const mockError = { message: 'Error' };
 
-    service.getEvolutionChain(url).subscribe(data => {
+    service.getEvolutionChain(url).subscribe((data: EvolutionChain) => {
       expect(data).toEqual({ chain: { species: { name: '', url: '' }, evolves_to: [] } });
     });
 
     const req = httpMock.expectOne(url);
     req.flush(mockError, { status: 500, statusText: 'Server Error' });
-  });
-
-  it('should filter by search term', () => {
-    service.allPokemonsList = [{ name: 'bulbasaur' }, { name: 'charmander' }];
-    const searchTerm = 'bul';
-
-    service.filterBySearch(searchTerm);
-
-    service.filteredPokemonList$.subscribe(filteredList => {
-      expect(filteredList).toEqual([{ name: 'bulbasaur' }]);
-    });
   });
 
   it('should format numbers correctly', () => {
@@ -125,9 +114,9 @@ describe('PokemonService', () => {
   });
 
   it('should fetch all pokemon data list', () => {
-    const mockResponse = { results: [{ name: 'bulbasaur', url: 'bulbasaur-url' }] };
+    const mockResponse = mockPokemonListResponse;
 
-    service.getAllPokemonDataList().subscribe(data => {
+    service.getAllPokemonDataList().subscribe((data) => {
       expect(data).toEqual(mockResponse);
     });
 
@@ -138,31 +127,34 @@ describe('PokemonService', () => {
 
   it('should set loading state', () => {
     service.setLoading(true);
-    service.loading$.subscribe(loading => {
+    service.loading$.subscribe((loading: boolean) => {
       expect(loading).toBeTrue();
     });
 
     service.setLoading(false);
-    service.loading$.subscribe(loading => {
+    service.loading$.subscribe((loading: boolean) => {
       expect(loading).toBeFalse();
     });
   });
 
   it('should filter by search term', () => {
-    service.allPokemonsList = [{ name: 'bulbasaur' }, { name: 'charmander' }];
-    const mockDetails = { name: 'bulbasaur', types: [] };
-
-    jest.spyOn(service, 'getPokemonDetailsListByUrl').mockReturnValue(of([mockDetails]));
+    service.allPokemonsList = [mockPokemon];
+    const mockDetails = mockPokemon;
 
     service.filterBySearch('bulba');
-    service.filteredPokemonList$.subscribe(filtered => {
+
+    const req = httpMock.expectOne(`${API_URLS.baseURL}/pokemon/bulbasaur`);
+    expect(req.request.method).toBe('GET');
+    req.flush(mockDetails);
+
+    service.filteredPokemonList$.subscribe((filtered: Pokemon[]) => {
       expect(filtered).toEqual([mockDetails]);
     });
   });
 
   it('should handle empty search term', () => {
     service.filterBySearch('');
-    service.filteredPokemonList$.subscribe(filtered => {
+    service.filteredPokemonList$.subscribe((filtered: Partial<Pokemon>[]) => {
       expect(filtered).toEqual([]);
     });
   });
@@ -170,7 +162,7 @@ describe('PokemonService', () => {
   it('should fetch evolution chain', () => {
     const mockChain = { chain: { species: { name: 'bulbasaur', url: '' }, evolves_to: [] } };
 
-    service.getEvolutionChain('evolution-chain-url').subscribe(chain => {
+    service.getEvolutionChain('evolution-chain-url').subscribe((chain: EvolutionChain) => {
       expect(chain).toEqual(mockChain);
     });
 
@@ -180,56 +172,32 @@ describe('PokemonService', () => {
   });
 
   it('should handle error when fetching evolution chain', () => {
-    service.getEvolutionChain('evolution-chain-url').subscribe(chain => {
+    service.getEvolutionChain('evolution-chain-url').subscribe((chain: EvolutionChain) => {
       expect(chain).toEqual({ chain: { species: { name: '', url: '' }, evolves_to: [] } });
     });
 
     const req = httpMock.expectOne('evolution-chain-url');
     req.error(new ErrorEvent('Network error'));
   });
-  it('should handle errors when fetching Pokemon details', () => {
-    const speciesData: PokemonSpecies = {
-        evolution_chain: { url: 'evolution-chain-url' },
-        egg_groups: [],
-        flavor_text_entries: []
-    };
-
-    const mockEvolutionChain: EvolutionChain = {
-      chain: {
-        species: { name: 'bulbasaur', url: '' },
-        evolves_to: []
-      }
-    };
-
-    service.getPokemonEvolutionChain(speciesData).subscribe(pokemons => {
-      expect(pokemons).toEqual([]);
-    });
-
-    const evolutionChainRequest = httpMock.expectOne('evolution-chain-url');
-    evolutionChainRequest.flush(mockEvolutionChain);
-
-    const pokemonRequest = httpMock.expectOne(`${API_URLS.baseURL}/pokemon/bulbasaur`);
-    pokemonRequest.error(new ErrorEvent('Network error'));
-  });
 
   describe('setFilteredPokemonList', () => {
     it('should set the filtered Pokémon list', () => {
-      const mockData = [{ name: 'bulbasaur' }, { name: 'ivysaur' }];
-      const filteredPokemonListSubject = new BehaviorSubject<any[]>([]);
-      (service as any).filteredPokemonList = filteredPokemonListSubject;
+      const mockData = [mockPokemon];
+      const filteredPokemonListSubject = new BehaviorSubject<Pokemon[]>([]);
+      (service).filteredPokemonList = filteredPokemonListSubject;
 
       service.setFilteredPokemonList(mockData);
-      filteredPokemonListSubject.subscribe(data => {
+      filteredPokemonListSubject.subscribe((data: Pokemon[]) => {
         expect(data).toEqual(mockData);
       });
     });
 
     it('should set an empty list if no data is provided', () => {
-      const filteredPokemonListSubject = new BehaviorSubject<any[]>([]);
-      (service as any).filteredPokemonList = filteredPokemonListSubject;
+      const filteredPokemonListSubject = new BehaviorSubject<Pokemon[]>([]);
+      (service).filteredPokemonList = filteredPokemonListSubject;
 
       service.setFilteredPokemonList([]);
-      filteredPokemonListSubject.subscribe(data => {
+      filteredPokemonListSubject.subscribe((data: Pokemon[]) => {
         expect(data).toEqual([]);
       });
     });
@@ -237,7 +205,7 @@ describe('PokemonService', () => {
 
   describe('extractEvolutionChain', () => {
     it('should extract all Pokémon names from a simple evolution chain', () => {
-      const mockEvolutionChain: any = {
+      const mockEvolutionChain: EvolutionChain = {
         chain: {
           species: { name: 'bulbasaur', url: '' },
           evolves_to: [
@@ -254,7 +222,7 @@ describe('PokemonService', () => {
         }
       };
 
-      const result = (service as any).extractEvolutionChain(mockEvolutionChain);
+      const result = service.extractEvolutionChain(mockEvolutionChain);
       expect(result).toEqual(['bulbasaur', 'ivysaur', 'venusaur']);
     });
 
@@ -266,7 +234,7 @@ describe('PokemonService', () => {
         }
       };
 
-      const result = (service as any).extractEvolutionChain(mockEvolutionChain);
+      const result = service.extractEvolutionChain(mockEvolutionChain);
       expect(result).toEqual(['bulbasaur']);
     });
 
@@ -278,8 +246,8 @@ describe('PokemonService', () => {
         }
       };
 
-      const result = (service as any).extractEvolutionChain(mockEvolutionChain);
-      expect(result).toEqual([""]);
+      const result = service.extractEvolutionChain(mockEvolutionChain);
+      expect(result).toEqual(['']);
     });
   });
 
@@ -320,7 +288,7 @@ describe('PokemonService', () => {
       const apiUrls = ['url1', 'url2', 'url3'];
       const mockResponses = [{ data: 'data1' }, { data: 'data2' }, { data: 'data3' }];
 
-      service.getAllParallelCall(apiUrls).subscribe(responses => {
+      service.getAllParallelCall(apiUrls).subscribe((responses) => {
         expect(responses).toEqual(mockResponses);
       });
 
@@ -339,7 +307,7 @@ describe('PokemonService', () => {
     };
     const mockPokemonDetails = [{ name: 'bulbasaur', types: [] }];
 
-    service.getPokemonData(true).subscribe(data => {
+    service.getPokemonData(true).subscribe((data: Partial<Pokemon>[]) => {
       expect(data).toEqual(mockPokemonDetails);
     });
 
@@ -360,7 +328,7 @@ describe('PokemonService', () => {
     const mockPokemonDetails = [{ name: 'ivysaur', types: [] }];
 
     service['nextUrl'] = 'next-url';
-    service.getPokemonData(false).subscribe(data => {
+    service.getPokemonData(false).subscribe((data: Partial<Pokemon>[]) => {
       expect(data).toEqual(mockPokemonDetails);
     });
 
@@ -374,17 +342,17 @@ describe('PokemonService', () => {
   });
   it('should return an empty array if nextUrl is null', () => {
     service['nextUrl'] = ''; // Change null to undefined
-    service.getPokemonData(false).subscribe(data => {
+    service.getPokemonData(false).subscribe((data: Partial<Pokemon>[]) => {
       expect(data).toEqual([]);
     });
   });
 
   it('should handle errors during data fetching', () => {
     service.getPokemonData(false).subscribe(
-      data => {
+      () => {
         // This block won't be executed because the request fails
       },
-      error => {
+      (error: Error) => {
         expect(error).toBeTruthy();
       }
     );

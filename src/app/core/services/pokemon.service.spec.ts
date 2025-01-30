@@ -1,10 +1,10 @@
-import { fakeAsync, TestBed, tick } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { PokemonService } from './pokemon.service';
 import { API_URLS } from '../constants/api-urls';
-import { BehaviorSubject, throwError, of } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { EvolutionChain, Pokemon } from '../models/pokemon.types';
-import { mockPokemon, mockPokemonSpecies, mockPokemonListResponse, mockPokemonList } from '../models/pokemon-mocks';
+import { mockPokemon, mockPokemonSpecies, mockPokemonListResponse } from '../models/pokemon-mocks';
 
 describe('PokemonService', () => {
   let service: PokemonService;
